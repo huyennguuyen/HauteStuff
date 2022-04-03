@@ -1,0 +1,25 @@
+.forms {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+label, input {
+    display: flex;
+    flex-direction: column;
+
+}
+
+label {
+    display: flex;
+    align-items: center;
+}
+
+.firstContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 50vh;
+}
