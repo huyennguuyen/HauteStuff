@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
 import DemoButton from './DemoButton';
+import UploadForm from '../UploadFormPage';
 
 function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
@@ -13,6 +14,7 @@ function Navigation({ isLoaded }){
       <>
       <ProfileButton user={sessionUser} />
       <NavLink exact to="/home">Home</NavLink>
+      <UploadForm ></UploadForm>
       </>
     );
   } else {

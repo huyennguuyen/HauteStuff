@@ -5,6 +5,9 @@ import LoginFormPage from './components/LoginFormPage';
 import * as sessionActions from "./store/session";
 import SignupFormPage from './components/SignUpFormPage';
 import Navigation from './components/Navigation';
+import Homepage from "./components/Homepage"
+import 
+
 
 function App() {
   const dispatch = useDispatch();
@@ -23,6 +26,12 @@ function App() {
           </Route>
           <Route path="/signup">
             <SignupFormPage />
+          </Route>
+          <Route path={["/home", "/photos", "/photos/:imageId"]} >
+            <Homepage />
+          </Route>
+          <Route exact path="/">
+            <Splashpage />
           </Route>
         </Switch>
       )}
