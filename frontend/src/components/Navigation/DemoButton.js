@@ -6,21 +6,17 @@ import { useState } from 'react';
 export default function DemoButton () {
 const dispatch = useDispatch()
 
-// const user = {
-//     email: "user1@user.io",       
-//     username: 'FakeUser1',
-//     password: 'password2'
-// }
+const user = {
+    email: "user1@user.io",       
+    username: 'FakeUser1',
+    password: 'password2'
+}
 
 
 
 const submitting = (e) => {
     e.preventDefault()
-    const user = {
-    email: "user1@user.io",       
-    username: 'FakeUser1',
-    password: 'password2'
-    }
+   
 
     dispatch(setUser(user))
 }
