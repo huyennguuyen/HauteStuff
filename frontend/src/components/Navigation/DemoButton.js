@@ -1,9 +1,18 @@
 import { useDispatch } from 'react-redux';
 import {setUser} from "../../store/session"
+import { useState } from 'react';
 
 
-export default async function DemoButton () {
+export default function DemoButton () {
 const dispatch = useDispatch()
+
+// const user = {
+//     email: "user1@user.io",       
+//     username: 'FakeUser1',
+//     password: 'password2'
+// }
+
+
 
 const submitting = (e) => {
     e.preventDefault()
@@ -19,7 +28,7 @@ const submitting = (e) => {
 
 return (
     
-    <button onClick={submitting}>Demo User</button>
+    <button onClick={submitting} value>Demo User</button>
 )
 
 

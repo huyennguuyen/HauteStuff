@@ -25,19 +25,6 @@ function LoginFormPage() {
         if (data && data.errors) setErrors(data.errors);
       });
   }
-  const submitting = (e) => {
-      e.preventDefault()
-      const email = document.getElementById('emails');
-      const password = document.getElementById('passwords');
-      //const loginForm = document.getElementById('forms');
-  
-      // loginForm.style.visibility = 'hidden'
-      email.value = 'FakeUser1';
-      password.value = 'password2';
-
-      // console.log(email)
-      //console.log(password)
-  }
 
   return (
     <div className="firstContainer">
@@ -67,7 +54,6 @@ function LoginFormPage() {
                 />
             </label>
             <button type="submit">Log In</button>
-            {/* <button onClick={submitting}>Demo User</button> */}
             </form>
         </div>
     </div>
