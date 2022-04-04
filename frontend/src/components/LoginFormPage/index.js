@@ -12,6 +12,7 @@ function LoginFormPage() {
   const [errors, setErrors] = useState([]);
 
   if (sessionUser) return (
+    // <Redirect to="/" />
     <Redirect to="/home" />
   );
 
@@ -24,6 +25,19 @@ function LoginFormPage() {
         if (data && data.errors) setErrors(data.errors);
       });
   }
+  const submitting = (e) => {
+      e.preventDefault()
+      const email = document.getElementById('emails');
+      const password = document.getElementById('passwords');
+      //const loginForm = document.getElementById('forms');
+  
+      // loginForm.style.visibility = 'hidden'
+      email.value = 'FakeUser1';
+      password.value = 'password2';
+
+      // console.log(email)
+      //console.log(password)
+  }
 
   return (
     <div className="firstContainer">
@@ -35,6 +49,7 @@ function LoginFormPage() {
             <label>
                 Username or Email:
                 <input
+                id="emails"
                 type="text"
                 value={credential}
                 onChange={(e) => setCredential(e.target.value)}
@@ -44,6 +59,7 @@ function LoginFormPage() {
             <label>
                 Password:
                 <input
+                id="passwords"
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -51,6 +67,7 @@ function LoginFormPage() {
                 />
             </label>
             <button type="submit">Log In</button>
+            {/* <button onClick={submitting}>Demo User</button> */}
             </form>
         </div>
     </div>
