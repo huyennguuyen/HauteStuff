@@ -12,6 +12,7 @@ function LoginFormPage() {
   const [errors, setErrors] = useState([]);
 
   if (sessionUser) return (
+    // <Redirect to="/" />
     <Redirect to="/home" />
   );
 
@@ -35,6 +36,7 @@ function LoginFormPage() {
             <label>
                 Username or Email:
                 <input
+                id="emails"
                 type="text"
                 value={credential}
                 onChange={(e) => setCredential(e.target.value)}
@@ -44,6 +46,7 @@ function LoginFormPage() {
             <label>
                 Password:
                 <input
+                id="passwords"
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
