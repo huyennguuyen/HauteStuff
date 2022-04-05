@@ -16,7 +16,7 @@ export default function Homepage () {
 
 
 
-    console.log(photos)
+    //console.log(photos)
 
     const one = {};
     photos.forEach((photo) => {
@@ -41,6 +41,7 @@ export default function Homepage () {
                   <NavLink to={`/article/${id}`}>
                       <img src={one[id].imageUrl}></img>
                   </NavLink>
+                <p>{one[id].description}</p>
               </li>   
             ))}
             </ol>

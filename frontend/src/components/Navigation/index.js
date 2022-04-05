@@ -5,6 +5,7 @@ import ProfileButton from './ProfileButton';
 import './Navigation.css';
 import DemoButton from './DemoButton';
 import UploadForm from '../UploadFormPage';
+import UploadFormButton from './UploadFormButton';
 
 function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
@@ -12,9 +13,11 @@ function Navigation({ isLoaded }){
   if (sessionUser) {
     return isLoaded && (
       <>
+      <div className="nav">
       <ProfileButton user={sessionUser} />
       <NavLink exact to="/home">Home</NavLink>
-      <UploadForm ></UploadForm>
+      <UploadFormButton />
+      </div>
       </>
     );
   } else {

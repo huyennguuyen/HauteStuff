@@ -6,6 +6,8 @@ import * as sessionActions from "./store/session";
 import SignupFormPage from './components/SignUpFormPage';
 import Navigation from './components/Navigation';
 import Homepage from "./components/Homepage"
+import UploadFormButton from './components/Navigation/UploadFormButton';
+import UploadForm from './components/UploadFormPage';
 
 
 
@@ -29,6 +31,9 @@ function App() {
           </Route>
           <Route path="/home" >
             <Homepage />
+          </Route>
+          <Route exact path="/new">
+            <UploadForm />
           </Route>
           {/* <Route exact path="/">
             <Splashpage />
