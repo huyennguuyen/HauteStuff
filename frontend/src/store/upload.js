@@ -3,9 +3,8 @@ import { csrfFetch } from "./csrf"
 
 const LOAD = "upload/LOAD"
 const UPLOAD = 'upload/UPLOAD'
-const GET_ONE = "upload/GET_ONE"
 const REMOVE = 'upload/REMOVE'
-const UPDATE = 'upload/UPDATE'
+
 
 const uploadPhoto = (form) => {
    return {
@@ -20,8 +19,6 @@ const load = (photos) => {
       photos
     }
 }
-
-
 
 
 export const loading = () => async dispatch => {
@@ -62,6 +59,25 @@ export const uploading = (form) => async dispatch => {
     dispatch(uploadPhoto(data))
    return data
 
+}
+
+export const updatePhoto = (id, form) => async dispatch => {
+
+  // console.log("this is the id", )
+
+  const response = await csrfFetch(`/api/photos/${id}/edit`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(form)
+  })
+
+  if(response.ok){
+    const updatePhoto = await response.json()
+    dispatch(uploadPhoto(updatePhoto))
+    return updatePhoto 
+  }
 }
 
 

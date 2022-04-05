@@ -9,6 +9,9 @@ import Homepage from "./components/Homepage"
 import UploadFormButton from './components/Navigation/UploadFormButton';
 import UploadForm from './components/UploadFormPage';
 import OnePhoto from './components/OnePhoto/OnePhoto';
+import EditFormPage from './components/EditFormPage/EditFormPage';
+import {useSelector} from "react-redux";
+import {useParams} from "react-router-dom"
 
 
 
@@ -18,6 +21,8 @@ function App() {
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
+
+  
   
   return (
     <>
@@ -33,6 +38,9 @@ function App() {
           <Route path="/home" >
             <Homepage />
           </Route>
+          <Route exact path="/photos/:imageId/edit">
+            <EditFormPage />
+          </Route>
           <Route path="/photos/new">
             <UploadForm />
           </Route>
@@ -42,7 +50,6 @@ function App() {
           <Route path="/photos/:imageId">
             <OnePhoto/>
           </Route>
-
         </Switch>
       )}
     </>
