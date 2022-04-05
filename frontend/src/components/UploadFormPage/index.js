@@ -8,14 +8,16 @@ import "./UploadForm.css";
 export default function UploadForm () {
     const history= useHistory()
     const dispatch= useDispatch()
-    const [errors, setErrors] = useState([])
+    // const [errors, setErrors] = useState([])
     const [imageUrl, setImage] = useState("")
     const [description, setDescription]= useState("")
     const sessionUser = useSelector(state => state.session.user);
     
-//    return(
-//        <Redirect to="/home" />
-//    )
+
+    if (!sessionUser) {
+        history.push("/")
+
+    }
 
     const submitting = async (e) => {
         e.preventDefault()
@@ -29,7 +31,10 @@ export default function UploadForm () {
         //console.log(payload)
 
         let picture = await dispatch(uploading(payload))
-        console.log(picture)
+
+        // const pictureOne = Object.values(picture)
+
+        // console.log(pictureOne)
 
        if(picture) {
            history.push(`/photos/${picture.id}`)
@@ -60,6 +65,7 @@ export default function UploadForm () {
         </>
     )
 
+    
   
 
 }

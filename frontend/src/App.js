@@ -8,6 +8,7 @@ import Navigation from './components/Navigation';
 import Homepage from "./components/Homepage"
 import UploadFormButton from './components/Navigation/UploadFormButton';
 import UploadForm from './components/UploadFormPage';
+import OnePhoto from './components/OnePhoto/OnePhoto';
 
 
 
@@ -38,6 +39,10 @@ function App() {
           {/* <Route exact path="/">
             <Splashpage />
           </Route> */}
+          <Route>
+            <OnePhoto path="/photos/:imageId"/>
+          </Route>
+
         </Switch>
       )}
     </>

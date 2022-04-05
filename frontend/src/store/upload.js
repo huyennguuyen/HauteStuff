@@ -20,6 +20,7 @@ const load = (photos) => {
     }
 }
 
+
 export const loading = () => async dispatch => {
   const response = await csrfFetch("/api/photos/home")
 
@@ -41,23 +42,30 @@ export const uploading = (form) => async dispatch => {
      body: JSON.stringify(form)
  })
 
- console.log(response)
-      //const data = await response.json()
+ //console.log(response)
+    const data = await response.json()
       //console.log(data)
-      // dispatch(uploadPhoto(data))
-   // return data
+    dispatch(uploadPhoto(data))
+   return data
 
 }
+
 
 const initialState = {
   photos: [],
 };
 
 const uploadReducer = (state = initialState, action) => {
-    let newState;
     switch (action.type) {
       case UPLOAD:
-        return {...state, forms: [...action.form]}
+        console.log("action form", action.form)
+        if(!state[action.form.id]) {
+          const newState = {
+            ...state,
+            [action.form.id]: action.form
+          };
+        return newState
+        }
       case LOAD:
         return {
             ...state,
