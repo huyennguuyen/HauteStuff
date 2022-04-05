@@ -33,7 +33,7 @@ export const loading = () => async dispatch => {
 }
 
 export const uploading = (form) => async dispatch => {
- const response = await csrfFetch("/api/photos/", {
+ const response = await csrfFetch("/api/photos/new", {
      method: "POST",
      headers: {
          "Content-Type": "application/json"
@@ -41,14 +41,11 @@ export const uploading = (form) => async dispatch => {
      body: JSON.stringify(form)
  })
 
- //console.log(response)
-
-  if (response.ok) {
-      const data = await response.json()
-      console.log(data)
-      dispatch(uploadPhoto(data))
-      return response
-  }
+ console.log(response)
+      //const data = await response.json()
+      //console.log(data)
+      // dispatch(uploadPhoto(data))
+   // return data
 
 }
 
@@ -60,9 +57,7 @@ const uploadReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
       case UPLOAD:
-        newState = Object.assign({}, state);
-        newState.form = action.payload;
-        return newState;
+        return {...state, forms: [...action.form]}
       case LOAD:
         return {
             ...state,

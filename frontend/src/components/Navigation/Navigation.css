@@ -1,0 +1,10 @@
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile-dropdown {
+    display: flex;
+    flex-direction: column
+}
