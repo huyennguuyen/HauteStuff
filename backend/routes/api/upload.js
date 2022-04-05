@@ -33,7 +33,7 @@ router.post('/new', asyncHandler(async(req, res, next) => {
 
    await photos.save()
 
-   console.log(photos)
+   //console.log(photos)
 
    res.redirect(`/photos/${photos.id}`)
 
