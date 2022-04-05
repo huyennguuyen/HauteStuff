@@ -3,6 +3,7 @@ import { csrfFetch } from "./csrf"
 
 const LOAD = "upload/LOAD"
 const UPLOAD = 'upload/UPLOAD'
+const GET_ONE = "upload/GET_ONE"
 const REMOVE = 'upload/REMOVE'
 const UPDATE = 'upload/UPDATE'
 
@@ -21,6 +22,8 @@ const load = (photos) => {
 }
 
 
+
+
 export const loading = () => async dispatch => {
   const response = await csrfFetch("/api/photos/home")
 
@@ -31,6 +34,17 @@ export const loading = () => async dispatch => {
   }
 
   
+}
+
+export const getOne = (id) => async dispatch => {
+
+  const response = await csrfFetch (`/api/photos/${id}`)
+
+  if(response.ok) {
+    const photo = await response.json()
+    dispatch(uploadPhoto(photo))
+    return photo
+  }
 }
 
 export const uploading = (form) => async dispatch => {
@@ -65,7 +79,14 @@ const uploadReducer = (state = initialState, action) => {
             [action.form.id]: action.form
           };
         return newState
-        }
+        }     
+        return {
+          ...state,
+          [action.form.id]: {
+            ...state[action.form.id],
+            ...action.form
+          }
+        };
       case LOAD:
         return {
             ...state,

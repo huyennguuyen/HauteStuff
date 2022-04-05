@@ -5,7 +5,7 @@ export default function UploadFormButton () {
     
     return (
         <>
-        <NavLink to="/new">
+        <NavLink to="/photos/new">
             <button>Upload a Photo</button>
         </NavLink>
         </>

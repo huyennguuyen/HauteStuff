@@ -33,14 +33,14 @@ function App() {
           <Route path="/home" >
             <Homepage />
           </Route>
-          <Route exact path="/new">
+          <Route path="/photos/new">
             <UploadForm />
           </Route>
           {/* <Route exact path="/">
             <Splashpage />
           </Route> */}
-          <Route>
-            <OnePhoto path="/photos/:imageId"/>
+          <Route path="/photos/:imageId">
+            <OnePhoto/>
           </Route>
 
         </Switch>

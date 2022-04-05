@@ -45,7 +45,7 @@ export default function Homepage () {
             <ol>
             {photos.map(({id, imgUrl}) => (
               <li key={id}>
-                  <NavLink to={`/article/${id}`}>
+                  <NavLink to={`/photos/${id}`}>
                       <img src={one[id].imageUrl}></img>
                   </NavLink>
                 <p>{one[id]?.description}</p>

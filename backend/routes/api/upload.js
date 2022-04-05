@@ -16,7 +16,7 @@ const { handleValidationErrors } = require('../../utils/validation');
 
 router.get('/home', asyncHandler(async(req, res, next) => {
     const photos = await db.Photo.findAll({
-        limit: 2
+        limit: 10
     })
 
     return res.json(photos)
@@ -35,7 +35,9 @@ router.post('/new', asyncHandler(async(req, res, next) => {
 
    //console.log(photos)
 
-   res.redirect(`/photos/${photos.id}`)
+//    res.redirect(`/photos/${photos.id}`)
+
+   return res.json(photos)
 
 }))
 
