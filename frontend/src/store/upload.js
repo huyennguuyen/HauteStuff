@@ -1,3 +1,5 @@
+import { csrfFetch } from "./csrf"
+
 
 const LOAD = "upload/LOAD"
 const UPLOAD = 'upload/UPLOAD'
@@ -11,19 +13,27 @@ const uploadPhoto = (form) => {
    }
 }
 
-// const load = () => {
-//     return {
-//         type: load,
-//          photos
-//     }
-// }
+const load = (photos) => {
+    return {
+      type: LOAD,
+      photos
+    }
+}
 
-export const loading = () => {
+export const loading = () => async dispatch => {
+  const response = await csrfFetch("/api/photos/home")
 
+  if (response.ok) {
+    const photos = await response.json()
+    //console.log("==================",photos)
+    dispatch(load(photos))
+  }
+
+  
 }
 
 export const uploading = (form) => async dispatch => {
- const response = await fetch("/api/photos/", {
+ const response = await csrfFetch("/api/photos/", {
      method: "POST",
      headers: {
          "Content-Type": "application/json"
@@ -42,7 +52,9 @@ export const uploading = (form) => async dispatch => {
 
 }
 
-const initialState = {};
+const initialState = {
+  photos: [],
+};
 
 const uploadReducer = (state = initialState, action) => {
     let newState;
@@ -52,9 +64,10 @@ const uploadReducer = (state = initialState, action) => {
         newState.form = action.payload;
         return newState;
       case LOAD:
-        newState = Object.assign({}, state);
-        newState.user = null;
-        return newState;
+        return {
+            ...state,
+          photos: [...action.photos]   
+        }
       default:
         return state;
     }

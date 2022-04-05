@@ -6,7 +6,7 @@ import * as sessionActions from "./store/session";
 import SignupFormPage from './components/SignUpFormPage';
 import Navigation from './components/Navigation';
 import Homepage from "./components/Homepage"
-import 
+
 
 
 function App() {
@@ -27,12 +27,12 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-          <Route path={["/home", "/photos", "/photos/:imageId"]} >
+          <Route path="/home" >
             <Homepage />
           </Route>
-          <Route exact path="/">
+          {/* <Route exact path="/">
             <Splashpage />
-          </Route>
+          </Route> */}
         </Switch>
       )}
     </>

@@ -15,14 +15,19 @@ const validateUpload = [
 
 
 router.get('/home', asyncHandler(async(req, res, next) => {
-    const photos = await db.Photo.findAll()
+    const photos = await db.Photo.findAll({
+        limit: 2
+    })
+
     return res.json(photos)
 }))
 
 router.post('/', validateUpload, asyncHandler(async(req, res, next) => {
-   const {imageUrl, description} = req.body
+   const {userId, albumId, imageUrl, description} = req.body
 
    const photos= await db.Photo.create({
+    userId,
+    albumId,
     imageUrl,
     description
    })
@@ -31,6 +36,15 @@ router.post('/', validateUpload, asyncHandler(async(req, res, next) => {
 
 }))
 
+router.post(":id", asyncHandler(async(req, res, next) => {
+    const id = parseInt(req.params.id, 10)
+    const photos = await db.Photo.findByPk(id, {
+        include: db.User
+    })
+
+    return res.json(photos)
+
+}))
 
 module.exports = router;
 
