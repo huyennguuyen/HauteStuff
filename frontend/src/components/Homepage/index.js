@@ -46,7 +46,7 @@ export default function Homepage () {
             {photos.map(({id, imgUrl}) => (
               <li key={id}>
                   <NavLink to={`/photos/${id}`}>
-                      <img src={one[id].imageUrl}></img>
+                      <img src={one[id]?.imageUrl}></img>
                   </NavLink>
                 <p>{one[id]?.description}</p>
               </li>   
