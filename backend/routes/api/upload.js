@@ -81,6 +81,7 @@ router.delete("/:id", asyncHandler(async(req, res) => {
     const photo = await db.Photo.findByPk(id)
 
     await photo.destroy();
+
     return res.json(id)
 }))
 
