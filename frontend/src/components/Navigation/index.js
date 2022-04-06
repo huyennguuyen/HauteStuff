@@ -13,20 +13,22 @@ function Navigation({ isLoaded }){
   if (sessionUser) {
     return isLoaded && (
       <>
-      <div className="nav">
-      <ProfileButton user={sessionUser} />
-      <NavLink exact to="/home">Home</NavLink>
-      <UploadFormButton />
-      </div>
+      <nav className="nav">
+        <ProfileButton user={sessionUser} />
+        <NavLink exact to="/home">Home</NavLink>
+        <UploadFormButton />
+      </nav>
       </>
     );
   } else {
     return isLoaded && (
       <>
-        <NavLink to="/login">Log In</NavLink>
-        <NavLink to="/signup">Sign Up</NavLink>
-        <NavLink exact to="/">Home</NavLink>
-        <DemoButton />
+        <nav>
+          <NavLink to="/login">Log In</NavLink>
+          <NavLink to="/signup">Sign Up</NavLink>
+          <NavLink exact to="/">Home</NavLink>
+          <DemoButton />
+        </nav>
       </>
     );
   }
