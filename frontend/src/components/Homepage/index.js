@@ -13,9 +13,15 @@ export default function Homepage () {
     const dispatch = useDispatch()
     const {imageId} = useParams()
 
-    const photos = useSelector(state => {
+    // const photos = useSelector(state => {
+    //   return state.upload
+    // })
+
+        const photos = useSelector(state => {
       return state.upload.photos
     })
+
+    //console.log(photos)
 
     if (!sessionUser) {
         history.push("/")
@@ -23,12 +29,12 @@ export default function Homepage () {
     }
 
 
-    console.log(photos)
-
     const one = {};
     photos.forEach((photo) => {
       one[photo.id] = photo;
     });
+
+    // const photosArray = Object.values(photos)
 
     
 
@@ -45,7 +51,17 @@ export default function Homepage () {
         <div>
             <h1 className="header">Photos</h1>
             <ul className="photos">
-                {photos.map(({id, imgUrl}) => (
+                {/* {photosArray.map((photo, idx) => (
+                <div className="box">
+                <li key={idx} className="box2">
+                    <NavLink to={`/photos/${idx}`}>
+                        <img src={photo?.imageUrl}></img>
+                    </NavLink>
+                        <p className="text">{photo?.description}</p>
+                </li>   
+                </div>
+                ))} */}
+                {photos.map(({id}) => (
                 <div className="box">
                 <li key={id} className="box2">
                     <NavLink to={`/photos/${id}`}>

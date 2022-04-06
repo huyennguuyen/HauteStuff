@@ -12,7 +12,7 @@ export default function EditFormPage () {
     const {imageId} = useParams()
     const history= useHistory()
     const dispatch= useDispatch()
-    // const [errors, setErrors] = useState([])
+     const [errors, setErrors] = useState([])
     const photo = useSelector(state => state.upload[imageId])
     const [imageUrl, setImage] = useState(`${photo.imageUrl}`)
     const [description, setDescription]= useState(`${photo.description}`)
@@ -25,6 +25,14 @@ export default function EditFormPage () {
         history.push("/")
 
     }
+
+    useEffect(() => {
+        let errors = [];
+        
+        if(!imageUrl.length) {
+            errors.push("Please")
+        }
+    })
 
    
 

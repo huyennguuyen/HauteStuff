@@ -1,8 +1,9 @@
+import { bindActionCreators } from "redux"
 import { csrfFetch } from "./csrf"
-
 
 const LOAD = "upload/LOAD"
 const UPLOAD = 'upload/UPLOAD'
+const LOAD_ONE="upload/LOAD_ONE"
 const REMOVE = 'upload/REMOVE'
 
 
@@ -92,7 +93,6 @@ export const updatePhoto = (id, form) => async dispatch => {
 }
 
 export const deletingOne = (imageId) => async dispatch => {
-
     const response = await csrfFetch(`/api/photos/${imageId}`, {
       method: 'DELETE',
     });
@@ -100,13 +100,9 @@ export const deletingOne = (imageId) => async dispatch => {
     //console.log(response)
   
     if (response.ok) {
-      const data = await response.json();
-      dispatch(deleting(data))
-      return data
+
+      dispatch(deleting(imageId))
     }
-  
-
-
 
 }
 
@@ -118,8 +114,7 @@ const initialState = {
 const uploadReducer = (state = initialState, action) => {
     switch (action.type) {
       case UPLOAD:
-        console.log("action form", action.form)
-        if(!state[action.form.id]) {
+        if(!state[action.id]) {
           const newState = {
             ...state,
             [action.form.id]: action.form
@@ -134,14 +129,38 @@ const uploadReducer = (state = initialState, action) => {
           }
         };
       case LOAD:
-        return {
-            ...state,
-          photos: [...action.photos]   
-        }
+        // const loadPhotos = {};
+        //     action.photos.forEach(photo => {
+        //         loadPhotos[photo.id] = photo
+        //     })
+        //     return {
+        //         ...loadPhotos,
+        //         ...state.photos
+        //     }
+            return {
+              ...state,
+            photos: [...action.photos]   
+          }
       case REMOVE: 
-        const newState = {...state}
-        delete newState[action.id];
-        return newState;
+      console.log("========", state.photos)
+      console.log("===", action.imageId)
+
+       const newState = {...state}
+       const newPhotos = newState.photos.filter((image) => {
+         return image.id !== action.imageId
+       })
+
+       console.log("new photos", newPhotos)
+       newState.photos = newPhotos
+       return newState
+      //  {
+      //   ...state,
+      //   [action.imageId]: {
+      //     photos: state.photos.filter(
+      //       (image, idx) => image.id !== action.imageId
+      //     )
+      //   }
+      // }
       default:
         return state;
     }
