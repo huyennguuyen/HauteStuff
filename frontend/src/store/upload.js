@@ -129,38 +129,18 @@ const uploadReducer = (state = initialState, action) => {
           }
         };
       case LOAD:
-        // const loadPhotos = {};
-        //     action.photos.forEach(photo => {
-        //         loadPhotos[photo.id] = photo
-        //     })
-        //     return {
-        //         ...loadPhotos,
-        //         ...state.photos
-        //     }
             return {
               ...state,
             photos: [...action.photos]   
           }
       case REMOVE: 
-      console.log("========", state.photos)
-      console.log("===", action.imageId)
-
        const newState = {...state}
        const newPhotos = newState.photos.filter((image) => {
          return image.id !== action.imageId
        })
 
-       console.log("new photos", newPhotos)
        newState.photos = newPhotos
        return newState
-      //  {
-      //   ...state,
-      //   [action.imageId]: {
-      //     photos: state.photos.filter(
-      //       (image, idx) => image.id !== action.imageId
-      //     )
-      //   }
-      // }
       default:
         return state;
     }

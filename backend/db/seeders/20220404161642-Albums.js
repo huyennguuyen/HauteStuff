@@ -12,20 +12,7 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
-      return queryInterface.bulkInsert('Albums', [
-        {
-          userId: 2,
-          title: 'Fall 2022',
-          createdAt: new Date(),
-          updatedAt: new Date(),
-        },
-        {
-          userId: 2,
-          title: 'Spring 2022',
-          createdAt: new Date(),
-          updatedAt: new Date(),
-        }
-      ], {});
+
   },
 
   down: (queryInterface, Sequelize) => {

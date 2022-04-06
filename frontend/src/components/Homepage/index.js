@@ -62,7 +62,7 @@ export default function Homepage () {
                 </div>
                 ))} */}
                 {photos.map(({id}) => (
-                <div className="box">
+                <div className="box" key={(id)}>
                 <li key={id} className="box2">
                     <NavLink to={`/photos/${id}`}>
                         <img src={one[id]?.imageUrl}></img>
