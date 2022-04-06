@@ -16,7 +16,6 @@ export default function OnePhoto () {
 
 
     const photos = useSelector((state) => {
-    //console.log(state.upload.photos)
     return state.upload[imageId]
     })
 
@@ -54,7 +53,7 @@ export default function OnePhoto () {
           </NavLink>
           <button onClick={() => {
               dispatch(deletingOne(imageId))
-              return history.push("/home")
+                history.push("/home")
             }}>Delete</button>
           
                 
