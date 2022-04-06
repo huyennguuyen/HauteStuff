@@ -80,8 +80,8 @@ router.delete("/:id", asyncHandler(async(req, res) => {
     const id = parseInt(req.params.id, 10)
     const photo = await db.Photo.findByPk(id)
 
-    const removePhoto= await photo.destroy();
-    return res.json(removePhoto)
+    await photo.destroy();
+    return res.json(id)
 }))
 
 module.exports = router;
