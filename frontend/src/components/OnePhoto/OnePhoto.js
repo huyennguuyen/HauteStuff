@@ -4,12 +4,14 @@ import { useEffect } from "react"
 import { getOne} from "../../store/upload"
 import { NavLink } from "react-router-dom"
 import "./OnePhoto.css"
+import { deletingOne } from "../../store/upload"
 
 
 export default function OnePhoto () {
 
     const dispatch = useDispatch()
     const {imageId} = useParams()
+
 
     const photos = useSelector((state) => {
     //console.log(state.upload.photos)
@@ -40,6 +42,7 @@ export default function OnePhoto () {
           <NavLink to={`/photos/${imageId}/edit`}>
           <button>Edit</button>
           </NavLink>
+          <button onClick={() => dispatch(deletingOne(imageId))}>Delete</button>
           
                 
         </div>
