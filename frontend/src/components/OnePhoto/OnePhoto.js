@@ -40,6 +40,7 @@ export default function OnePhoto () {
           <NavLink to={`/photos/${imageId}/edit`}>
           <button>Edit</button>
           </NavLink>
+          
                 
         </div>
         </>

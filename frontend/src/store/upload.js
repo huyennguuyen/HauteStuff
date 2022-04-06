@@ -20,6 +20,13 @@ const load = (photos) => {
     }
 }
 
+const deleting = (photo) => {
+  return {
+    type: REMOVE,
+    photo
+  }
+}
+
 
 export const loading = () => async dispatch => {
   const response = await csrfFetch("/api/photos/home")
@@ -80,6 +87,13 @@ export const updatePhoto = (id, form) => async dispatch => {
   }
 }
 
+export const deletingOne = () => async dispatch => {
+
+  
+
+
+}
+
 
 const initialState = {
   photos: [],
@@ -108,6 +122,8 @@ const uploadReducer = (state = initialState, action) => {
             ...state,
           photos: [...action.photos]   
         }
+      case REMOVE: 
+        return {}
       default:
         return state;
     }
