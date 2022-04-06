@@ -19,7 +19,7 @@ export default function EditFormPage () {
     const sessionUser = useSelector(state => state.session.user);
 
     //console.log(photo)
-
+    const url = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/
 
     if (!sessionUser) {
         history.push("/")
@@ -28,11 +28,17 @@ export default function EditFormPage () {
 
     useEffect(() => {
         let errors = [];
-        
-        if(!imageUrl.length) {
-            errors.push("Please")
+
+        if(!(imageUrl.match(url))){
+            errors.push("Please enter a valid URL.")
+        } else if (!imageUrl.length) {
+            errors.push("Please enter a URl")
         }
-    })
+
+        if(!description.length) errors.push("Please enter a description.")
+        setErrors(errors)
+
+    }, [imageUrl, description])
 
    
 
@@ -65,13 +71,13 @@ export default function EditFormPage () {
         <div className="firstContainer"></div>
             <div className="secondContainer"></div>
                 <form onSubmit={submitting} className="forms"> 
-                {/* <ul>
+                <ul>
                     {errors.map((error, idx) => (
                         <li key={idx}>
                             {error}
                         </li>
                     ))}
-                </ul> */}
+                </ul>
                 <label>Image:</label>
                 <input value={imageUrl} onChange={(e) => setImage(e.target.value)}/>
                 <label>Description:</label>
