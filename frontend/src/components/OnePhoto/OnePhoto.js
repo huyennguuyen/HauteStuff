@@ -120,7 +120,7 @@ export default function OnePhoto () {
           <img src={photos?.imageUrl}></img>
           <p className="description-one">{photos?.description}</p>
           {/* {sessionUser.id === photos.userId && loggedIn} */}
-            { sessionUser.id === photos?.userId ? loggedIn : ""} 
+            { sessionUser?.id === photos?.userId ? loggedIn : ""} 
           {/* {loggedIn} */}
         </div>
         </div>
