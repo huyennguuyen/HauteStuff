@@ -17,10 +17,9 @@ router.get('/', asyncHandler(async(req, res, next) => {
 router.post('/new', asyncHandler(async(req, res, next) => {
    const {userId, albumId, imageUrl, description} = req.body
 
-   const photos= db.Photo.build({
+   const photos= db.Album.build({
     userId,
-    imageUrl,
-    description
+    title,
    })
 
    await photos.save()

@@ -12,23 +12,22 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
-      return queryInterface.bulkInsert('Albums', [
+      return queryInterface.bulkInsert('Comments', [
         {
           userId: 2,
-          title: 'summer',
+          imageId: 1,
+          comment: 'hello',
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
           userId: 2,
-          title: 'fall',
+          imageId: 2,
+          comment: 'cool clothes',
           createdAt: new Date(),
           updatedAt: new Date(),
         }
       ], {});
-
-
-
   },
 
   down: (queryInterface, Sequelize) => {
@@ -37,8 +36,8 @@ module.exports = {
       Return a promise to correctly handle asynchronicity.
 
       Example:
-      */
-     
-     return queryInterface.bulkDelete('Albums', null, {});
+      return queryInterface.bulkDelete('People', null, {});
+    */
+      return queryInterface.bulkDelete('Comments', null, {});
   }
 };

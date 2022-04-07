@@ -52,12 +52,6 @@ function App() {
           <Route path="/photos/:imageId">
             <OnePhoto/>
           </Route>
-          <Route exact path="/albums">
-            <AlbumPage />
-          </Route>
-          <Route path="/albums/new">
-            <UploadAlbumPage />
-          </Route>
         </Switch>
       )}
     </>
