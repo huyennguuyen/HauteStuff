@@ -5,3 +5,29 @@ img {
     
 }
 
+.photo-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
+.inside {
+    border: 1px solid black
+}
+
+.button-one-photo {
+    display: flex;
+    justify-content: center;
+}
+
+.description-one {
+    display: flex;
+    justify-content: center;
+}
+

@@ -73,13 +73,15 @@ export default function OnePhoto () {
        // console.log("match")
             loggedIn = (
         <>
-        <NavLink to={`/photos/${imageId}/edit`}>
-        <button>Edit</button>
-        </NavLink>
-        <button onClick={async () => {
-            await dispatch(deletingOne(imageId))
-              history.push("/home")
-          }}>Delete</button>
+        <div className="button-one-photo">
+            <NavLink to={`/photos/${imageId}/edit`}>
+            <button>Edit</button>
+            </NavLink>
+            <button onClick={async () => {
+                await dispatch(deletingOne(imageId))
+                history.push("/home")
+            }}>Delete</button>
+        </div>
         </>
          )
       //}    
@@ -112,11 +114,11 @@ export default function OnePhoto () {
 
         return (
         <>
-        <div>        
         <h1>One Photo</h1>
-        <div>
+        <div className="photo-box">        
+        <div className="inside">
           <img src={photos?.imageUrl}></img>
-          <p>{photos?.description}</p>
+          <p className="description-one">{photos?.description}</p>
           {/* {sessionUser.id === photos.userId && loggedIn} */}
             { sessionUser.id === photos?.userId ? loggedIn : ""} 
           {/* {loggedIn} */}
