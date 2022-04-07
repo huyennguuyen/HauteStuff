@@ -74,7 +74,7 @@ export default function UploadForm () {
 
     return (
         <>
-        <div className="firstContainer"></div>
+        <div className="firstContainer">
             <div className="secondContainer"></div>
                 <form onSubmit={submitting} className="forms"> 
                 <ul>
@@ -90,6 +90,7 @@ export default function UploadForm () {
                 <textarea value={description} onChange={(e) => setDescription(e.target.value)}/>
                 <button>Submit</button>
                 </form>
+            </div>
         </>
     )
 

@@ -16,6 +16,7 @@ function Navigation({ isLoaded }){
       <nav className="nav">
         <ProfileButton user={sessionUser} />
         <NavLink exact to="/home">Home</NavLink>
+        {/* <NavLink to="/albums">Albums</NavLink> */}
         <UploadFormButton />
       </nav>
       </>
@@ -23,7 +24,7 @@ function Navigation({ isLoaded }){
   } else {
     return isLoaded && (
       <>
-        <nav>
+        <nav className="nav">
           <NavLink to="/login">Log In</NavLink>
           <NavLink to="/signup">Sign Up</NavLink>
           <NavLink exact to="/">Home</NavLink>

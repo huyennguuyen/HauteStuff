@@ -73,8 +73,7 @@ export default function EditFormPage () {
 
     return (
         <>
-        <div className="firstContainer"></div>
-            <div className="secondContainer"></div>
+        <div className="firstContainer">
                 <form onSubmit={submitting} className="forms"> 
                 <ul>
                     {hasSubmitted && errors.map((error, idx) => (
@@ -89,6 +88,8 @@ export default function EditFormPage () {
                 <textarea value={description} onChange={(e) => setDescription(e.target.value)}/>
                 <button type="submit">Submit</button>
                 </form>
+            </div>
+        <div className="secondContainer"></div>
         </>
     )
 }
