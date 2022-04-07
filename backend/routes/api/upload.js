@@ -27,6 +27,7 @@ router.post('/new', asyncHandler(async(req, res, next) => {
 
    const photos= db.Photo.build({
     userId,
+    albumId,
     imageUrl,
     description
    })

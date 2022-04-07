@@ -12,6 +12,8 @@ import OnePhoto from './components/OnePhoto/OnePhoto';
 import EditFormPage from './components/EditFormPage/EditFormPage';
 import {useSelector} from "react-redux";
 import {useParams} from "react-router-dom"
+import AlbumPage from './components/AlbumPage/AlbumPage';
+import UploadAlbumPage from './components/UploadAlbumPage/UploadAlbumPage';
 
 
 
@@ -50,8 +52,6 @@ function App() {
           <Route path="/photos/:imageId">
             <OnePhoto/>
           </Route>
-          {/* <Route path="/albums">
-          </Route> */}
         </Switch>
       )}
     </>
