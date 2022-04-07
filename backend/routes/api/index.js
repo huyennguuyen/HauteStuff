@@ -2,7 +2,7 @@ const router = require('express').Router();
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
 const photosRouter = require("./upload.js")
-const albumsRouter = require("./albums.js")
+const albumsRouter = require("./comments.js")
 
 router.use('/session', sessionRouter);
 
