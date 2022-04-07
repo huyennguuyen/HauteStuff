@@ -112,6 +112,7 @@ export default function OnePhoto () {
 
         return (
         <>
+        <div>        
         <h1>One Photo</h1>
         <div>
           <img src={photos?.imageUrl}></img>
@@ -119,6 +120,7 @@ export default function OnePhoto () {
           {/* {sessionUser.id === photos.userId && loggedIn} */}
             { sessionUser.id === photos?.userId ? loggedIn : ""} 
           {/* {loggedIn} */}
+        </div>
         </div>
         </>
     )
