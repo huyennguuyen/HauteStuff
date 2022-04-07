@@ -50,6 +50,8 @@ function App() {
           <Route path="/photos/:imageId">
             <OnePhoto/>
           </Route>
+          {/* <Route path="/albums">
+          </Route> */}
         </Switch>
       )}
     </>
