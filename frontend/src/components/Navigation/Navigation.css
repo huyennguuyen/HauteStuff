@@ -7,10 +7,20 @@
     margin: 0px;
     background-color: #FFB6C1;
     height: 30px;
+   
 }
 
 .profile-dropdown {
-    display: flex;
-    flex-direction: column
+   position: absolute;
+   left: 0;
+   margin-left: 10px;
+   margin-top: 20px;
 }
+
+/* .side {
+    position: absolute;
+    left: 0;
+} */
+
+
 
