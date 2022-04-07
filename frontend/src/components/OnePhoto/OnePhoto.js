@@ -77,6 +77,9 @@ export default function OnePhoto () {
             <NavLink to={`/photos/${imageId}/edit`}>
             <button>Edit</button>
             </NavLink>
+            <NavLink to="/albums/new">
+            <button>Create An Album</button>
+            </NavLink>
             <button onClick={async () => {
                 await dispatch(deletingOne(imageId))
                 history.push("/home")

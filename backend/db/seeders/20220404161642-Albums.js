@@ -12,6 +12,22 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
+      return queryInterface.bulkInsert('Albums', [
+        {
+          userId: 2,
+          title: 'summer',
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          userId: 2,
+          title: 'fall',
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        }
+      ], {});
+
+
 
   },
 

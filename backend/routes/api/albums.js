@@ -1,35 +1,37 @@
-// const router = require("express").Router();
-// const asyncHandler = require('express-async-handler');
-// const db = require("../../db/models");
-// const user = require("../../db/models/user");
-// const { check } = require('express-validator');
+const router = require("express").Router();
+const asyncHandler = require('express-async-handler');
+const db = require("../../db/models");
+const user = require("../../db/models/user");
+const { check } = require('express-validator');
 
-// router.get('/albums', asyncHandler(async(req, res, next) => {
-//     const albums = await db.Album.findAll({
-//         limit: 50
-//     })
+router.get('/', asyncHandler(async(req, res, next) => {
+    const albums = await db.Album.findAll({
+        include: db.Photo
+    })
 
-//     return res.json(albums)
-// }))
+    const photos = await db.albums.Photo.findAll()
 
-// router.post('/new', asyncHandler(async(req, res, next) => {
-//    const {userId, albumId, imageUrl, description} = req.body
+    return res.json(photos)
+}))
 
-//    const photos= db.Photo.build({
-//     userId,
-//     imageUrl,
-//     description
-//    })
+router.post('/new', asyncHandler(async(req, res, next) => {
+   const {userId, albumId, imageUrl, description} = req.body
 
-//    await photos.save()
+   const photos= db.Photo.build({
+    userId,
+    imageUrl,
+    description
+   })
 
-//    //console.log(photos)
+   await photos.save()
 
-// //    res.redirect(`/photos/${photos.id}`)
+   //console.log(photos)
 
-//    return res.json(photos)
+//    res.redirect(`/photos/${photos.id}`)
 
-// }))
+   return res.json(photos)
+
+}))
 
 // router.get("/:id", asyncHandler(async(req, res, next) => {
 //     const id = parseInt(req.params.id, 10)
@@ -42,29 +44,6 @@
 // }))
 
 
-// router.put("/:id/edit", asyncHandler(async(req, res, next) => {
-//     const {userId, albumId, imageUrl, description} = req.body
-
-//     const id = parseInt(req.params.id, 10)
-
-//     const photo = await db.Photo.findByPk(id)
-
-//     const updatePhotos= await photo.update({
-//      userId,
-//      imageUrl,
-//      description
-//     })
- 
-    
- 
-//     //console.log(photos)
- 
-//  //    res.redirect(`/photos/${photos.id}`)
- 
-//     return res.json(updatePhotos)
-   
-// }))
-
 // router.delete("/:id", asyncHandler(async(req, res) => {
 
 //     const id = parseInt(req.params.id, 10)
@@ -75,4 +54,4 @@
 //     return res.json(id)
 // }))
 
-// module.exports = router;
+module.exports = router;
