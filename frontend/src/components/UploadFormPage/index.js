@@ -40,7 +40,9 @@ export default function UploadForm () {
     const submitting = async (e) => {
         e.preventDefault()
 
-      // setHasSubmitted(true)
+      setHasSubmitted(true)
+
+      if(errors.length > 0) return; 
 
         const payload = {
             userId: sessionUser.id,
@@ -74,27 +76,18 @@ export default function UploadForm () {
         <>
         <div className="firstContainer"></div>
             <div className="secondContainer"></div>
-            {/* {hasSubmitted && errors.length > 0 && (
-                <ul>
-                {errors.map((error, idx) => (
-                    <li key={idx}>
-                        {error}
-                    </li>
-                    ))}
-                </ul>
-            )} */}
                 <form onSubmit={submitting} className="forms"> 
                 <ul>
-                {errors.map((error, idx) => (
+                {hasSubmitted && errors.map((error, idx) => (
                     <li key={idx}>
                         {error}
                     </li>
                     ))}
                 </ul>
                 <label>Image:</label>
-                <input value={imageUrl} required onChange={(e) => setImage(e.target.value)}/>
+                <input value={imageUrl} onChange={(e) => setImage(e.target.value)}/>
                 <label>Description:</label>
-                <textarea value={description} required onChange={(e) => setDescription(e.target.value)}/>
+                <textarea value={description} onChange={(e) => setDescription(e.target.value)}/>
                 <button>Submit</button>
                 </form>
         </>
