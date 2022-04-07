@@ -17,6 +17,7 @@ export default function EditFormPage () {
     const [imageUrl, setImage] = useState(`${photo.imageUrl}`)
     const [description, setDescription]= useState(`${photo.description}`)
     const sessionUser = useSelector(state => state.session.user);
+    const [hasSubmitted, setHasSubmitted] = useState(false)
 
     //console.log(photo)
     const url = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/
@@ -45,6 +46,10 @@ export default function EditFormPage () {
     const submitting = async (e) => {
         e.preventDefault()
 
+        setHasSubmitted(true)
+
+        if (errors.length > 0) return; 
+
         const payload = {
             ...photo,
             userId: sessionUser.id,
@@ -72,7 +77,7 @@ export default function EditFormPage () {
             <div className="secondContainer"></div>
                 <form onSubmit={submitting} className="forms"> 
                 <ul>
-                    {errors.map((error, idx) => (
+                    {hasSubmitted && errors.map((error, idx) => (
                         <li key={idx}>
                             {error}
                         </li>
