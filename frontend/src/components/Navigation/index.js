@@ -16,7 +16,6 @@ function Navigation({ isLoaded }){
       <nav className="nav">
         <ProfileButton user={sessionUser} />
         <NavLink exact to="/home">Home</NavLink>
-        <NavLink to="/albums">Albums</NavLink>
         <UploadFormButton />
       </nav>
       </>

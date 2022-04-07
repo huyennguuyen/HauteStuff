@@ -77,9 +77,7 @@ export default function OnePhoto () {
             <NavLink to={`/photos/${imageId}/edit`}>
             <button>Edit</button>
             </NavLink>
-            <NavLink to="/albums/new">
-            <button>Create An Album</button>
-            </NavLink>
+            <button>Create a Comment</button>
             <button onClick={async () => {
                 await dispatch(deletingOne(imageId))
                 history.push("/home")
@@ -122,9 +120,9 @@ export default function OnePhoto () {
         <div className="inside">
           <img src={photos?.imageUrl}></img>
           <p className="description-one">{photos?.description}</p>
-          {/* {sessionUser.id === photos.userId && loggedIn} */}
+  
             { sessionUser?.id === photos?.userId ? loggedIn : ""} 
-          {/* {loggedIn} */}
+
         </div>
         </div>
         </>
