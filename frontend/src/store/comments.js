@@ -81,9 +81,12 @@ const commentsReducer = (state = initialState, action) => {
             }
           };
         case DELETE_COMMENT: 
+        // console.log("this is state", state)
           const newState = {...state}
+          //console.log("this is new state", newState)
           delete newState[action.id];
           return newState;
+          //return {}
         default:
           return state;
         }

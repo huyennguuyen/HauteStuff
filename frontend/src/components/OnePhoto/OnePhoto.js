@@ -99,9 +99,9 @@ export default function OnePhoto () {
                 await dispatch(deletingComment(commentId))
             }}>Create a Comment</button> */}
         </div>
-        <div>
+        {/* <div>
             <CommentFormPage imageId={imageId}/>
-        </div>
+        </div> */}
         </>
          )
       //}    
@@ -143,17 +143,23 @@ export default function OnePhoto () {
                 <div key={idx}>
                 <li key={idx} className="box2">
                     <p className="text">{comment.comment}</p>
-                    {sessionUser?.id === comments.userId && (
+                    {sessionUser?.id === comment?.userId && (
+                    <>
                     <button onClick={() => {
                         dispatch(deletingComment(comment.id))
                         history.push(`/photos/${imageId}`)
                     }}>Delete</button>
-                    )}
+                    </>
+                     )}
                 </li>   
                 </div>
                 ))}
             { sessionUser?.id === photos?.userId ? loggedIn : ""} 
-
+            {sessionUser && (
+                <div>
+                    <CommentFormPage imageId={imageId}/>
+                 </div>
+            )}
         </div>
         </div>
         </>
