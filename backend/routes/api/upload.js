@@ -84,13 +84,6 @@ router.delete("/:id", asyncHandler(async(req, res) => {
     return res.json(id)
 }))
 
-// router.get('/comments', asyncHandler(async(req, res, next) => {
-//     const albums = await db.Comment.findAll({
-//         include: db.Photo
-//     })
-
-//     return res.json(photos)
-// }))
 
 
 router.post('/:id/comments', asyncHandler(async(req, res) => {

@@ -72,6 +72,7 @@ export default function OnePhoto () {
 
     useEffect( () => {
       dispatch(getOne(imageId))
+      //dispatch(getOne(comments.id))
     },[imageId, dispatch])
 
     let loggedIn;
@@ -142,7 +143,12 @@ export default function OnePhoto () {
                 <div key={idx}>
                 <li key={idx} className="box2">
                     <p className="text">{comment.comment}</p>
-                    <button>Delete</button>
+                    {sessionUser?.id === comments.userId && (
+                    <button onClick={() => {
+                        dispatch(deletingComment(comment.id))
+                        history.push(`/photos/${imageId}`)
+                    }}>Delete</button>
+                    )}
                 </li>   
                 </div>
                 ))}

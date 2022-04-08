@@ -1,7 +1,7 @@
 import { csrfFetch } from "./csrf";
 
 const COMMENT = "comments/COMMENT"
-const DELETE_COMMENT = "comments/comment"
+const DELETE_COMMENT = "comments/DELETE_COMMENT"
 
 
 export const commenting = (comment) => {
@@ -21,7 +21,7 @@ const noComment = (id) => {
 }
 
 export const deletingComment = (commentId) => async dispatch => {
-  const response = await csrfFetch(`/api/photos/${commentId}`, {
+  const response = await csrfFetch(`/api/comments/${commentId}`, {
     method: 'DELETE',
   });
 
@@ -29,7 +29,8 @@ export const deletingComment = (commentId) => async dispatch => {
 
   if (response.ok) {
 
-    dispatch(noComment(commentId))
+    await dispatch(noComment(commentId))
+    return response
   }
 
 
