@@ -26,6 +26,16 @@ export default function OnePhoto () {
         return state.upload[imageId]
     })
 
+    // console.log(photos)
+
+    const comments = useSelector((state) => {
+        return state.upload[imageId]?.Comments
+    })
+
+    // console.log(comments)
+
+
+
     //console.log(photos)
 
   // console.log(photos.userId)
@@ -124,7 +134,13 @@ export default function OnePhoto () {
         <div className="inside">
           <img src={photos?.imageUrl}></img>
           <p className="description-one">{photos?.description}</p>
-  
+          {comments?.map((comment, idx) => (
+                <div key={idx}>
+                <li key={idx} className="box2">
+                    <p className="text">{comment.comment}</p>
+                </li>   
+                </div>
+                ))}
             { sessionUser?.id === photos?.userId ? loggedIn : ""} 
 
         </div>

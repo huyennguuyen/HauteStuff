@@ -21,11 +21,14 @@ export const uploadComment = (id, comment) => async dispatch => {
         body: JSON.stringify(comment)
     })
    
-    //console.log(response)
-       const data = await response.json()
-         //console.log(data)
-       dispatch(commenting(data))
-      return data
+    console.log(response)
+
+    if(response.ok) {
+        const data = await response.json()
+          console.log(data)
+        dispatch(commenting(data))
+       return data
+    }
    
    }
 
@@ -39,6 +42,7 @@ const initialState = {
 const commentsReducer = (state = initialState, action) => {
       switch (action.type) {
         case COMMENT:
+        console.log("response", state)
           if(!state[action.id]) {
             const newState = {
               ...state,
