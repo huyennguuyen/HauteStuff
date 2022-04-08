@@ -4,9 +4,11 @@ import { useEffect } from "react"
 import { getOne} from "../../store/upload"
 import { NavLink } from "react-router-dom"
 import "./OnePhoto.css"
-import { deletingOne } from "../../store/upload"
+import { deletingComment } from "../../store/comments"
 import { useHistory } from "react-router-dom"
 import CommentFormPage from "../CommentFormPage/CommentFormPage"
+import { deletingOne } from "../../store/upload"
+
 
 
 
@@ -70,6 +72,7 @@ export default function OnePhoto () {
 
     useEffect( () => {
       dispatch(getOne(imageId))
+      //dispatch(getOne(comments.id))
     },[imageId, dispatch])
 
     let loggedIn;
@@ -92,11 +95,13 @@ export default function OnePhoto () {
                 await dispatch(deletingOne(imageId))
                 history.push("/home")
             }}>Delete</button>
-            <button>Create a Comment</button>
+            {/* <button onClick={async () => {
+                await dispatch(deletingComment(commentId))
+            }}>Create a Comment</button> */}
         </div>
-        <div>
+        {/* <div>
             <CommentFormPage imageId={imageId}/>
-        </div>
+        </div> */}
         </>
          )
       //}    
@@ -138,11 +143,23 @@ export default function OnePhoto () {
                 <div key={idx}>
                 <li key={idx} className="box2">
                     <p className="text">{comment.comment}</p>
+                    {sessionUser?.id === comment?.userId && (
+                    <>
+                    <button onClick={() => {
+                        dispatch(deletingComment(comment.id))
+                        history.push(`/photos/${imageId}`)
+                    }}>Delete</button>
+                    </>
+                     )}
                 </li>   
                 </div>
                 ))}
             { sessionUser?.id === photos?.userId ? loggedIn : ""} 
-
+            {sessionUser && (
+                <div>
+                    <CommentFormPage imageId={imageId}/>
+                 </div>
+            )}
         </div>
         </div>
         </>

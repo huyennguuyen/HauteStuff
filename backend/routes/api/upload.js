@@ -2,8 +2,6 @@ const router = require("express").Router();
 const asyncHandler = require('express-async-handler');
 const db = require("../../db/models");
 const user = require("../../db/models/user");
-const { check } = require('express-validator');
-const { handleValidationErrors } = require('../../utils/validation');
 
 // const validateUpload = [
 //     check('imageUrl')
@@ -86,13 +84,6 @@ router.delete("/:id", asyncHandler(async(req, res) => {
     return res.json(id)
 }))
 
-// router.get('/comments', asyncHandler(async(req, res, next) => {
-//     const albums = await db.Comment.findAll({
-//         include: db.Photo
-//     })
-
-//     return res.json(photos)
-// }))
 
 
 router.post('/:id/comments', asyncHandler(async(req, res) => {

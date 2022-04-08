@@ -1,7 +1,7 @@
 import { csrfFetch } from "./csrf";
 
 const COMMENT = "comments/COMMENT"
-const DELETE_COMMENT = "comments/comment"
+const DELETE_COMMENT = "comments/DELETE_COMMENT"
 
 
 export const commenting = (comment) => {
@@ -11,9 +11,34 @@ export const commenting = (comment) => {
     }
 }
 
+const noComment = (id) => {
+
+  return {
+    type: DELETE_COMMENT,
+    id
+  }
+
+}
+
+export const deletingComment = (commentId) => async dispatch => {
+  const response = await csrfFetch(`/api/comments/${commentId}`, {
+    method: 'DELETE',
+  });
+
+  //console.log(response)
+
+  if (response.ok) {
+
+    await dispatch(noComment(commentId))
+    return response
+  }
+
+
+}
+
 
 export const uploadComment = (id, comment) => async dispatch => {
-    console.log(id)
+
     const response = await csrfFetch(`/api/photos/${id}/comments`, {
         method: "POST",
         headers: {
@@ -52,20 +77,18 @@ const commentsReducer = (state = initialState, action) => {
             ...state,
             [action.comment.id]: {
                ...state[action.comment.id],
-              ...action.form
+              ...action.comment
             }
           };
-    //     case REMOVE: 
-    //      const newState = {...state}
-    //      const newPhotos = newState.photos.filter((image) => {
-    //        return image.id !== action.imageId
-    //      })
-  
-    //      newState.photos = newPhotos
-    //      return newState
-    //     default:
-    //       return state;
-    //   }
+        case DELETE_COMMENT: 
+        // console.log("this is state", state)
+          const newState = {...state}
+          //console.log("this is new state", newState)
+          delete newState[action.id];
+          return newState;
+          //return {}
+        default:
+          return state;
         }
     };
   
