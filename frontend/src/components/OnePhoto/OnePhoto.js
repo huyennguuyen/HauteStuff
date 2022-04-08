@@ -68,8 +68,8 @@ export default function OnePhoto () {
     //console.log(onePhoto)
 
 
-    useEffect(() => {
-    dispatch(getOne(imageId))
+    useEffect( () => {
+      dispatch(getOne(imageId))
     },[imageId, dispatch])
 
     let loggedIn;

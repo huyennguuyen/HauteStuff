@@ -13,6 +13,7 @@ export const commenting = (comment) => {
 
 
 export const uploadComment = (id, comment) => async dispatch => {
+    console.log(id)
     const response = await csrfFetch(`/api/photos/${id}/comments`, {
         method: "POST",
         headers: {
@@ -21,12 +22,10 @@ export const uploadComment = (id, comment) => async dispatch => {
         body: JSON.stringify(comment)
     })
    
-    console.log(response)
 
     if(response.ok) {
         const data = await response.json()
-          console.log(data)
-        dispatch(commenting(data))
+       dispatch(commenting(data))
        return data
     }
    
@@ -42,19 +41,18 @@ const initialState = {
 const commentsReducer = (state = initialState, action) => {
       switch (action.type) {
         case COMMENT:
-        console.log("response", state)
-          if(!state[action.id]) {
+          if(state[action.id]) {
             const newState = {
               ...state,
               [action.comment.id]: action.comment
             };
-          return newState
-          }     
+          return newState    
+          };
           return {
             ...state,
             [action.comment.id]: {
-              ...state[action.comment.id],
-              ...action.comment
+               ...state[action.comment.id],
+              ...action.form
             }
           };
     //     case REMOVE: 

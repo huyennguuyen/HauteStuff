@@ -107,7 +107,7 @@ router.post('/:id/comments', asyncHandler(async(req, res) => {
         comment
     })
 
-    return res.json(postComment)
+    return res.json({postComment})
 
    
 }))
