@@ -12,7 +12,7 @@ import OnePhoto from './components/OnePhoto/OnePhoto';
 import EditFormPage from './components/EditFormPage/EditFormPage';
 import {useSelector} from "react-redux";
 import {useParams} from "react-router-dom"
-//import CommentFormPage from './components/CommentFormPage/CommentFormPage';
+import CommentFormPage from './components/CommentFormPage/CommentFormPage';
 
 
 
@@ -51,9 +51,9 @@ function App() {
           <Route path="/photos/:imageId">
             <OnePhoto/>
           </Route>
-          {/* <Route path="/photos/:imageId/comments">
+          <Route exact path="/photos/:imageId/comments">
             <CommentFormPage/>
-          </Route> */}
+          </Route>
         </Switch>
       )}
     </>

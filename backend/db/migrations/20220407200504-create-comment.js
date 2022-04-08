@@ -15,7 +15,6 @@ module.exports = {
       },
       imageId: {
         references: { model: 'Photos' },
-        allowNull: false,
         type: Sequelize.INTEGER
       },
       comment: {

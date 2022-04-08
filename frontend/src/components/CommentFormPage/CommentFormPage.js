@@ -2,7 +2,7 @@ import {useState, useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux"
 import { Redirect } from "react-router-dom";
 import { useHistory } from "react-router-dom";
-import { commenting } from "../../store/comments";
+import { uploadComment } from "../../store/comments";
 
 export default function CommentFormPage ({imageId}) {
     const history= useHistory()
@@ -56,7 +56,8 @@ export default function CommentFormPage ({imageId}) {
         //console.log(payload)
         //setHasSubmitted(false)
 
-        let comments = await dispatch(commenting(imageId, payload))
+        await dispatch(uploadComment(imageId, payload))
+
 
         // const pictureOne = Object.values(picture)
 
@@ -64,9 +65,9 @@ export default function CommentFormPage ({imageId}) {
         
        // setHasSubmitted(false)
 
-       if(comments) {
-           history.push(`/photos/${photos.id}`)
-       }
+    
+        history.push(`/photos/${imageId}`)
+    
 
        //setHasSubmitted(false)
       
@@ -89,7 +90,7 @@ export default function CommentFormPage ({imageId}) {
                 </ul>
                 <label>Comment:</label>
                 <input value={comment} onChange={(e) => setComment(e.target.value)}/>
-                <button>Comment</button>
+                <button type="submit">Comment</button>
                 </form>
             </div>
         </>

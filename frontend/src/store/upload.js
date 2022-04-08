@@ -119,11 +119,11 @@ const uploadReducer = (state = initialState, action) => {
             [action.form.id]: action.form
           };
         return newState
-        }     
+        }   
         return {
           ...state,
           [action.form.id]: {
-            ...state[action.form.id],
+             ...state[action.form.id],
             ...action.form
           }
         };

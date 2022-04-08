@@ -68,8 +68,8 @@ export default function OnePhoto () {
     //console.log(onePhoto)
 
 
-    useEffect(() => {
-    dispatch(getOne(imageId))
+    useEffect( () => {
+      dispatch(getOne(imageId))
     },[imageId, dispatch])
 
     let loggedIn;
@@ -88,11 +88,11 @@ export default function OnePhoto () {
             <NavLink to={`/photos/${imageId}/edit`}>
             <button>Edit</button>
             </NavLink>
-            <button>Create a Comment</button>
             <button onClick={async () => {
                 await dispatch(deletingOne(imageId))
                 history.push("/home")
             }}>Delete</button>
+            <button>Create a Comment</button>
         </div>
         <div>
             <CommentFormPage imageId={imageId}/>

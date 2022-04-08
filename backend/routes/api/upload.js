@@ -97,7 +97,6 @@ router.delete("/:id", asyncHandler(async(req, res) => {
 
 router.post('/:id/comments', asyncHandler(async(req, res) => {
 
-    console.log("hello")
 
     const {userId, imageId, comment} = req.body
 
@@ -107,8 +106,16 @@ router.post('/:id/comments', asyncHandler(async(req, res) => {
         comment
     })
 
+    
+    // const postComment= db.Comment.build({
+    //     userId,
+    //    imageId,
+    //    comment
+    // })
+    
+    // await postComment.save()
+    
     return res.json(postComment)
-
    
 }))
 
