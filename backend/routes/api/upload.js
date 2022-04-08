@@ -45,7 +45,7 @@ router.post('/new', asyncHandler(async(req, res, next) => {
 router.get("/:id", asyncHandler(async(req, res, next) => {
     const id = parseInt(req.params.id, 10)
     const photos = await db.Photo.findByPk(id, {
-        include: db.User
+        include: [db.User, {model: db.Comment, include: db.User}]
     })
 
     return res.json(photos)
@@ -54,7 +54,7 @@ router.get("/:id", asyncHandler(async(req, res, next) => {
 
 
 router.put("/:id/edit", asyncHandler(async(req, res, next) => {
-    const {userId, albumId, imageUrl, description} = req.body
+    const {userId, imageUrl, description} = req.body
 
     const id = parseInt(req.params.id, 10)
 
@@ -95,14 +95,23 @@ router.delete("/:id", asyncHandler(async(req, res) => {
 // }))
 
 
-// router.get('/:id/comments', asyncHandler(async(req, res, next) => {
-//     const albums = await db.Comment.findAll({
-//         include: db.Photo
-//     })
+router.post(':id/comments', asyncHandler(async(req, res, next) => {
 
+    const id = parseInt(req.params.id, 10)
+    const photo = await db.Photo.findByPk(id)
 
-//     return res.json(photos)
-// }))
+    const {userId, imageId, comment} = req.body
+
+    const postComment = await db.Comment.create({
+        userId,
+        imageId, 
+        comment
+    })
+
+    return res.json(postComment)
+
+   
+}))
 
 module.exports = router;
 
