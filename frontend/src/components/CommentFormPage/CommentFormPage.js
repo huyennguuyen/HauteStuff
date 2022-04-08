@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from "react-redux"
 import { Redirect } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { uploadComment } from "../../store/comments";
+import { NavLink } from "react-router-dom";
 
 export default function CommentFormPage ({imageId}) {
     const history= useHistory()
@@ -90,7 +91,7 @@ export default function CommentFormPage ({imageId}) {
                 </ul>
                 <label>Comment:</label>
                 <input value={comment} onChange={(e) => setComment(e.target.value)}/>
-                <button type="submit">Comment</button>
+                <button >Comment</button>
                 </form>
             </div>
         </>

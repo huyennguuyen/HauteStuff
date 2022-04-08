@@ -7,6 +7,7 @@ import "./OnePhoto.css"
 import { deletingComment } from "../../store/comments"
 import { useHistory } from "react-router-dom"
 import CommentFormPage from "../CommentFormPage/CommentFormPage"
+import { deletingOne } from "../../store/upload"
 
 
 
@@ -93,9 +94,9 @@ export default function OnePhoto () {
                 await dispatch(deletingOne(imageId))
                 history.push("/home")
             }}>Delete</button>
-            <button onClick={async () => {
+            {/* <button onClick={async () => {
                 await dispatch(deletingComment(commentId))
-            }}>Create a Comment</button>
+            }}>Create a Comment</button> */}
         </div>
         <div>
             <CommentFormPage imageId={imageId}/>
@@ -141,7 +142,7 @@ export default function OnePhoto () {
                 <div key={idx}>
                 <li key={idx} className="box2">
                     <p className="text">{comment.comment}</p>
-                    <button onClick=>Delete</button>
+                    <button>Delete</button>
                 </li>   
                 </div>
                 ))}
