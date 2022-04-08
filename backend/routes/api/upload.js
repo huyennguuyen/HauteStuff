@@ -95,10 +95,9 @@ router.delete("/:id", asyncHandler(async(req, res) => {
 // }))
 
 
-router.post(':id/comments', asyncHandler(async(req, res, next) => {
+router.post('/:id/comments', asyncHandler(async(req, res) => {
 
-    const id = parseInt(req.params.id, 10)
-    const photo = await db.Photo.findByPk(id)
+    console.log("hello")
 
     const {userId, imageId, comment} = req.body
 

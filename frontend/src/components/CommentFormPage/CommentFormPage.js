@@ -16,6 +16,9 @@ export default function CommentFormPage ({imageId}) {
     return state.upload[imageId]
     })
 
+    // console.log(photos)
+    //console.log(imageId)
+
     // const comments = useSelector((state) => {
     //     return state.comments
     // })
@@ -45,7 +48,7 @@ export default function CommentFormPage ({imageId}) {
 
         const payload = {
             userId: sessionUser.id,
-            imageId: photos.id,
+            imageId: imageId,
             comment
             
         }
@@ -53,7 +56,7 @@ export default function CommentFormPage ({imageId}) {
         //console.log(payload)
         //setHasSubmitted(false)
 
-        let comments = await dispatch(commenting(photos.id, payload))
+        let comments = await dispatch(commenting(imageId, payload))
 
         // const pictureOne = Object.values(picture)
 
