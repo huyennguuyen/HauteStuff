@@ -6,6 +6,7 @@ import { NavLink } from "react-router-dom"
 import "./OnePhoto.css"
 import { deletingOne } from "../../store/upload"
 import { useHistory } from "react-router-dom"
+import CommentFormPage from "../CommentFormPage/CommentFormPage"
 
 
 
@@ -82,6 +83,9 @@ export default function OnePhoto () {
                 await dispatch(deletingOne(imageId))
                 history.push("/home")
             }}>Delete</button>
+        </div>
+        <div>
+            <CommentFormPage imageId={imageId}/>
         </div>
         </>
          )
