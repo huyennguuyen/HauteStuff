@@ -110,6 +110,25 @@ router.post('/:id/comments', asyncHandler(async(req, res) => {
    
 }))
 
+
+router.get('/:id/comments', asyncHandler(async(req, res) => {
+
+    const id = parseInt(req.params.id, 10)
+    // const specificPhoto = await db.Photo.findByPk(id)
+
+    const comments = await db.Comment.findAll({
+        where: {
+            imageId: id
+        }
+    })
+
+    console.log("========", comments)
+
+    return res.json(comments)
+
+
+}))
+
 module.exports = router;
 
 

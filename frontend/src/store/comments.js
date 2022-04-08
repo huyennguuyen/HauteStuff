@@ -2,6 +2,7 @@ import { csrfFetch } from "./csrf";
 
 const COMMENT = "comments/COMMENT"
 const DELETE_COMMENT = "comments/DELETE_COMMENT"
+const LOAD_COMMENT = "comments/LOAD_COMMENT"
 
 
 export const commenting = (comment) => {
@@ -18,6 +19,14 @@ const noComment = (id) => {
     id
   }
 
+}
+
+const loadingComments = (comments) => {
+
+  return {
+    type: LOAD_COMMENT,
+    comments
+  }
 }
 
 export const deletingComment = (commentId) => async dispatch => {
@@ -57,6 +66,21 @@ export const uploadComment = (id, comment) => async dispatch => {
    
    }
 
+   export const allComments = (id) => async dispatch => {
+
+    const response = await csrfFetch (`/api/photos/${id}/comments`)
+
+    console.log("this is response", response)
+
+    if(response.ok) {
+      const data = await response.json()
+      console.log("this is data", data)
+      dispatch(loadingComments(data))
+      return data 
+    }
+
+   }
+
 
 
 
@@ -67,6 +91,12 @@ const initialState = {
   
 const commentsReducer = (state = initialState, action) => {
       switch (action.type) {
+        case LOAD_COMMENT: 
+          const allComments = {}
+          action.comments.forEach((comment) => {
+           allComments[comment.id] = comment
+          })
+          return {...allComments, ...state.comments}
         case COMMENT:
           console.log("this is the state", state)
           console.log("this is the action.comment", action.comment)
@@ -85,8 +115,8 @@ const commentsReducer = (state = initialState, action) => {
           //   }
           // };
            const rightNow = {
-            ...state,
-            [action.comment.id]: action.comment
+             ...state,
+            [action.comment.id]: {...action.comment}
           };
           return rightNow 
         case DELETE_COMMENT: 
