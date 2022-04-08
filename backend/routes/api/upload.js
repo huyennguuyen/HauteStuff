@@ -2,8 +2,6 @@ const router = require("express").Router();
 const asyncHandler = require('express-async-handler');
 const db = require("../../db/models");
 const user = require("../../db/models/user");
-const { check } = require('express-validator');
-const { handleValidationErrors } = require('../../utils/validation');
 
 // const validateUpload = [
 //     check('imageUrl')

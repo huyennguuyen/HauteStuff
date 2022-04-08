@@ -13,6 +13,7 @@ import EditFormPage from './components/EditFormPage/EditFormPage';
 import {useSelector} from "react-redux";
 import {useParams} from "react-router-dom"
 import CommentFormPage from './components/CommentFormPage/CommentFormPage';
+import Splashpage from './components/Splashpage/Splashpage';
 
 
 
@@ -45,9 +46,9 @@ function App() {
           <Route path="/photos/new">
             <UploadForm />
           </Route>
-          {/* <Route exact path="/">
+          <Route exact path="/">
             <Splashpage />
-          </Route> */}
+          </Route>
           <Route path="/photos/:imageId">
             <OnePhoto/>
           </Route>

@@ -11,9 +11,33 @@ export const commenting = (comment) => {
     }
 }
 
+const noComment = (id) => {
+
+  return {
+    type: DELETE_COMMENT,
+    id
+  }
+
+}
+
+export const deletingComment = (commentId) => async dispatch => {
+  const response = await csrfFetch(`/api/photos/${commentId}`, {
+    method: 'DELETE',
+  });
+
+  //console.log(response)
+
+  if (response.ok) {
+
+    dispatch(noComment(commentId))
+  }
+
+
+}
+
 
 export const uploadComment = (id, comment) => async dispatch => {
-    console.log(id)
+
     const response = await csrfFetch(`/api/photos/${id}/comments`, {
         method: "POST",
         headers: {
@@ -55,17 +79,12 @@ const commentsReducer = (state = initialState, action) => {
               ...action.form
             }
           };
-    //     case REMOVE: 
-    //      const newState = {...state}
-    //      const newPhotos = newState.photos.filter((image) => {
-    //        return image.id !== action.imageId
-    //      })
-  
-    //      newState.photos = newPhotos
-    //      return newState
-    //     default:
-    //       return state;
-    //   }
+        case DELETE_COMMENT: 
+          const newState = {...state}
+          delete newState[action.id];
+          return newState;
+        default:
+          return state;
         }
     };
   
