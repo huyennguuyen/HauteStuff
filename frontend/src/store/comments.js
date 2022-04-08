@@ -76,7 +76,7 @@ const commentsReducer = (state = initialState, action) => {
             ...state,
             [action.comment.id]: {
                ...state[action.comment.id],
-              ...action.form
+              ...action.comment
             }
           };
         case DELETE_COMMENT: 
