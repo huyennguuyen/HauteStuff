@@ -8,6 +8,7 @@ import { deletingComment } from "../../store/comments"
 import { useHistory } from "react-router-dom"
 import CommentFormPage from "../CommentFormPage/CommentFormPage"
 import { deletingOne } from "../../store/upload"
+import { allComments } from "../../store/comments"
 
 
 
@@ -31,10 +32,14 @@ export default function OnePhoto () {
     // console.log(photos)
 
     const comments = useSelector((state) => {
-        return state.upload[imageId]?.Comments
+       return state.comments
     })
 
-    // console.log(comments)
+     console.log("MORE COMMENTS", comments)
+
+     const loadComments = Object.values(comments)
+
+     console.log("THIS IS LOADING COMMENTS", loadComments)
 
 
 
@@ -72,7 +77,7 @@ export default function OnePhoto () {
 
     useEffect( () => {
       dispatch(getOne(imageId))
-      //dispatch(getOne(comments.id))
+      dispatch(allComments(imageId))
     },[imageId, dispatch])
 
     let loggedIn;
@@ -139,7 +144,7 @@ export default function OnePhoto () {
         <div className="inside">
           <img src={photos?.imageUrl}></img>
           <p className="description-one">{photos?.description}</p>
-          {comments?.map((comment, idx) => (
+          {loadComments?.map((comment, idx) => (
                 <div key={idx}>
                 <li key={idx} className="box2">
                     <p className="text">{comment.comment}</p>

@@ -35,7 +35,7 @@ export default function CommentFormPage ({imageId}) {
     useEffect(() => {
         let errors = [];
 
-        if(!comment.length) errors.push("Please enter a description.")
+        if(!comment.length) errors.push("Please enter a comment.")
         setErrors(errors)
 
     }, [comment])
@@ -57,6 +57,8 @@ export default function CommentFormPage ({imageId}) {
         //console.log(payload)
         //setHasSubmitted(false)
 
+        setComment("")
+
         await dispatch(uploadComment(imageId, payload))
 
 
@@ -68,6 +70,8 @@ export default function CommentFormPage ({imageId}) {
 
     
         history.push(`/photos/${imageId}`)
+
+       // setComment("")
     
 
        //setHasSubmitted(false)
