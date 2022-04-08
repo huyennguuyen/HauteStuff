@@ -28,9 +28,10 @@ export const deletingComment = (commentId) => async dispatch => {
   //console.log(response)
 
   if (response.ok) {
-
-    await dispatch(noComment(commentId))
-    return response
+    const id = await response.json()
+    dispatch(noComment(id))
+    return id
+    
   }
 
 
@@ -59,19 +60,18 @@ export const uploadComment = (id, comment) => async dispatch => {
 
 
 
-const initialState = {
-    comments: [],
-  };
+const initialState = {};
+  
   
 const commentsReducer = (state = initialState, action) => {
       switch (action.type) {
         case COMMENT:
-          if(state[action.id]) {
+          if(!state[action.id]) {
             const newState = {
               ...state,
               [action.comment.id]: action.comment
             };
-          return newState    
+            return newState    
           };
           return {
             ...state,
@@ -81,9 +81,9 @@ const commentsReducer = (state = initialState, action) => {
             }
           };
         case DELETE_COMMENT: 
-        // console.log("this is state", state)
+          console.log("this is state", state)
           const newState = {...state}
-          //console.log("this is new state", newState)
+          console.log("this is new state", newState)
           delete newState[action.id];
           return newState;
           //return {}
