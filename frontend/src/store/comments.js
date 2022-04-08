@@ -60,26 +60,35 @@ export const uploadComment = (id, comment) => async dispatch => {
 
 
 
-const initialState = {};
+const initialState = {
+  comments:[]
+};
   
   
 const commentsReducer = (state = initialState, action) => {
       switch (action.type) {
         case COMMENT:
-          if(!state[action.id]) {
-            const newState = {
-              ...state,
-              [action.comment.id]: action.comment
-            };
-            return newState    
-          };
-          return {
+          console.log("this is the state", state)
+          console.log("this is the action.comment", action.comment)
+          // if(!state[action.id]) {
+          //   const newState = {
+          //     ...state,
+          //     [action.comment.id]: action.comment
+          //   };
+          //   return newState    
+          // };
+          // return {
+          //   ...state,
+          //   [action.comment.id]: {
+          //      ...state[action.comment.id],
+          //     ...action.comment
+          //   }
+          // };
+           const rightNow = {
             ...state,
-            [action.comment.id]: {
-               ...state[action.comment.id],
-              ...action.comment
-            }
+            [action.comment.id]: action.comment
           };
+          return rightNow 
         case DELETE_COMMENT: 
           console.log("this is state", state)
           const newState = {...state}
