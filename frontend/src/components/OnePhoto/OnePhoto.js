@@ -94,9 +94,9 @@ export default function OnePhoto () {
         <>
         <div className="button-one-photo">
             <NavLink to={`/photos/${imageId}/edit`}>
-            <button>Edit</button>
+            <button className="edit">Edit</button>
             </NavLink>
-            <button onClick={async () => {
+            <button className="delete" onClick={async () => {
                 await dispatch(deletingOne(imageId))
                 history.push("/home")
             }}>Delete</button>
@@ -104,9 +104,6 @@ export default function OnePhoto () {
                 await dispatch(deletingComment(commentId))
             }}>Create a Comment</button> */}
         </div>
-        {/* <div>
-            <CommentFormPage imageId={imageId}/>
-        </div> */}
         </>
          )
       //}    
@@ -139,11 +136,15 @@ export default function OnePhoto () {
 
         return (
         <>
-        <h1>Your Photo</h1>
+        <div className="onePhotoHeader">
+            <h1 className="yourPhoto">Your Photo</h1>
+        </div>
         <div className="photo-box">        
         <div className="inside">
-          <img src={photos?.imageUrl}></img>
-          <p className="description-one">{photos?.description}</p>
+            <div className="photoDescription">
+                <img src={photos?.imageUrl}></img>
+                <p className="description-one">{photos?.description}</p>
+            </div>
           {loadComments?.map((comment, idx) => (
                 <div key={idx}>
                 <li key={idx} className="box2">
