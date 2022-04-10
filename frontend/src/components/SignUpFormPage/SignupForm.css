@@ -11,9 +11,14 @@ label, input {
 
 }
 
+input {
+    height: 23px
+}
+
 label {
     display: flex;
     align-items: center;
+    font-family: "DM Serif Display"
 }
 
 .firstContainer {
