@@ -12,8 +12,11 @@ export default function Splashpage () {
             {sessionUser ?
                 <>
                 <div className="textSplash">
-                    <h1>Welcome</h1>
-                    <h2>Boop</h2> 
+                    <h1>Thank you for signing up!</h1>
+                    <h2>Get started by uploading a photo!</h2>
+                    <NavLink to="/photos/new">
+                        <button className="uploadButton">Upload a Photo</button>
+                    </NavLink>
                 </div>
                 </> :
                 <>
