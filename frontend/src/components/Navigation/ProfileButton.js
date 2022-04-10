@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import './Navigation.css';
-import {NavLink} from "react-router-dom"
+import {NavLink} from "react-router-dom";
+import {ReactComponent as SVG} from "../../logo.svg";
+
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -37,27 +39,27 @@ function ProfileButton({ user }) {
         <i className="fas fa-user-circle" />
       </button>
         <div clasName="outsideProfile">
-        <div className="profile-dropdown">
-          {showMenu && (
-            <ul>
-              <div className="side">
-                <div>
-                  <li>{user.username}</li>
+          <div className="profile-dropdown">
+            {showMenu && (
+              <ul>
+                <div className="side">
+                  <div>
+                    <li>{user.username}</li>
+                  </div>
+                  <div className="user">
+                    <li>{user.email}</li>
+                  </div>
+                  <div className="user">
+                    <li>
+                      <NavLink exact to="/">
+                      <button onClick={logout} className="logout">Log Out</button>
+                      </NavLink>
+                    </li>
+                  </div>
                 </div>
-                <div className="user">
-                  <li>{user.email}</li>
-                </div>
-                <div className="user">
-                  <li>
-                    <NavLink exact to="/">
-                    <button onClick={logout} className="logout">Log Out</button>
-                    </NavLink>
-                  </li>
-                </div>
-              </div>
-            </ul>
-          )}
-        </div>
+              </ul>
+            )}
+          </div>
         </div>
     </>
   );

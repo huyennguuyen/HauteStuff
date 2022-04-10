@@ -75,22 +75,21 @@ export default function UploadForm () {
     return (
         <>
         <div className="firstContainer">
-            <div className="secondContainer"></div>
-                <form onSubmit={submitting} className="forms"> 
-                <ul>
-                {hasSubmitted && errors.map((error, idx) => (
-                    <li key={idx}>
-                        {error}
-                    </li>
-                    ))}
-                </ul>
-                <label>Image:</label>
-                <input value={imageUrl} onChange={(e) => setImage(e.target.value)}/>
-                <label>Description:</label>
-                <textarea value={description} onChange={(e) => setDescription(e.target.value)}/>
-                <button>Submit</button>
-                </form>
-            </div>
+            <form onSubmit={submitting} className="forms"> 
+            <ul>
+            {hasSubmitted && errors.map((error, idx) => (
+                <li key={idx}>
+                    {error}
+                </li>
+                ))}
+            </ul>
+            <label>Image:</label>
+            <input value={imageUrl} onChange={(e) => setImage(e.target.value)}/>
+            <label>Description:</label>
+            <textarea value={description} onChange={(e) => setDescription(e.target.value)}/>
+            <button>Submit</button>
+            </form>
+        </div>
         </>
     )
 
