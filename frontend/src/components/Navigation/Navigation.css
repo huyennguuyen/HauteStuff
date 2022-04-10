@@ -2,25 +2,104 @@
 .nav {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     position: sticky;
     top: 0px;
     margin: 0px;
-    background-color: #FFB6C1;
-    height: 30px;
-   
+    background-color: #F4C2C2;
+    height: 50px;
+    opacity: 0.75;
 }
 
 .profile-dropdown {
    position: absolute;
-   left: 0;
-   margin-left: 10px;
-   margin-top: 20px;
+   right: 0;
+    margin-left: 10px; 
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   top: 55px;
+   /* margin-top: 25px; */
+   margin-right: 15px;
+   border: 1px solid black;
+   background-color: white;
+   border-radius: 8px; 
 }
 
-/* .side {
-    position: absolute;
-    left: 0;
-} */
 
+.demoUser {
+    height: 25px;
+    margin-right: 8px;
+}
+
+
+
+a {
+    text-decoration: none;
+    font-family: "DM Serif Display";
+    color: black;
+}
+
+button {
+    font-family: "DM Serif Display";
+    border-radius: 4px;
+
+}
+
+button:hover {
+    box-shadow: 2px 2px 2px 2px;
+}
+
+.svg {
+    height: 25px;
+    margin-top: 10px;
+}
+
+.logo{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.home {
+    color: 	#9F2B68;
+    font-size: 30px;
+}
+
+.login {
+    margin-right: 30px;
+}
+
+.signup {
+    margin-right: 25px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 10px;
+    padding-right: 0px;
+    margin: 5px;
+}
+
+.outsideProfile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.side {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-right: 10px;
+}
+
+.user{
+    border-bottom: 1px border black;
+    margin-top: 5px;
+    
+}
 
 

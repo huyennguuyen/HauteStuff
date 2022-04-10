@@ -1,4 +1,6 @@
 import { useSelector } from "react-redux"
+import "./SplashPage.css"
+import { NavLink } from "react-router-dom";
 
 export default function Splashpage () {
     
@@ -6,10 +8,28 @@ export default function Splashpage () {
 
     return (
         <>
-        <h1>Welcome!</h1>
-        {sessionUser ? 
-            <h2>Boop</h2> : 
-            <h2>Beep</h2>}
+        <div className="belowNav">
+            {sessionUser ?
+                <>
+                <div className="textSplash">
+                    <h1>Thank you for signing up!</h1>
+                    <h2>Get started by uploading a photo!</h2>
+                    <NavLink to="/photos/new">
+                        <button className="uploadButton">Upload a Photo</button>
+                    </NavLink>
+                </div>
+                </> :
+                <>
+                <div className="textSplash">
+                    <h1>Welcome to Haute Stuff</h1>
+                    <h2>Come join and become a Hauttie!</h2>
+                    <NavLink to="/signup">
+                        <button className="startHere">Start Here</button>
+                    </NavLink>
+                </div>
+                </>
+            }
+        </div>
         </>
     )
 }

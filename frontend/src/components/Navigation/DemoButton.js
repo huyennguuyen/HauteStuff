@@ -24,7 +24,7 @@ const submitting = (e) => {
 
 return (
     
-    <button onClick={submitting} value>Demo User</button>
+    <button className="demoUser" onClick={submitting} value>Demo User</button>
 )
 
 

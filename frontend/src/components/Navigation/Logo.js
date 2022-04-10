@@ -1,6 +1,6 @@
+import "../../logo.svg"
 
-
-function Logo () {
+export default function Logo () {
 
     return (
         <>
