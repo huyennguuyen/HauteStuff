@@ -2,12 +2,14 @@
 input {
     width: 200px;
     height: 20px;
+    font-family: "Playfair Display"
     
 }
 
 textarea {
     width: 200px;
     height: 50px;
+    font-family: "Playfair Display"
   
 }
 
@@ -19,4 +21,16 @@ textarea {
 
 button {
     background-color: #FF7F7F;
+}
+
+.imagePart {
+    font-family: "DM Serif Display"
+}
+
+.submitButton {
+    margin-top: 15px;
+}
+
+li {
+    font-family: "Playfair Display"
 }

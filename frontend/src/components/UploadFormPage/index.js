@@ -22,6 +22,7 @@ export default function UploadForm () {
 
     const url = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/
 
+    // const url = 
 
     useEffect(() => {
         let errors = [];
@@ -29,7 +30,7 @@ export default function UploadForm () {
         if(!(imageUrl.match(url))){
             errors.push("Please enter a valid URL.")
         } else if (!imageUrl.length) {
-            errors.push("Please enter a URl")
+            errors.push("Please enter a URl.")
         }
 
         if(!description.length) errors.push("Please enter a description.")
@@ -75,20 +76,22 @@ export default function UploadForm () {
     return (
         <>
         <div className="firstContainer">
-            <form onSubmit={submitting} className="forms"> 
-            <ul>
-            {hasSubmitted && errors.map((error, idx) => (
-                <li key={idx}>
-                    {error}
-                </li>
-                ))}
-            </ul>
-            <label>Image:</label>
-            <input value={imageUrl} onChange={(e) => setImage(e.target.value)}/>
-            <label>Description:</label>
-            <textarea value={description} onChange={(e) => setDescription(e.target.value)}/>
-            <button>Submit</button>
-            </form>
+            <div className="secondContainer">
+                <form onSubmit={submitting} className="forms"> 
+                <ul>
+                {hasSubmitted && errors.map((error, idx) => (
+                    <li key={idx}>
+                        {error}
+                    </li>
+                    ))}
+                </ul>
+                <label className="imagePart">Image:</label>
+                <input value={imageUrl} onChange={(e) => setImage(e.target.value)}/>
+                <label className="imagePart">Description:</label>
+                <textarea value={description} onChange={(e) => setDescription(e.target.value)}/>
+                <button className="submitButton">Submit</button>
+                </form>
+            </div>
         </div>
         </>
     )

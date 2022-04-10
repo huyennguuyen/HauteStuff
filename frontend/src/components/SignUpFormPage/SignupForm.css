@@ -23,3 +23,7 @@ label {
     flex-direction: column;
     height: 50vh;
 }
+
+.signupButton {
+    margin-top: 15px;
+}

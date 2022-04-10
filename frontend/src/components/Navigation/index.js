@@ -14,7 +14,7 @@ function Navigation({ isLoaded }){
     return isLoaded && (
       <>
       <nav className="nav">
-        <NavLink exact to="/home" className="home">
+        <NavLink exact to="/" className="home">
             <div className="logo">
               <SVG className="svg"/>
               <label className="hs">HS</label>

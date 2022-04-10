@@ -48,31 +48,36 @@ export default function Homepage () {
     }
 
     return (
-        <div>
-            <h1 className="header">Photos</h1>
-            <ul className="photos">
-                {/* {photosArray.map((photo, idx) => (
-                <div className="box">
-                <li key={idx} className="box2">
-                    <NavLink to={`/photos/${idx}`}>
-                        <img src={photo?.imageUrl}></img>
-                    </NavLink>
-                        <p className="text">{photo?.description}</p>
-                </li>   
-                </div>
-                ))} */}
-                {photos.map(({id}) => (
-                <div className="box" key={(id)}>
-                <li key={id} className="box2">
-                    <NavLink to={`/photos/${id}`}>
-                        <img src={one[id]?.imageUrl}></img>
-                    </NavLink>
-                        <p className="text">{one[id]?.description}</p>
-                </li>   
-                </div>
-                ))}
-            </ul>
+        <>
+        <div className="upNav">
+            <div className="outer">
+                <h1 className="header">Photos</h1>
+                <ul className="photos">
+                    {/* {photosArray.map((photo, idx) => (
+                    <div className="box">
+                    <li key={idx} className="box2">
+                        <NavLink to={`/photos/${idx}`}>
+                            <img src={photo?.imageUrl}></img>
+                        </NavLink>
+                            <p className="text">{photo?.description}</p>
+                    </li>   
+                    </div>
+                    ))} */}
+                    {photos.map(({id}) => (
+                    <div className="box" key={(id)}>
+                    <li key={id} className="box2">
+                        <NavLink to={`/photos/${id}`}>
+                            <img src={one[id]?.imageUrl}></img>
+                        </NavLink>
+                            <p className="text">{one[id]?.description}</p>
+                    </li>   
+                    </div>
+                    ))}
+                </ul>
+            </div>
         </div>
+
+        </>
 
         
 

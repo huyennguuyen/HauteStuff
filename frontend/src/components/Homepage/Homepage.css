@@ -1,6 +1,8 @@
 .header {
     display:flex;
     justify-content: center;
+    margin-right: 30px;
+    opacity: 0.75;
 }
 
 .photos {
@@ -30,14 +32,44 @@
     align-items: center;
     flex-direction: column;
     border: 1px solid black;
+    border-radius: 8px;
     margin-top: 20px;
+    background-color: white;
 
 }
 
 ul.photos {
     
     padding: 0;
+    padding-right: 35px;
+    background-color: #f9ebdf;
+    overflow: "scroll";
 
 }
+
+
+
+/* body#onlyHome {
+    overflow: "scroll";
+    background-color: #f9ebdf;
+} */
+
+img {
+    border-radius: 8px;
+}
+
+.box2:hover {
+    box-shadow: 5px 5px 10px;
+}
+
+.outer {
+    background-color: #f9ebdf;
+}
+
+.upNav {
+    background-color:  #f9ebdf;
+}
+
+
 
 
