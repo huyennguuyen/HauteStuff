@@ -24,7 +24,7 @@ function Navigation({ isLoaded }){
     return isLoaded && (
       <>
         <nav className="nav">
-          <NavLink to="/login">Log In</NavLink>
+          <NavLink to="/login" className='login'>Log In</NavLink>
           <NavLink to="/signup">Sign Up</NavLink>
           <NavLink exact to="/">Home</NavLink>
           <DemoButton />

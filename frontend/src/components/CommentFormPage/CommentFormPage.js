@@ -57,10 +57,11 @@ export default function CommentFormPage ({imageId}) {
         //console.log(payload)
         //setHasSubmitted(false)
 
-        setComment("")
+        // setComment("")
 
         await dispatch(uploadComment(imageId, payload))
 
+        setComment("")
 
         // const pictureOne = Object.values(picture)
 

@@ -2,12 +2,13 @@
 .nav {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     position: sticky;
     top: 0px;
     margin: 0px;
-    background-color: #FFB6C1;
-    height: 30px;
-   
+    background-color: #F4C2C2;
+    height: 40px;
+    opacity: 0.75;
 }
 
 .profile-dropdown {
@@ -21,6 +22,31 @@
     position: absolute;
     left: 0;
 } */
+
+.demoUser {
+    height: 25px;
+    margin-right: 8px;
+}
+
+.login {
+    margin-left: 8px;
+}
+
+a {
+    text-decoration: none;
+    font-family: "DM Serif Display";
+    color: black;
+}
+
+button {
+    font-family: "DM Serif Display";
+    border-radius: 4px;
+
+}
+
+button:hover {
+    box-shadow: 2px 2px 2px 2px;
+}
 
 
 
