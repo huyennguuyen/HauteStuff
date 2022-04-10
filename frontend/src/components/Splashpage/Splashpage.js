@@ -11,12 +11,14 @@ export default function Splashpage () {
         <div className="belowNav">
             {sessionUser ?
                 <>
-                <div className="textSplash">
-                    <h1>Thank you for signing up!</h1>
-                    <h2>Get started by uploading a photo!</h2>
-                    <NavLink to="/photos/new">
-                        <button className="uploadButton">Upload a Photo</button>
-                    </NavLink>
+                <div className="onlyUser">
+                    <div className="textSplash">
+                        <h1>Thank you for signing up!</h1>
+                        <h2>Get started by uploading a photo!</h2>
+                        <NavLink to="/photos/new">
+                            <button className="uploadButton">Upload a Photo</button>
+                        </NavLink>
+                    </div>
                 </div>
                 </> :
                 <>

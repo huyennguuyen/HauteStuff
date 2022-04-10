@@ -85,7 +85,6 @@ export default function CommentFormPage ({imageId}) {
     return (
         <>
         <div className="firstContainer">
-            <div className="secondContainer"></div>
                 <form onSubmit={submitting} className="forms"> 
                 <ul>
                 {hasSubmitted && errors.map((error, idx) => (

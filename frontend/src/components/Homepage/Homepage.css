@@ -1,9 +1,9 @@
-.header {
+ .header {
     display:flex;
     justify-content: center;
-    margin-right: 30px;
-    opacity: 0.75;
-}
+    color: #242526;
+    margin: 0px;
+ }
 
 .photos {
     display: flex;
@@ -36,23 +36,20 @@
     margin-top: 20px;
     background-color: white;
 
-}
+} 
 
-ul.photos {
+ ul.photos {
     
     padding: 0;
-    padding-right: 35px;
+    /* padding-right: 35px; */
     background-color: #f9ebdf;
     overflow: "scroll";
+    margin: 0px;
 
-}
+} 
 
 
 
-/* body#onlyHome {
-    overflow: "scroll";
-    background-color: #f9ebdf;
-} */
 
 img {
     border-radius: 8px;
@@ -64,11 +61,21 @@ img {
 
 .outer {
     background-color: #f9ebdf;
-}
+} 
 
 .upNav {
     background-color:  #f9ebdf;
+} 
+
+.onlyHome {
+    background-color: #f9ebdf;
 }
+
+#top {
+    background-color: #f9ebdf;
+}
+
+
 
 
 

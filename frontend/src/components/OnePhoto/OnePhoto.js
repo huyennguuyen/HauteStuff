@@ -35,11 +35,11 @@ export default function OnePhoto () {
        return state.comments
     })
 
-     console.log("MORE COMMENTS", comments)
+     
 
      const loadComments = Object.values(comments)
 
-     console.log("THIS IS LOADING COMMENTS", loadComments)
+     
 
 
 
@@ -139,7 +139,7 @@ export default function OnePhoto () {
 
         return (
         <>
-        <h1>One Photo</h1>
+        <h1>Your Photo</h1>
         <div className="photo-box">        
         <div className="inside">
           <img src={photos?.imageUrl}></img>

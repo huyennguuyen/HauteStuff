@@ -89,7 +89,6 @@ export default function EditFormPage () {
                 <button type="submit">Submit</button>
                 </form>
             </div>
-        <div className="secondContainer"></div>
         </>
     )
 }
