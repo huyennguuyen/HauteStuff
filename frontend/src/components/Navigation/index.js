@@ -6,6 +6,7 @@ import './Navigation.css';
 import DemoButton from './DemoButton';
 import UploadForm from '../UploadFormPage';
 import UploadFormButton from './UploadFormButton';
+import {ReactComponent as SVG} from "../../logo.svg"
 
 function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
@@ -24,9 +25,14 @@ function Navigation({ isLoaded }){
     return isLoaded && (
       <>
         <nav className="nav">
-          <NavLink to="/login" className='login'>Log In</NavLink>
+          <NavLink exact to="/" className="home">
+            <div className="logo">
+              <SVG className="svg"/>
+              <label classname="hs">HS</label>
+            </div>
+          </NavLink>
+          <NavLink to="/login">Log In</NavLink>
           <NavLink to="/signup">Sign Up</NavLink>
-          <NavLink exact to="/">Home</NavLink>
           <DemoButton />
         </nav>
       </>

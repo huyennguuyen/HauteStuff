@@ -7,7 +7,7 @@
     top: 0px;
     margin: 0px;
     background-color: #F4C2C2;
-    height: 40px;
+    height: 50px;
     opacity: 0.75;
 }
 
@@ -28,9 +28,7 @@
     margin-right: 8px;
 }
 
-.login {
-    margin-left: 8px;
-}
+
 
 a {
     text-decoration: none;
@@ -46,6 +44,22 @@ button {
 
 button:hover {
     box-shadow: 2px 2px 2px 2px;
+}
+
+.svg {
+    height: 25px;
+    margin-top: 10px;
+}
+
+.logo{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.home {
+    color: white;
+    font-size: 30px;
 }
 
 
