@@ -28,11 +28,11 @@ function Navigation({ isLoaded }){
           <NavLink exact to="/" className="home">
             <div className="logo">
               <SVG className="svg"/>
-              <label classname="hs">HS</label>
+              <label className="hs">HS</label>
             </div>
           </NavLink>
-          <NavLink to="/login">Log In</NavLink>
-          <NavLink to="/signup">Sign Up</NavLink>
+          <NavLink to="/login" className="login">Log In</NavLink>
+          <NavLink to="/signup" className="signup">Sign Up</NavLink>
           <DemoButton />
         </nav>
       </>

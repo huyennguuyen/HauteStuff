@@ -2,6 +2,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    opacity: 1;
+    margin-bottom: 35px;
 
 }
 
@@ -10,6 +12,17 @@ label, input {
     flex-direction: column;
 
 }
+
+#emails {
+    height: 23px;
+    font-family: "Playfair Display"
+}
+
+#passwords {
+    height: 23px;
+    font-family: "Playfair Display"
+}
+
 
 label {
     display: flex;
@@ -22,7 +35,10 @@ label {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 50vh;
+    margin-right: 60px;
+    margin-top: 90px;
+    opacity: 0.85;
+    
 }
 
 .loginForm {
@@ -30,7 +46,14 @@ label {
 
 }
 
-.loginFormm{
-    font-family: "DM Serif Display"
-
+.secondContainer {
+    border: 1px solid black;
+    width: 350px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+   
 }

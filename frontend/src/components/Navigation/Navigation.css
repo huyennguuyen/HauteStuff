@@ -62,5 +62,11 @@ button:hover {
     font-size: 30px;
 }
 
+.login {
+    margin-right: 30px;
+}
 
+.signup {
+    margin-right: 25px;
+}
 
