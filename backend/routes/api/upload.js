@@ -122,7 +122,6 @@ router.get('/:id/comments', asyncHandler(async(req, res) => {
         }
     })
 
-    console.log("========", comments)
 
     return res.json(comments)
 
