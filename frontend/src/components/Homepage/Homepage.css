@@ -75,6 +75,13 @@ img {
     background-color: #f9ebdf;
 }
 
+footer {
+    position: fixed;
+    color: black;
+    width: 200px;
+    height: 500px;
+}
+
 
 
 

@@ -8,3 +8,36 @@
 body {
     margin: 0px;
 }
+
+
+.developerInfo {
+    background-color: #F4C2C2;
+    height: 30px;
+    position: fixed;
+    bottom: 0;
+    /* top:calc(100% - 30px);
+    left: calc(100% - 105px);
+    z-index: 3;
+    border-radius: 5px;
+    padding: 2px 10px; */
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    opacity: 0.75;
+  }
+  
+  .developerLink {
+    color: black;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    margin-left: 10px;
+    font-family: "Playfair Display";
+  }
+
+  .information {
+      font-family: "DM Serif Display";
+      margin-left: 20px;
+
+  }
+

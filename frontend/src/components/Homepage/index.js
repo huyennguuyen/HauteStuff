@@ -64,7 +64,6 @@ export default function Homepage () {
                     </div>
                     ))}
                 </ul>
-
         </>
 
         
