@@ -70,11 +70,11 @@ export const uploadComment = (id, comment) => async dispatch => {
 
     const response = await csrfFetch (`/api/photos/${id}/comments`)
 
-    console.log("this is response", response)
+   
 
     if(response.ok) {
       const data = await response.json()
-      console.log("this is data", data)
+  
       dispatch(loadingComments(data))
       return data 
     }
@@ -98,8 +98,6 @@ const commentsReducer = (state = initialState, action) => {
           })
           return {...allComments, ...state.comments}
         case COMMENT:
-          console.log("this is the state", state)
-          console.log("this is the action.comment", action.comment)
           // if(!state[action.id]) {
           //   const newState = {
           //     ...state,
@@ -120,9 +118,7 @@ const commentsReducer = (state = initialState, action) => {
           };
           return rightNow 
         case DELETE_COMMENT: 
-          console.log("this is state", state)
           const newState = {...state}
-          console.log("this is new state", newState)
           delete newState[action.id];
           return newState;
           //return {}
