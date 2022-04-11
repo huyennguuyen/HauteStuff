@@ -11,9 +11,14 @@ label, input {
 
 }
 
+input {
+    height: 23px
+}
+
 label {
     display: flex;
     align-items: center;
+    font-family: "DM Serif Display"
 }
 
 .firstContainer {
@@ -22,4 +27,8 @@ label {
     align-items: center;
     flex-direction: column;
     height: 50vh;
+}
+
+.signupButton {
+    margin-top: 15px;
 }

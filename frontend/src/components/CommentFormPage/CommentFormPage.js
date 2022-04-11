@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { uploadComment } from "../../store/comments";
 import { NavLink } from "react-router-dom";
+import "./CommentFormPage.css"
 
 export default function CommentFormPage ({imageId}) {
     const history= useHistory()
@@ -84,8 +85,7 @@ export default function CommentFormPage ({imageId}) {
 
     return (
         <>
-        <div className="firstContainer">
-            <div className="secondContainer"></div>
+        <div className="outsideComments">
                 <form onSubmit={submitting} className="forms"> 
                 <ul>
                 {hasSubmitted && errors.map((error, idx) => (
@@ -96,9 +96,9 @@ export default function CommentFormPage ({imageId}) {
                 </ul>
                 <label>Comment:</label>
                 <input value={comment} onChange={(e) => setComment(e.target.value)}/>
-                <button >Comment</button>
+                <button id="comment" >Comment</button>
                 </form>
-            </div>
+         </div>
         </>
     )
 

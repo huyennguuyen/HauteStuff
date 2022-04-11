@@ -1,14 +1,16 @@
 
 img {
-    width: 400px;
+    width: 320px;
     height: 400px;
-    
+    opacity: 1;
 }
 
 .photo-box {
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 8px;
+    background-color: #f9ebdf;
 
 }
 
@@ -18,7 +20,9 @@ h1 {
 }
 
 .inside {
-    border: 1px solid black
+    border: 1px solid black;
+    border-radius: 8px;
+    background-color: #e0dbc7;
 }
 
 .button-one-photo {
@@ -29,5 +33,40 @@ h1 {
 .description-one {
     display: flex;
     justify-content: center;
+    font-family: "Playfair Display"
 }
+
+.yourPhoto {
+    margin: 0px;
+    color:#242526;
+}
+
+.onePhotoHeader {
+    background-color: #f9ebdf;
+}
+
+.photoDescription {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+
+.button-one-photo {
+
+    margin-top: 40px;
+    
+}
+
+.edit {
+
+    margin-right: 10px;
+}
+
+.delete {
+    margin-left: 10px;
+}
+
+
+
+
 

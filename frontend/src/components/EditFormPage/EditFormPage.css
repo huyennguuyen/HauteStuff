@@ -1,0 +1,17 @@
+
+.outsideEdit {
+
+    border: 1px solid black;
+    width: 350px;
+    height: 400px;
+    border-radius: 8px;
+    background-color: white;
+}
+
+#editForm {
+    margin-top: 35px;
+}
+
+.editSubmit {
+    margin-top: 10px;
+}

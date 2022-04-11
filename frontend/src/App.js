@@ -30,6 +30,12 @@ function App() {
     <>
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
+        <>
+        <div className="developerInfo">
+          <p className="information">Created By: 
+              <a className="developerLink" href='https://github.com/huyennguuyen'> Huyen Nguyen</a>
+          </p>
+        </div>
         <Switch>
           <Route path="/login">
             <LoginFormPage />
@@ -56,6 +62,7 @@ function App() {
             <CommentFormPage/>
           </Route>
         </Switch>
+      </>
       )}
     </>
   );

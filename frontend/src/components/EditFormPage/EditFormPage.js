@@ -6,6 +6,7 @@ import { Redirect } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { updatePhoto } from "../../store/upload";
 import { useParams } from "react-router-dom";
+import "./EditFormPage.css"
 
 
 export default function EditFormPage () {
@@ -74,7 +75,8 @@ export default function EditFormPage () {
     return (
         <>
         <div className="firstContainer">
-                <form onSubmit={submitting} className="forms"> 
+            <div className="outsideEdit">
+                <form onSubmit={submitting} className="forms" id="editForm"> 
                 <ul>
                     {hasSubmitted && errors.map((error, idx) => (
                         <li key={idx}>
@@ -86,10 +88,10 @@ export default function EditFormPage () {
                 <input value={imageUrl} onChange={(e) => setImage(e.target.value)}/>
                 <label>Description:</label>
                 <textarea value={description} onChange={(e) => setDescription(e.target.value)}/>
-                <button type="submit">Submit</button>
+                <button className="editSubmit" type="submit">Submit</button>
                 </form>
             </div>
-        <div className="secondContainer"></div>
+        </div>
         </>
     )
 }
