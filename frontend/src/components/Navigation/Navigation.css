@@ -6,9 +6,9 @@
     position: sticky;
     top: 0px;
     margin: 0px;
-    background-color: #F4C2C2;
+    background-color: #f6d4d4;
     height: 50px;
-    opacity: 0.75;
+    z-index: 10000;
 }
 
 .profile-dropdown {
