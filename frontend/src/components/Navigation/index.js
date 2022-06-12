@@ -5,6 +5,7 @@ import ProfileButton from './ProfileButton';
 import './Navigation.css';
 import DemoButton from './DemoButton';
 import UploadFormButton from './UploadFormButton';
+import {FaCloudUploadAlt} from "react-icons/fa"
 import {ReactComponent as SVG} from "../../logo.svg"
 
 function Navigation({ isLoaded }){
@@ -14,13 +15,14 @@ function Navigation({ isLoaded }){
     return isLoaded && (
       <>
       <nav className="nav">
-        <NavLink exact to="/" className="home">
+        <NavLink exact to="/home" className="home">
             <div className="logo">
               <SVG className="svg"/>
               <label className="hs">HS</label>
             </div>
           </NavLink>
         <NavLink exact to="/home" className="userHome">Home</NavLink>
+        <FaCloudUploadAlt />
         <UploadFormButton />
         <ProfileButton user={sessionUser} />
       </nav>
@@ -30,15 +32,19 @@ function Navigation({ isLoaded }){
     return isLoaded && (
       <>
         <nav className="nav">
-          <NavLink exact to="/" className="home">
-            <div className="logo">
-              <SVG className="svg"/>
-              <label className="hs">HS</label>
-            </div>
-          </NavLink>
-          <NavLink to="/login" className="login">Log In</NavLink>
-          <NavLink to="/signup" className="signup">Sign Up</NavLink>
-          <DemoButton />
+          <div className='left-side'>
+            <NavLink exact to="/" className="home">
+              <div className="logo">
+                <SVG className="svg"/>
+                <label className="hs">HS</label>
+              </div>
+            </NavLink>
+          </div>
+          <div classname="right-side">
+            <NavLink to="/login" className="login">Log In</NavLink>
+            <NavLink to="/signup" className="signup">Sign Up</NavLink>
+            <DemoButton />
+          </div>
         </nav>
       </>
     );

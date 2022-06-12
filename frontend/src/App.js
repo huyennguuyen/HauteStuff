@@ -31,11 +31,11 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <>
-        {/* <div className="developerInfo">
+        <div className="developerInfo">
           <p className="information">Created By: 
               <a className="developerLink" href='https://github.com/huyennguuyen'> Huyen Nguyen</a>
           </p>
-        </div> */}
+        </div>
         <Switch>
           <Route path="/login">
             <LoginFormPage />

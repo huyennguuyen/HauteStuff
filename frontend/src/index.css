@@ -1,24 +1,26 @@
 /* TODO Add site wide styles */
-#root {
+/* #root {
     height: 100vh;
     width: 100vw;
 
-}
+} */
 
 body {
-    margin: 0px;
+    margin: 0;
+    height: 100vh;
 }
 
 
 .developerInfo {
     background-color: #F4C2C2;
-    height: 30px;
+    height: 61px;
     position: fixed;
     bottom: 0;
     width: 100vw;
     display: flex;
     align-items: center;
     opacity: 0.75;
+    z-index: 1000;
   }
   
   .developerLink {
@@ -27,11 +29,11 @@ body {
     padding: 0;
     text-decoration: none;
     margin-left: 10px;
-    font-family: "Playfair Display";
+    font-family: "Lato";
   }
 
   .information {
-      font-family: "DM Serif Display";
+      font-family: "Lato";
       margin-left: 20px;
 
   }

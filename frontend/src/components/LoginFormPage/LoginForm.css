@@ -15,12 +15,12 @@ label, input {
 
 #emails {
     height: 23px;
-    font-family: "Playfair Display"
+    font-family: "Lato";
 }
 
 #passwords {
     height: 23px;
-    font-family: "Playfair Display"
+    font-family: "Lato";
 }
 
 
@@ -42,7 +42,7 @@ label {
 }
 
 .loginForm {
-    font-family: "DM Serif Display"
+    font-family: "Lato";
 
 }
 

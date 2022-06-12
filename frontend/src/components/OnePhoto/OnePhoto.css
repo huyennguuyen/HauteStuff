@@ -33,7 +33,7 @@ h1 {
 .description-one {
     display: flex;
     justify-content: center;
-    font-family: "Playfair Display"
+    font-family: "Lato";
 }
 
 .yourPhoto {
