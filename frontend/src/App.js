@@ -38,8 +38,8 @@ function App() {
             <p className="name">Created By: Huyen Nguyen</p>
           </div>
           <div className="leftSide">
-              <a className="developerLink" href='https://github.com/huyennguuyen'>Github <AiFillGithub /></a>
-              <a className="developer-link" href="https://www.linkedin.com/in/huyen-nguyen-2804b523b/">LinkedIn <AiFillLinkedin/></a>
+              <a className="developerLink" href='https://github.com/huyennguuyen' target="_blank" rel="noopener noreferrer">Github <AiFillGithub /></a>
+              <a className="developer-link" href="https://www.linkedin.com/in/huyen-nguyen-2804b523b/" target="_blank" rel="noopener noreferrer">LinkedIn <AiFillLinkedin/></a>
           </div>
          
         </div>

@@ -26,7 +26,7 @@ export default function Splashpage () {
                     <h1>Welcome to Haute Stuff</h1>
                     <h2>Come join and become a Hauttie!</h2>
                     <NavLink to="/signup">
-                        <button className="startHere">Start Here</button>
+                        <button className="startHere">Start For Free</button>
                     </NavLink>
                 </div>
                 </>

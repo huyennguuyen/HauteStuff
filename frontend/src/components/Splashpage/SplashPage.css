@@ -54,6 +54,18 @@ h2 {
     /* z-index: -1000; */
 }
 
+.startHere {
+    width: 200px;
+    height: 64px;
+    font-family: "Lato";
+    font-size: 20px;
+    font-weight: 700;
+    border: none;
+}
+
+.startHere:hover {
+    color: white;
+}
 
 
 
