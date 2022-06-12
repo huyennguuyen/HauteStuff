@@ -17,9 +17,7 @@ export default function Homepage () {
     //   return state.upload
     // })
 
-        const photos = useSelector(state => {
-      return state.upload.photos
-    })
+    const photos = useSelector(state => state.upload.photos)
 
     //console.log(photos)
 

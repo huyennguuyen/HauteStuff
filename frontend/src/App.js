@@ -13,6 +13,7 @@ import EditFormPage from './components/EditFormPage/EditFormPage';
 import {useSelector} from "react-redux";
 import {useParams} from "react-router-dom"
 import CommentFormPage from './components/CommentFormPage/CommentFormPage';
+import {AiFillGithub, AiFillLinkedin} from "react-icons/ai"
 import Splashpage from './components/Splashpage/Splashpage';
 
 
@@ -31,11 +32,17 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <>
-        {/* <div className="developerInfo">
-          <p className="information">Created By: 
-              <a className="developerLink" href='https://github.com/huyennguuyen'> Huyen Nguyen</a>
-          </p>
-        </div> */}
+        <div className="developerInfo">
+          <div className="rightSide">
+            <p className="name">@2022 Haute Stuff</p>
+            <p className="name">Created By: Huyen Nguyen</p>
+          </div>
+          <div className="leftSide">
+              <a className="developerLink" href='https://github.com/huyennguuyen' target="_blank" rel="noopener noreferrer">Github <AiFillGithub /></a>
+              <a className="developer-link" href="https://www.linkedin.com/in/huyen-nguyen-2804b523b/" target="_blank" rel="noopener noreferrer">LinkedIn <AiFillLinkedin/></a>
+          </div>
+         
+        </div>
         <Switch>
           <Route path="/login">
             <LoginFormPage />

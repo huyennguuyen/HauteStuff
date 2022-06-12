@@ -2,14 +2,14 @@
 input {
     width: 200px;
     height: 20px;
-    font-family: "Playfair Display"
+    font-family: "Lato"
     
 }
 
 textarea {
     width: 200px;
     height: 50px;
-    font-family: "Playfair Display"
+    font-family: "Lato"
   
 }
 
@@ -20,11 +20,11 @@ textarea {
 }
 
 button {
-    background-color: #FF7F7F;
+    background-color: #ff9293;
 }
 
 .imagePart {
-    font-family: "DM Serif Display"
+    font-family: "Lato"
 }
 
 .submitButton {
@@ -32,5 +32,5 @@ button {
 }
 
 li {
-    font-family: "Playfair Display"
+    font-family: "Lato"
 }

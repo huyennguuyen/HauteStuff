@@ -3,12 +3,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: sticky;
+    position: fixed;
+    width: 100vw;
     top: 0px;
     margin: 0px;
-    background-color: #f6d4d4;
-    height: 50px;
+    background-color: #f9c6c6;
+    height: 64px;
     z-index: 10000;
+    opacity: 0.75;
 }
 
 .profile-dropdown {
@@ -28,27 +30,32 @@
 
 
 .demoUser {
-    height: 25px;
+    height: 32px;
+    width: 96px;
+    border-radius: 5px;
     margin-right: 8px;
+    font-weight: 700;
+    border: none;
+}
+
+.demoUser:hover{
+    color: white;
 }
 
 
 
 a {
     text-decoration: none;
-    font-family: "DM Serif Display";
+    font-family: "Lato";
     color: black;
 }
 
 button {
-    font-family: "DM Serif Display";
+    font-family: "Lato";
     border-radius: 4px;
 
 }
 
-button:hover {
-    box-shadow: 2px 2px 2px 2px;
-}
 
 .svg {
     height: 25px;
@@ -68,6 +75,7 @@ button:hover {
 
 .login {
     margin-right: 30px;
+    color: black;
 }
 
 .signup {
@@ -85,7 +93,6 @@ ul {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 }
 
 .side {
@@ -100,6 +107,11 @@ ul {
     border-bottom: 1px border black;
     margin-top: 5px;
     
+}
+
+.hs {
+    font-family: "Playfair Display";
+    font-weight: 700;
 }
 
 

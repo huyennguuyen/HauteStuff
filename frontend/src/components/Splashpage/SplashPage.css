@@ -1,13 +1,13 @@
 
 h1 {
-    font-family: "DM Serif Display";
+    font-family: "Lato";
     font-size: 50px;
 }
 
 
 
 h2 {
-    font-family: "Playfair Display";
+    font-family: "Lato";
     color: black;
     opacity: 1;
     font-size: 30px;
@@ -43,11 +43,29 @@ h2 {
 
 .belowNav {
     background-image: url("https://images.unsplash.com/photo-1619043518800-7f14be467dca?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80");
-    opacity: 0.8;
+    background-repeat: no-repeat;
+    /* background-size: 100vw 600vh; */
+    /* object-fit: contains; */
+    opacity: 0.75;
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     /* z-index: -1000; */
 }
 
+.startHere {
+    width: 200px;
+    height: 64px;
+    font-family: "Lato";
+    font-size: 20px;
+    font-weight: 700;
+    border: none;
+}
+
+.startHere:hover {
+    color: white;
+}
 
 
 
