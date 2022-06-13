@@ -32,3 +32,23 @@
 /* .signupButton {
     margin-top: 15px;
 } */
+
+.signing {
+    height: 28px;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    font-family: "Lato"; 
+}
+
+.signUpButton{
+    margin-top: 25px;
+    border: none;
+    width: 206px;
+    height: 35px;
+}
+
+.sign-margin {
+    margin-top: 15px;
+}
+
+
