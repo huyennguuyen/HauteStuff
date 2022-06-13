@@ -34,7 +34,9 @@
     border: 1px solid black;
     border-radius: 8px;
     margin-top: 20px;
+    /* width: 310px; */
     background-color: white;
+    overflow: hidden;
 
 } 
 
@@ -48,6 +50,19 @@
 
 } 
 
+/* img {
+    overflow: hidden; } */
+     img {
+      -moz-transition: -moz-transform 0.2s ease;
+      -webkit-transition: -webkit-transform 0.2s ease;
+      -ms-transition: -ms-transform 0.2s ease;
+      transition: transform 0.2s ease; }
+     img:hover {
+      -moz-transform: scale(1.075);
+      -webkit-transform: scale(1.075);
+      -ms-transform: scale(1.075);
+      transform: scale(1.075); }
+
 
 
 
@@ -55,9 +70,9 @@ img {
     border-radius: 8px;
 }
 
-.box2:hover {
+/* .box2:hover {
     box-shadow: 5px 5px 10px;
-}
+} */
 
 .outer {
     background-color: #f9ebdf;
@@ -82,6 +97,9 @@ footer {
     height: 500px;
 }
 
+/* img:hover {
+    transform: scale(1.01);
+} */
 
 
 
