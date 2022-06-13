@@ -23,7 +23,6 @@
    top: 55px;
    /* margin-top: 25px; */
    margin-right: 15px;
-   border: 1px solid black;
    background-color: white;
    border-radius: 8px; 
 }
@@ -112,6 +111,15 @@ ul {
 .hs {
     font-family: "Playfair Display";
     font-weight: 700;
+}
+
+.pro {
+    list-style: none;
+}
+
+.sesh {
+    display:flex;
+    flex-direction: row;
 }
 
 

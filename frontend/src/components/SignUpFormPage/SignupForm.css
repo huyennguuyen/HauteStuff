@@ -47,6 +47,10 @@
     height: 35px;
 }
 
+.signUpButton:hover {
+    color: white;
+}
+
 .sign-margin {
     margin-top: 15px;
 }

@@ -44,7 +44,7 @@
     
     padding: 0;
     /* padding-right: 35px; */
-    background-color: #f9ebdf;
+    /* background-color: #f9ebdf; */
     overflow: "scroll";
     margin: 0px;
 
@@ -74,7 +74,7 @@ img {
     box-shadow: 5px 5px 10px;
 } */
 
-.outer {
+/* .outer {
     background-color: #f9ebdf;
 } 
 
@@ -83,18 +83,27 @@ img {
 } 
 
 .onlyHome {
-    background-color: #f9ebdf;
+    background-color: #FAF9F6;
 }
 
 #top {
     background-color: #f9ebdf;
-}
+} */
 
 footer {
     position: fixed;
     color: black;
     width: 200px;
     height: 500px;
+}
+
+.home-container {
+    background-color: #f9f1f1;
+}
+
+.home-inside{
+    background-color: #f9f1f1;
+    padding-top: 79px;
 }
 
 /* img:hover {

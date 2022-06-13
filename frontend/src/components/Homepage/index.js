@@ -47,9 +47,11 @@ export default function Homepage () {
 
     return (
         <>
-        <div id="top">
-                <h1 className="header">Photos</h1>
-        </div>
+        <div className="home-container">
+            <div className="home-inside">
+                <div id="top">
+                        <h1 className="header">Photos</h1>
+                </div>
                 <ul className="photos">
                     {photos.map(({id}) => (
                     <div className="box" key={(id)}>
@@ -62,6 +64,8 @@ export default function Homepage () {
                     </div>
                     ))}
                 </ul>
+            </div>
+        </div>
         </>
 
         

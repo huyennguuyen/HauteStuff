@@ -42,7 +42,7 @@ function ProfileButton({ user }) {
         <div className="outsideProfile">
           <div className="profile-dropdown">
             {showMenu && (
-              <ul>
+              <ul className="pro">
                 <div className="side">
                   <div>
                     <li>{user.username}</li>
