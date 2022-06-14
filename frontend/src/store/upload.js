@@ -57,7 +57,7 @@ export const getOne = (id) => async dispatch => {
 
 export const uploading = (form) => async dispatch => {
 const {imageUrl, description, userId} = form 
-console.log("THIS IS FORM------", form)
+// console.log("THIS IS FORM------", form)
 const formData = new FormData();
 formData.append("image", imageUrl)
 formData.append("description", description)
@@ -72,7 +72,7 @@ formData.append("userId", userId)
  })
   
  
- console.log("THIS IS RESPONSE-----", response)
+//  console.log("THIS IS RESPONSE-----", response)
     const data = await response.json()
 
       console.log("THIS IS DATA FROM STORE-----", data)
@@ -82,22 +82,63 @@ formData.append("userId", userId)
 }
 
 export const updatePhoto = (id, form) => async dispatch => {
+  console.log("THIS IS FORM------", form)
+  const {imageUrl, description, userId} = form 
 
-  // console.log("this is the id", )
+
+ console.log("THIS IS imageURL store--------", imageUrl)
+
+ 
+
+const formData = new FormData();
+
+i
+    const updatePhoto = await response.json()
+    console.log("THIS IS DATA FROM STORE no image-----", updatePhoto)
+    dispatch(uploadPhoto(updatePhoto))
+    return updatePhoto 
+  }
+
+} else {
+
+
+  formData.append("description", description)
+  formData.append("userId", userId)
 
   const response = await csrfFetch(`/api/photos/${id}/edit`, {
     method: "PUT",
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "multipart/form-data"
     },
-    body: JSON.stringify(form)
+    body: formData,
   })
 
   if(response.ok){
     const updatePhoto = await response.json()
+    console.log("THIS IS DATA FROM STORE no image-----", updatePhoto)
     dispatch(uploadPhoto(updatePhoto))
     return updatePhoto 
   }
+
+}
+  
+
+  // console.log("this is the id", )
+
+  // const response = await csrfFetch(`/api/photos/${id}/edit`, {
+  //   method: "PUT",
+  //   headers: {
+  //     "Content-Type": "multipart/form-data"
+  //   },
+  //   body: formData,
+  // })
+
+  // if(response.ok){
+  //   const updatePhoto = await response.json()
+  //   console.log("THIS IS DATA FROM STORE-----", updatePhoto)
+  //   dispatch(uploadPhoto(updatePhoto))
+  //   return updatePhoto 
+  // }
 }
 
 export const deletingOne = (imageId) => async dispatch => {
