@@ -15,8 +15,8 @@ export default function EditFormPage () {
     const dispatch= useDispatch()
      const [errors, setErrors] = useState([])
     const photo = useSelector(state => state.upload[imageId])
-    const [imageUrl, setImage] = useState(`${photo.imageUrl}`)
-    const [description, setDescription]= useState(`${photo.description}`)
+    const [imageUrl, setImage] = useState(null)
+    const [description, setDescription]= useState(`${photo?.description}`)
     const sessionUser = useSelector(state => state.session.user);
     const [hasSubmitted, setHasSubmitted] = useState(false)
 
@@ -31,11 +31,11 @@ export default function EditFormPage () {
     useEffect(() => {
         let errors = [];
 
-        if(!(imageUrl.match(url))){
-            errors.push("Please enter a valid URL.")
-        } else if (!imageUrl.length) {
-            errors.push("Please enter a URl")
-        }
+        // if(!(imageUrl.match(url))){
+        //     errors.push("Please enter a valid URL.")
+        // } else if (!imageUrl.length) {
+        //     errors.push("Please enter a URl")
+        // }
 
         if(!description.length) errors.push("Please enter a description.")
         setErrors(errors)
@@ -58,7 +58,7 @@ export default function EditFormPage () {
             description
         }
 
-        //console.log(payload)
+        console.log("THIS IS EDIT PAYLOAD-----", payload)
 
         let picture = await dispatch(updatePhoto(imageId, payload))
 
@@ -71,6 +71,12 @@ export default function EditFormPage () {
        }
 
     }
+
+    const updateFile = (e) => {
+        const file = e.target.files[0];
+        console.log("THIS IS FILE-------", file)
+        if (file) setImage(file);
+      };
 
     return (
         <>
@@ -85,7 +91,7 @@ export default function EditFormPage () {
                     ))}
                 </ul>
                 <label>Image:</label>
-                <input value={imageUrl} onChange={(e) => setImage(e.target.value)}/>
+                <input type="file" onChange={updateFile}/>
                 <label>Description:</label>
                 <textarea value={description} onChange={(e) => setDescription(e.target.value)}/>
                 <button className="editSubmit" type="submit">Submit</button>
