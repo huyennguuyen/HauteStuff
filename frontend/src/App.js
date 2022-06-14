@@ -6,7 +6,6 @@ import * as sessionActions from "./store/session";
 import SignupFormPage from './components/SignUpFormPage';
 import Navigation from './components/Navigation';
 import Homepage from "./components/Homepage"
-import UploadFormButton from './components/Navigation/UploadFormButton';
 import UploadForm from './components/UploadFormPage';
 import OnePhoto from './components/OnePhoto/OnePhoto';
 import EditFormPage from './components/EditFormPage/EditFormPage';

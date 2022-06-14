@@ -36,45 +36,45 @@ function SignupFormPage() {
         <div className="secondContainer">
             <form onSubmit={handleSubmit} className="forms" id="signupForm">
             <ul>
-                {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                {errors.map((error, idx) => <li key={idx} className="errors">{error}</li>)}
             </ul>
             <label>
-                Email:
+                Email
                 <input
                 type="text"
+                className="signing"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                required
                 />
             </label>
-            <label>
-                Username:
+            <label className="sign-margin">
+                Username
                 <input
                 type="text"
+                className="signing"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                required
                 />
             </label>
-            <label>
-                Password:
+            <label className="sign-margin">
+                Password
                 <input
                 type="password"
+                className="signing"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                required
                 />
             </label>
-            <label>
-                Confirm Password:
+            <label className="sign-margin">
+                Confirm Password
                 <input
                 type="password"
+                className="signing"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
-                required
                 />
             </label>
-            <button type="submit" className="signupButton">Sign Up</button>
+            <button type="submit" className="signUpButton">Sign Up</button>
             </form>
         </div>
     </div>

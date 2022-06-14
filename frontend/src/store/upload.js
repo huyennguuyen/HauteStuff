@@ -56,17 +56,26 @@ export const getOne = (id) => async dispatch => {
 }
 
 export const uploading = (form) => async dispatch => {
+const {imageUrl, description, userId} = form 
+console.log("THIS IS FORM------", form)
+const formData = new FormData();
+formData.append("image", imageUrl)
+formData.append("description", description)
+formData.append("userId", userId)
+
  const response = await csrfFetch("/api/photos/new", {
      method: "POST",
      headers: {
-         "Content-Type": "application/json"
+         "Content-Type": "multipart/form-data"
      },
-     body: JSON.stringify(form)
+     body: formData,
  })
-
- //console.log(response)
+  
+ 
+ console.log("THIS IS RESPONSE-----", response)
     const data = await response.json()
-      //console.log(data)
+
+      console.log("THIS IS DATA FROM STORE-----", data)
     dispatch(uploadPhoto(data))
    return data
 

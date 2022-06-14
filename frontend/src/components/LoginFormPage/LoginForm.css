@@ -10,54 +10,76 @@
 label, input {
     display: flex;
     flex-direction: column;
+    font-family: "Lato";
 
 }
 
 #emails {
-    height: 23px;
+    height: 28px;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
     font-family: "Lato";
 }
 
 #passwords {
-    height: 23px;
+    height: 28px;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
     font-family: "Lato";
 }
 
-
+.loginForm {
+    margin-top: 25px;
+}
+/* 
 label {
     display: flex;
     align-items: center;
    
-}
+} */
 
 .firstContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-right: 60px;
-    margin-top: 90px;
-    opacity: 0.85;
+    opacity: 0.75;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    /* height: 100vh; */
+    background-image: url("https://images.unsplash.com/photo-1619043518800-7f14be467dca?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80");
     
 }
 
+
 .loginForm {
     font-family: "Lato";
+    /* margin: 5px; */
 
 }
 
 .secondContainer {
-    border: 1px solid black;
     width: 350px;
-    height: 400px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 500px;
+    margin-right: 0;
     background-color: white;
     border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
    
 }
 
 .loginButton {
-    margin-top: 15px;
+    margin-top: 25px;
+    border: none;
+    width: 206px;
+    height: 35px;
+}
+
+.loginButton:hover {
+    color: white;
+}
+
+.errors {
+    display: flex;
+    justify-content: center;
+    color: red;
 }

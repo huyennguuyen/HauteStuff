@@ -9,7 +9,7 @@ export default function UploadForm () {
     const history= useHistory()
     const dispatch= useDispatch()
      const [errors, setErrors] = useState([])
-    const [imageUrl, setImage] = useState("")
+    const [imageUrl, setImage] = useState(null)
     const [description, setDescription]= useState("")
     const sessionUser = useSelector(state => state.session.user);
    const [hasSubmitted, setHasSubmitted] = useState(false)
@@ -27,16 +27,16 @@ export default function UploadForm () {
     useEffect(() => {
         let errors = [];
 
-        if(!(imageUrl.match(url))){
-            errors.push("Please enter a valid URL.")
-        } else if (!imageUrl.length) {
-            errors.push("Please enter a URl.")
-        }
+        // if(!(imageUrl.match(url))){
+        //     errors.push("Please enter a valid URL.")
+        // } else if (!imageUrl.length) {
+        //     errors.push("Please enter a URl.")
+        // }
 
         if(!description.length) errors.push("Please enter a description.")
         setErrors(errors)
 
-    }, [imageUrl, description])
+    }, [description])
 
     const submitting = async (e) => {
         e.preventDefault()
@@ -54,6 +54,8 @@ export default function UploadForm () {
         //console.log(payload)
         //setHasSubmitted(false)
 
+        console.log("THIS IS PAYLOAD------", payload)
+
         let picture = await dispatch(uploading(payload))
 
         // const pictureOne = Object.values(picture)
@@ -62,14 +64,21 @@ export default function UploadForm () {
         
        // setHasSubmitted(false)
 
-       if(picture) {
-           history.push(`/photos/${picture.id}`)
-       }
+       console.log("THIS IS PICTURE----", picture)
+
+           history.push(`/photos/${picture?.id}`)
+     
 
        //setHasSubmitted(false)
       
 
     }
+
+    const updateFile = (e) => {
+        const file = e.target.files[0];
+        console.log("THIS IS FILE-------", file)
+        if (file) setImage(file);
+      };
 
    
 
@@ -86,7 +95,7 @@ export default function UploadForm () {
                     ))}
                 </ul>
                 <label className="imagePart">Image:</label>
-                <input value={imageUrl} onChange={(e) => setImage(e.target.value)}/>
+                <input type="file" onChange={updateFile}/>
                 <label className="imagePart">Description:</label>
                 <textarea value={description} onChange={(e) => setDescription(e.target.value)}/>
                 <button className="submitButton">Submit</button>
