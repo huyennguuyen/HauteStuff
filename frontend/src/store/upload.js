@@ -66,9 +66,9 @@ formData.append("userId", userId)
  const response = await csrfFetch("/api/photos/new", {
      method: "POST",
      headers: {
-         "Content-Type": "application/json"
+         "Content-Type": "multipart/form-data"
      },
-     body: JSON.stringify(form)
+     body: formData,
  })
   
  
