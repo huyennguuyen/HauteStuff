@@ -26,17 +26,18 @@ export default function UploadForm () {
 
     useEffect(() => {
         let errors = [];
+        let imageFile = ["pdf", "png", "jpg", "jpeg", "gif"]
+        if(!imageUrl) errors.push("Please upload an image.")
 
-        // if(!(imageUrl.match(url))){
-        //     errors.push("Please enter a valid URL.")
-        // } else if (!imageUrl.length) {
-        //     errors.push("Please enter a URl.")
-        // }
+        if(imageUrl) {
+            
+            if(!imageFile.includes(imageUrl?.name.split(".").pop())) errors.push ("Please upload a pdf, png, jpg, jpeg, or gif file type.")
+        }
 
-        if(!description.length) errors.push("Please enter a description.")
+        if(!description.length) errors.push("Please enter a description about your piece.")
         setErrors(errors)
 
-    }, [description])
+    }, [imageUrl, description])
 
     const submitting = async (e) => {
         e.preventDefault()
