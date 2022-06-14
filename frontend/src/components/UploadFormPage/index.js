@@ -86,6 +86,10 @@ export default function UploadForm () {
 
       const handleChange = (file) => {
         setImage(file);
+
+        const chooseButton = document.querySelector(".choose")
+        chooseButton.classList.add("drop-zone__input")
+
       };
 
     return (
@@ -101,15 +105,13 @@ export default function UploadForm () {
                         ))}
                     </ul>
                     <div className="drop-zone">
-                        {/* <div className="drop-zone__thumb" around="myfile.txt"></div> */}
-                        {/* <label className="imagePart">Image:</label> */}
                         <FileUploader
                                 // onTypeError={(err) => setFileError('File type invalid. Recommended: .jpg .png .gif')}
                                 handleChange={handleChange}
                                 name='image'
                                 types={fileTypes}
                             >
-                                <div id="hi">
+                                <div className="drop-zone-inside">
                                     {/* <img
                                         id="img-preview"
                                         src={image
@@ -117,13 +119,9 @@ export default function UploadForm () {
                                             : 'https://user-images.githubusercontent.com/88916829/159394080-4d2ad2ed-9370-4268-8699-a18fb30c86a4.png'}
                                         alt='preview-upload'
                                     /> */}
+                                <input type="file" onChange={updateFile} name="myFile" className="choose"/>
                                 </div>
                          </FileUploader>
-                        {/* <FileUploader handleChange={handleChange} name="file" types={fileTypes}/>
-                            <div>
-                            <input type="file" onChange={updateFile} name="myFile" className="drop-zone__input"/>
-                            </div> */}
-                        {/* </FileUploader> */}
                     </div>
                     <label className="imagePart">Description:</label>
                     <textarea value={description} onChange={(e) => setDescription(e.target.value)}/>

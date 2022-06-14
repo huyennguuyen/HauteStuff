@@ -35,8 +35,20 @@ li {
     font-family: "Lato"
 }
 
-#hi {
+.drop-zone-inside {
     width: 200px;
     height: 200px;
     border: 1px solid black;
+    display: block;
+}
+
+.drop-zone {
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    display: block
+}
+
+.drop-zone__input {
+    display:none;
 }
