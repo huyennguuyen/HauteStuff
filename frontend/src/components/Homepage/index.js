@@ -49,21 +49,25 @@ export default function Homepage () {
         <>
         <div className="home-container">
             <div className="home-inside">
-                <div id="top">
-                        <h1 className="header">Photos</h1>
+                <div className="left-home">
+                    <ul className="photos">
+                        {photos.map(({id}) => (
+                        <div className="box" key={(id)}>
+                        <li key={id} className="box2">
+                            <NavLink to={`/photos/${id}`}>
+                                <img src={one[id]?.imageUrl}></img>
+                            </NavLink>
+                                <p className="text">{one[id]?.description}</p>
+                        </li>   
+                        </div>
+                        ))}
+                    </ul>
                 </div>
-                <ul className="photos">
-                    {photos.map(({id}) => (
-                    <div className="box" key={(id)}>
-                    <li key={id} className="box2">
-                        <NavLink to={`/photos/${id}`}>
-                            <img src={one[id]?.imageUrl}></img>
-                        </NavLink>
-                            <p className="text">{one[id]?.description}</p>
-                    </li>   
+                <div className="right-home">
+                    <div className="random-pics">
+                        <h1>Hi</h1>
                     </div>
-                    ))}
-                </ul>
+                </div>
             </div>
         </div>
         </>

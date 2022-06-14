@@ -99,12 +99,31 @@ footer {
 
 .home-container {
     background-color: #f9f1f1;
+    display:flex;
+    justify-content: center;
 }
 
 .home-inside{
     background-color: #f9f1f1;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
     padding-top: 79px;
 }
+
+.left-home {
+    width: 620px;
+    margin-right: 20px;
+    border: 1px solid black;
+}
+
+.right-home {
+    border: 1px solid black;
+    width: 300px;
+    margin-left: 20px;
+}
+
+
 
 /* img:hover {
     transform: scale(1.01);

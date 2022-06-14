@@ -7,18 +7,21 @@
 
 body {
     margin: 0;
-    height: 100vh;
+    min-height: 100%;
+    position: relative;
 }
 
 html {
-    height: 100vh;
+    min-height: 100%;
+    position: relative;
 }
 
 
 .developerInfo {
     background-color: #F4C2C2;
     height: 50px;
-    position: fixed;
+    position: absolute;
+    /* top: 425.8vh; */
     bottom: 0;
     width: 100vw;
     display: flex;
@@ -69,5 +72,5 @@ html {
     list-style: none;
   }
 
-  
+
 
