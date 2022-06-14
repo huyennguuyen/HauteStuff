@@ -9,7 +9,7 @@ export default function UploadForm () {
     const history= useHistory()
     const dispatch= useDispatch()
      const [errors, setErrors] = useState([])
-    const [image, setImage] = useState(null)
+    const [imageUrl, setImage] = useState(null)
     const [description, setDescription]= useState("")
     const sessionUser = useSelector(state => state.session.user);
    const [hasSubmitted, setHasSubmitted] = useState(false)
@@ -47,7 +47,7 @@ export default function UploadForm () {
 
         const payload = {
             userId: sessionUser.id,
-            image,
+            imageUrl,
             description
         }
 
@@ -64,9 +64,10 @@ export default function UploadForm () {
         
        // setHasSubmitted(false)
 
-       if(picture) {
-           history.push(`/photos/${picture.id}`)
-       }
+       console.log("THIS IS PICTURE----", picture)
+
+           history.push(`/photos/${picture?.id}`)
+     
 
        //setHasSubmitted(false)
       

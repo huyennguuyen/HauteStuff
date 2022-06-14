@@ -56,10 +56,10 @@ export const getOne = (id) => async dispatch => {
 }
 
 export const uploading = (form) => async dispatch => {
-const {image, description, userId} = form 
+const {imageUrl, description, userId} = form 
 console.log("THIS IS FORM------", form)
 const formData = new FormData();
-formData.append("image", image)
+formData.append("image", imageUrl)
 formData.append("description", description)
 formData.append("userId", userId)
 
@@ -77,7 +77,7 @@ formData.append("userId", userId)
 
       console.log("THIS IS DATA FROM STORE-----", data)
     dispatch(uploadPhoto(data))
-  //  return data
+   return data
 
 }
 

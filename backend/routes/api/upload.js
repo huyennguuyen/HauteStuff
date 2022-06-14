@@ -61,7 +61,7 @@ router.get("/:id", asyncHandler(async(req, res, next) => {
 
 router.put("/:id/edit", singleMulterUpload("image"), asyncHandler(async(req, res, next) => {
     const {userId, description} = req.body
-    
+
     const imageUrl = await singlePublicFileUpload(req.file);
 
     const id = parseInt(req.params.id, 10)
