@@ -2,6 +2,12 @@ const router = require("express").Router();
 const asyncHandler = require('express-async-handler');
 const db = require("../../db/models");
 const user = require("../../db/models/user");
+const {
+    singleMulterUpload,
+    singlePublicFileUpload,
+    multipleMulterUpload,
+    multiplePublicFileUpload,
+  } = require("../../awsS3");
 
 // const validateUpload = [
 //     check('imageUrl')
@@ -20,8 +26,10 @@ router.get('/home', asyncHandler(async(req, res, next) => {
     return res.json(photos)
 }))
 
-router.post('/new', asyncHandler(async(req, res, next) => {
-   const {userId, albumId, imageUrl, description} = req.body
+router.post('/new',singleMulterUpload("image"), asyncHandler(async(req, res, next) => {
+   const {userId, albumId, description} = req.body
+   //imageUrl was in req.body
+   const imageUrl = await singlePublicFileUpload(req.file);
 
    const photos= db.Photo.build({
     userId,
