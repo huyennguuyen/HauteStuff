@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from "react-redux"
 import { uploading } from "../../store/upload";
 import { Redirect } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import { FileUploader } from 'react-drag-drop-files';
 import "./UploadForm.css";
 
 export default function UploadForm () {
@@ -81,25 +82,52 @@ export default function UploadForm () {
         if (file) setImage(file);
       };
 
-   
+      const fileTypes = ["JPG", "PNG", "GIF"];
+
+      const handleChange = (file) => {
+        setImage(file);
+      };
 
     return (
         <>
         <div className="firstContainer">
             <div className="secondContainer">
                 <form onSubmit={submitting} className="forms"> 
-                <ul>
-                {hasSubmitted && errors.map((error, idx) => (
-                    <li key={idx}>
-                        {error}
-                    </li>
-                    ))}
-                </ul>
-                <label className="imagePart">Image:</label>
-                <input type="file" onChange={updateFile}/>
-                <label className="imagePart">Description:</label>
-                <textarea value={description} onChange={(e) => setDescription(e.target.value)}/>
-                <button className="submitButton">Submit</button>
+                    <ul>
+                    {hasSubmitted && errors.map((error, idx) => (
+                        <li key={idx}>
+                            {error}
+                        </li>
+                        ))}
+                    </ul>
+                    <div className="drop-zone">
+                        {/* <div className="drop-zone__thumb" around="myfile.txt"></div> */}
+                        {/* <label className="imagePart">Image:</label> */}
+                        <FileUploader
+                                // onTypeError={(err) => setFileError('File type invalid. Recommended: .jpg .png .gif')}
+                                handleChange={handleChange}
+                                name='image'
+                                types={fileTypes}
+                            >
+                                <div id="hi">
+                                    {/* <img
+                                        id="img-preview"
+                                        src={image
+                                            ? URL.createObjectURL(image)
+                                            : 'https://user-images.githubusercontent.com/88916829/159394080-4d2ad2ed-9370-4268-8699-a18fb30c86a4.png'}
+                                        alt='preview-upload'
+                                    /> */}
+                                </div>
+                         </FileUploader>
+                        {/* <FileUploader handleChange={handleChange} name="file" types={fileTypes}/>
+                            <div>
+                            <input type="file" onChange={updateFile} name="myFile" className="drop-zone__input"/>
+                            </div> */}
+                        {/* </FileUploader> */}
+                    </div>
+                    <label className="imagePart">Description:</label>
+                    <textarea value={description} onChange={(e) => setDescription(e.target.value)}/>
+                    <button type="submit" className="submitButton">Submit</button>
                 </form>
             </div>
         </div>

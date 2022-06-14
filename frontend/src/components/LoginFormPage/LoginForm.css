@@ -14,14 +14,16 @@ label, input {
 
 }
 
-#emails {
+.emails {
     height: 28px;
+    width: 200px;
     border: 1px solid #e6e6e6;
     border-radius: 3px;
     font-family: "Lato";
 }
 
-#passwords {
+.passwords {
+    width: 200px;
     height: 28px;
     border: 1px solid #e6e6e6;
     border-radius: 3px;
