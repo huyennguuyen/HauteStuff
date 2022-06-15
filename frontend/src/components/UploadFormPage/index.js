@@ -105,6 +105,11 @@ export default function UploadForm () {
 
       };
 
+      const change = (e) => {
+
+        setDisabled(false)
+      }
+
       const onDrag = dragging => {
         // console.log(dragging)
         // setDrag(dragging)
@@ -117,18 +122,6 @@ export default function UploadForm () {
         }
       }
 
-      const onDrop = (file) => {
-        // setImage(file);
-
-        const textImageDiv = document.querySelector(".text-image");
-        textImageDiv.classList.add("drop-zone__input");
-
-        const chooseButton = document.querySelector(".stupid-button")
-        chooseButton.classList.add("behind-button");
-
-      };
-
-      
 
 
       const onTypeError = (error) => {
@@ -184,22 +177,19 @@ export default function UploadForm () {
                                     handleChange={handleChange}
                                     name='image'
                                     onDraggingStateChange={onDrag}
-                                    // onDrop={onDrop}
-                                    hoverTitle=""
                                     types={fileTypes}
                                 >
                                     <div className="drop-zone-inside">
-                                        {console.log("THIS IS IMAGEUR----", imageUrl)}
-                                        {imageUrl ? <img src={URL.createObjectURL(imageUrl)} alt='upload-preview' className="upload-preview" onError={({ currentTarget }) => {
+                                        {imageUrl ? <img src={URL.createObjectURL(imageUrl)} alt='upload-preview' className="upload-preview" onLoad={change} onError={({ currentTarget }) => {
                                             currentTarget.onerror = null;
                                             currentTarget.src ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ87Ktf3Xk1ZjtNnEV_dzJxDB0VANB8ELKAew&usqp=CAU"
                                             setTypeError("Please upload a jpg, png, gif, or jpeg file type.")
-                                            }}/> : disabled && (
+                                            }}/> : disabled && 
                                             <div className="text-image"> 
                                                 <h4 id='upload-file'>Drag and drop file here/ Click to upload</h4>
                                                 <p className="or-text">or</p>
                                             </div>
-                                            )
+                                            
                                         }
                                     </div>
                             </FileUploader>
