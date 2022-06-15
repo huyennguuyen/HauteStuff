@@ -72,5 +72,9 @@ html {
     list-style: none;
   }
 
+  h4, p, label {
+    font-family: "Lato";
+  }
+
 
 

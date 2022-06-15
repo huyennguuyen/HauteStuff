@@ -13,6 +13,7 @@ export default function UploadForm () {
     const [imageUrl, setImage] = useState(null)
     const [imageLoading, setImageLoading] = useState(false)
     const [typeError, setTypeError] = useState("")
+    const [dragging, setDrag] = useState("")
     const [description, setDescription]= useState("")
     const sessionUser = useSelector(state => state.session.user);
    const [hasSubmitted, setHasSubmitted] = useState(false)
@@ -88,13 +89,28 @@ export default function UploadForm () {
 
       const fileTypes = ["JPG", "PNG", "GIF", "JPEG"];
 
+
       const handleChange = (file) => {
         setImage(file);
 
-        const chooseButton = document.querySelector(".choose");
-        chooseButton.classList.add("drop-zone__input");
+        // const textImageDiv = document.querySelector(".text-image");
+        // textImageDiv.classList.add("drop-zone__input");
 
       };
+
+      const onDrag = dragging => {
+        // console.log(dragging)
+        // setDrag(dragging)
+        console.log(dragging)
+        if (dragging === false) {
+            const textImageDiv = document.querySelector(".text-image");
+            textImageDiv.classList.remove("drop-zone__input");
+
+        } else {
+            const textImageDiv = document.querySelector(".text-image");
+            textImageDiv.classList.add("drop-zone__input");
+        }
+      }
 
 
       const onTypeError = (error) => {
@@ -107,9 +123,9 @@ export default function UploadForm () {
             <div className="imageContainer">
                 <form onSubmit={submitting} className="upload-form">
                     <div className="image-part">
-                        <ul>
+                        <ul className="upload-errors">
                         {hasSubmitted && errors.map((error, idx) => (
-                            <li key={idx}>
+                            <li key={idx} className="errors">
                                 {error}
                             </li>
                             ))}
@@ -120,24 +136,33 @@ export default function UploadForm () {
                         <div className="loading-text">
                             {imageLoading && <p>Loading...</p>}
                         </div>
-                        <div className="drop-zone">
+                        {/* <div className="drop-zone"> */}
                             <FileUploader
                                     onTypeError={onTypeError}
                                     handleChange={handleChange}
-                                    name='image'
+                                    className="file-comp"
+                                    // hoverTitle="Drop Image Here"
+                                    // onDraggingStateChange={onDrag}
                                     types={fileTypes}
                                 >
-                                    <div className="drop-zone-inside">
-                                        {imageUrl ? <img src={URL.createObjectURL(imageUrl)} alt='upload-preview' className="upload-preview"/> : <h4 id='upload-file'>Drag and Drop file here</h4>}
-                                        <label for="file-upload" className="choose">Choose photos to upload</label>
-                                        <input type="file" id="file-upload" onChange={updateFile} name="myFile"/>
-                                    </div>
+                                    {/* <div className="drop-zone-inside"> */}
+                                        {/* {imageUrl ? <img src={URL.createObjectURL(imageUrl)} alt='upload-preview' className="upload-preview"/> :
+                                            // <h4 className='upload-file'>Drag and Drop file here</h4>
+                                            ''
+                                        } */}
+                                    {/* </div> */}
                             </FileUploader>
-                        </div>
+                            {/* <div className="text-image">
+                                <h4 className='upload-file'>Drag and Drop file here</h4>
+                                <p className="or-text">or</p>
+                                <label htmlFor="file-upload" className="choose">Choose photos to upload</label>
+                                <input type="file" id="file-upload" onChange={updateFile} name="myFile"/>
+                            </div> */}
+                        {/* </div> */}
                     </div> 
                     <div className="des-part">
-                        <label className="imagePart">Description:</label>
-                        <textarea value={description} onChange={(e) => setDescription(e.target.value)}/>
+                        <label className="des-label">Description</label>
+                        <textarea className="des-text" value={description} onChange={(e) => setDescription(e.target.value)}/>
                         <button type="submit" className="submitButton">Submit</button>
                     </div>
                 </form>
