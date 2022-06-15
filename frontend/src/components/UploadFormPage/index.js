@@ -18,6 +18,7 @@ export default function UploadForm () {
     const [description, setDescription]= useState("")
     const sessionUser = useSelector(state => state.session.user);
    const [hasSubmitted, setHasSubmitted] = useState(false)
+
     
 
     if (!sessionUser) {
@@ -94,6 +95,31 @@ export default function UploadForm () {
       const handleChange = (file) => {
         setImage(file);
 
+        // const textImageDiv = document.querySelector(".text-image");
+        // textImageDiv.classList.add("drop-zone__input");
+
+        // const chooseButton = document.querySelector(".stupid-button")
+        // chooseButton.classList.add("behind-button");
+
+        setDisabled(false)
+
+      };
+
+      const onDrag = dragging => {
+        // console.log(dragging)
+        // setDrag(dragging)
+        // console.log(dragging)
+        if (dragging === false) {
+            setDisabled(true)
+
+        } else {
+            setDisabled(false)
+        }
+      }
+
+      const onDrop = (file) => {
+        // setImage(file);
+
         const textImageDiv = document.querySelector(".text-image");
         textImageDiv.classList.add("drop-zone__input");
 
@@ -102,25 +128,7 @@ export default function UploadForm () {
 
       };
 
-      const onDrag = dragging => {
-        // console.log(dragging)
-        // setDrag(dragging)
-        console.log(dragging)
-        if (dragging === false) {
-            const textImageDiv = document.querySelector(".text-image");
-            textImageDiv.classList.remove("drop-zone__input");
-
-            const chooseButton = document.querySelector(".stupid-button")
-            chooseButton.classList.remove("behind-button");
-
-        } else {
-            const textImageDiv = document.querySelector(".text-image");
-            textImageDiv.classList.add("drop-zone__input");
-
-            const chooseButton = document.querySelector(".stupid-button")
-            chooseButton.classList.add("behind-button");
-        }
-      }
+      
 
 
       const onTypeError = (error) => {
@@ -176,6 +184,8 @@ export default function UploadForm () {
                                     handleChange={handleChange}
                                     name='image'
                                     onDraggingStateChange={onDrag}
+                                    // onDrop={onDrop}
+                                    hoverTitle=""
                                     types={fileTypes}
                                 >
                                     <div className="drop-zone-inside">
@@ -184,18 +194,21 @@ export default function UploadForm () {
                                             currentTarget.onerror = null;
                                             currentTarget.src ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ87Ktf3Xk1ZjtNnEV_dzJxDB0VANB8ELKAew&usqp=CAU"
                                             setTypeError("Please upload a jpg, png, gif, or jpeg file type.")
-                                            }}/> :
-                                        <div className="text-image"> 
-                                            <h4 id='upload-file'>Drag and drop file here/ Click to upload</h4>
-                                            <p className="or-text">or</p>
-                                        </div>
+                                            }}/> : disabled && (
+                                            <div className="text-image"> 
+                                                <h4 id='upload-file'>Drag and drop file here/ Click to upload</h4>
+                                                <p className="or-text">or</p>
+                                            </div>
+                                            )
                                         }
                                     </div>
                             </FileUploader>
-                            <div className="stupid-button">
-                                <label htmlFor="file-upload" className="choose">Choose photos to upload</label>
-                                <input type="file" id="file-upload" accept='image/jpeg, image/jpg, image/png, image/gif' onChange={updateFile}/>
-                            </div>
+                            {disabled && (
+                                <div className="stupid-button">
+                                    <label htmlFor="file-upload" className="choose">Choose photos to upload</label>
+                                    <input type="file" id="file-upload" accept='image/jpeg, image/jpg, image/png, image/gif' onChange={updateFile}/>
+                                </div>
+                            )}
                         </div>
                     </div> 
                     <div className="des-part">

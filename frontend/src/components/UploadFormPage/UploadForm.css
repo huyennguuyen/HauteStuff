@@ -197,15 +197,17 @@ li {
 } */
 
 .stupid-button {
-    margin-top: 15%;
+    margin-top: 8em;
     position: absolute;
     width: 200px;
 }
 
 .behind-button {
     opacity: 0;
-    position: absolute;
+    /* position: absolute; */
     z-index: -10000;
+    visibility: hidden;
+    display: none;
 
 }
 
