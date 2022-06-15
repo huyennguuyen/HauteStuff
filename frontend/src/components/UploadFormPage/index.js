@@ -13,6 +13,8 @@ export default function UploadForm () {
     const [imageUrl, setImage] = useState(null)
     const [imageLoading, setImageLoading] = useState(false)
     const [typeError, setTypeError] = useState("")
+    const [dragging, setDrag] = useState("")
+    const [disabled, setDisabled] = useState(false)
     const [description, setDescription]= useState("")
     const sessionUser = useSelector(state => state.session.user);
    const [hasSubmitted, setHasSubmitted] = useState(false)
@@ -88,13 +90,37 @@ export default function UploadForm () {
 
       const fileTypes = ["JPG", "PNG", "GIF", "JPEG"];
 
+
       const handleChange = (file) => {
         setImage(file);
 
-        const chooseButton = document.querySelector(".choose");
-        chooseButton.classList.add("drop-zone__input");
+        const textImageDiv = document.querySelector(".text-image");
+        textImageDiv.classList.add("drop-zone__input");
+
+        const chooseButton = document.querySelector(".stupid-button")
+        chooseButton.classList.add("behind-button");
 
       };
+
+      const onDrag = dragging => {
+        // console.log(dragging)
+        // setDrag(dragging)
+        console.log(dragging)
+        if (dragging === false) {
+            const textImageDiv = document.querySelector(".text-image");
+            textImageDiv.classList.remove("drop-zone__input");
+
+            const chooseButton = document.querySelector(".stupid-button")
+            chooseButton.classList.remove("behind-button");
+
+        } else {
+            const textImageDiv = document.querySelector(".text-image");
+            textImageDiv.classList.add("drop-zone__input");
+
+            const chooseButton = document.querySelector(".stupid-button")
+            chooseButton.classList.add("behind-button");
+        }
+      }
 
 
       const onTypeError = (error) => {
@@ -107,9 +133,9 @@ export default function UploadForm () {
             <div className="imageContainer">
                 <form onSubmit={submitting} className="upload-form">
                     <div className="image-part">
-                        <ul>
+                        <ul className="upload-errors">
                         {hasSubmitted && errors.map((error, idx) => (
-                            <li key={idx}>
+                            <li key={idx} className="errors">
                                 {error}
                             </li>
                             ))}
@@ -120,24 +146,61 @@ export default function UploadForm () {
                         <div className="loading-text">
                             {imageLoading && <p>Loading...</p>}
                         </div>
+                        {/* <div className="drop-zone">
+                            <FileUploader
+                                    onTypeError={onTypeError}
+                                    handleChange={handleChange}
+                                    className="file-comp"
+                                    name="image"
+                                    hoverTitle="Drop Image Here"
+                                    onDraggingStateChange={onDrag}
+                                    types={fileTypes}
+                                >
+                                    <div className="drop-zone-inside">
+                                        {imageUrl ? <img src={URL.createObjectURL(imageUrl)} alt='upload-preview' className="upload-preview"/> :
+                                            // <h4 className='upload-file'>Drag and Drop file here</h4>
+                                            ''
+                                        }
+                                    </div>
+                            </FileUploader> 
+                             <div className="text-image">
+                                <h4 className='upload-file'>Drag and Drop file here</h4>
+                                <p className="or-text">or</p>
+                                <label htmlFor="file-upload" className="choose">Choose photos to upload</label>
+                                <input type="file" id="file-upload" onChange={updateFile} name="myFile"/>
+                            </div>
+                        </div> */}
                         <div className="drop-zone">
                             <FileUploader
                                     onTypeError={onTypeError}
                                     handleChange={handleChange}
                                     name='image'
+                                    onDraggingStateChange={onDrag}
                                     types={fileTypes}
                                 >
                                     <div className="drop-zone-inside">
-                                        {imageUrl ? <img src={URL.createObjectURL(imageUrl)} alt='upload-preview' className="upload-preview"/> : <h4 id='upload-file'>Drag and Drop file here</h4>}
-                                        <label for="file-upload" className="choose">Choose photos to upload</label>
-                                        <input type="file" id="file-upload" onChange={updateFile} name="myFile"/>
+                                        {console.log("THIS IS IMAGEUR----", imageUrl)}
+                                        {imageUrl ? <img src={URL.createObjectURL(imageUrl)} alt='upload-preview' className="upload-preview" onError={({ currentTarget }) => {
+                                            currentTarget.onerror = null;
+                                            currentTarget.src ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ87Ktf3Xk1ZjtNnEV_dzJxDB0VANB8ELKAew&usqp=CAU"
+                                            setTypeError("Please upload a jpg, png, gif, or jpeg file type.")
+                                            }}/> :
+                                        <div className="text-image"> 
+                                            <h4 id='upload-file'>Drag and drop file here/ Click to upload</h4>
+                                            <p className="or-text">or</p>
+                                        </div>
+                                        }
                                     </div>
                             </FileUploader>
+                            <div className="stupid-button">
+                                <label htmlFor="file-upload" className="choose">Choose photos to upload</label>
+                                <input type="file" id="file-upload" accept='image/jpeg, image/jpg, image/png, image/gif' onChange={updateFile}/>
+                            </div>
                         </div>
                     </div> 
                     <div className="des-part">
-                        <label className="imagePart">Description:</label>
-                        <textarea value={description} onChange={(e) => setDescription(e.target.value)}/>
+                        <label className="des-label">Description</label>
+                        <textarea className="des-text" value={description} onChange={(e) => setDescription(e.target.value)}/>
                         <button type="submit" className="submitButton">Submit</button>
                     </div>
                 </form>
