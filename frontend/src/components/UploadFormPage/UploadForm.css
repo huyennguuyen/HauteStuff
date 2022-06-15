@@ -46,7 +46,7 @@ li {
     flex-direction: column;
     align-items: center;
     object-fit: contain;
-    position: relative;
+    /* position: relative; */
 
 }
 
@@ -58,7 +58,7 @@ li {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    /* position: relative; */
+    position: relative;
     /* object-fit: contain; */
 }
 
@@ -69,11 +69,6 @@ li {
     display: block
 } */
 
-.drop-zone__input {
-    opacity: 0;
-    position: absolute;
-    z-index: -10000;
-}
 
 .drag-pic {
     border: 1px solid pink;
@@ -93,12 +88,6 @@ li {
     z-index: 1000;
 }
 
-#file-upload {
-    opacity: 0;
-    position: absolute;
-    z-index: -1000;
-    display: none;
-}
 
 .choose {
     display: flex;
@@ -108,7 +97,7 @@ li {
     height: 35px;
     width: 200px;
     border-radius: 3px;
-
+    
 }
 
 .choose:hover {
@@ -126,7 +115,7 @@ li {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-   
+    
 }
 
 .upload-form {
@@ -140,7 +129,7 @@ li {
     display: flex;
     flex-direction: column;
     margin-top: 8%;
-
+    
 }
 
 .upload-file {
@@ -151,8 +140,15 @@ li {
     width: 200px;
 }
 
+.drop-zone__input {
+    opacity: 0;
+    /* position: absolute;
+    z-index: -10000; */
+}
 .des-text {
     border: 1px solid #e6e6e6;
+    width: 200px;
+    height: 28px;
     border-radius: 3px;
 }
 
@@ -172,9 +168,49 @@ li {
     margin-bottom: 0;
 }
 
-.text-image {
+
+.or-text {
+    display: flex;
+    justify-content: center;
+}
+
+/* .file-comp {
+    position: relative;
+} */
+
+.drop-zone__input {
+    opacity: 0;
+    /* position: absolute;
+    z-index: -10000; */
+}
+
+#file-upload {
+    opacity: 0;
+    /* position: absolute; */
+    z-index: -1000;
+    display: none;
+}
+
+/* .text-image {
     position: absolute;
     width: 200px;
+} */
+
+.stupid-button {
+    margin-top: 15%;
+    position: absolute;
+    width: 200px;
+}
+
+.behind-button {
+    opacity: 0;
+    position: absolute;
+    z-index: -10000;
+
+}
+
+#upload-file {
+    margin-top: 0;
 }
 
 .or-text {
@@ -182,8 +218,11 @@ li {
     justify-content: center;
 }
 
-.file-comp {
-    position: relative;
+.submitButton:hover {
+    color: white;
 }
+
+
+
 
 
