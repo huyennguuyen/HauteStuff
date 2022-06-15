@@ -98,19 +98,19 @@ export default function UploadForm () {
 
       };
 
-    //   const onDrag = dragging => {
-    //     // console.log(dragging)
-    //     // setDrag(dragging)
-    //     console.log(dragging)
-    //     if (dragging === false) {
-    //         const textImageDiv = document.querySelector(".text-image");
-    //         textImageDiv.classList.remove("drop-zone__input");
+      const onDrag = dragging => {
+        // console.log(dragging)
+        // setDrag(dragging)
+        console.log(dragging)
+        if (dragging === false) {
+            const textImageDiv = document.querySelector(".text-image");
+            textImageDiv.classList.remove("drop-zone__input");
 
-    //     } else {
-    //         const textImageDiv = document.querySelector(".text-image");
-    //         textImageDiv.classList.add("drop-zone__input");
-    //     }
-    //   }
+        } else {
+            const textImageDiv = document.querySelector(".text-image");
+            textImageDiv.classList.add("drop-zone__input");
+        }
+      }
 
 
       const onTypeError = (error) => {
@@ -165,16 +165,16 @@ export default function UploadForm () {
                                     onTypeError={onTypeError}
                                     handleChange={handleChange}
                                     name='image'
+                                    onDraggingStateChange={onDrag}
                                     types={fileTypes}
                                 >
                                     <div className="drop-zone-inside">
                                         {imageUrl ? <img src={URL.createObjectURL(imageUrl)} alt='upload-preview' className="upload-preview"/> :
-                                        <div className="behind-image"> 
+                                        <div className="text-image"> 
                                             <h4 id='upload-file'>Drag and Drop file here</h4>
                                             <p>or</p>
                                         </div>
                                         }
-
                                     </div>
                             </FileUploader>
                             <label for="file-upload" className="choose">Choose photos to upload</label>
