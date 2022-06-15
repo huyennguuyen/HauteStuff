@@ -224,6 +224,11 @@ li {
     color: white;
 }
 
+.loading-upload {
+    display: flex;
+    justify-content: center;
+}
+
 
 
 
