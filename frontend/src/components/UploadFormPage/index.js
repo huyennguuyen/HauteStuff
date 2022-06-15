@@ -168,11 +168,17 @@ export default function UploadForm () {
                                     types={fileTypes}
                                 >
                                     <div className="drop-zone-inside">
-                                        {imageUrl ? <img src={URL.createObjectURL(imageUrl)} alt='upload-preview' className="upload-preview"/> : <h4 id='upload-file'>Drag and Drop file here</h4>}
-                                        <label for="file-upload" className="choose">Choose photos to upload</label>
-                                        <input type="file" id="file-upload" onChange={updateFile} name="myFile"/>
+                                        {imageUrl ? <img src={URL.createObjectURL(imageUrl)} alt='upload-preview' className="upload-preview"/> :
+                                        <div className="behind-image"> 
+                                            <h4 id='upload-file'>Drag and Drop file here</h4>
+                                            <p>or</p>
+                                        </div>
+                                        }
+
                                     </div>
                             </FileUploader>
+                            <label for="file-upload" className="choose">Choose photos to upload</label>
+                            <input type="file" id="file-upload" onChange={updateFile} name="myFile"/>
                         </div>
                     </div> 
                     <div className="des-part">
