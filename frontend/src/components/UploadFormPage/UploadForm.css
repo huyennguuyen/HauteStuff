@@ -1,17 +1,17 @@
 
-input {
+/* input {
     width: 200px;
     height: 20px;
     font-family: "Lato"
     
-}
+} */
 
-textarea {
+/* textarea {
     width: 200px;
     height: 50px;
     font-family: "Lato"
   
-}
+} */
 
 .uploadContainer, .firstContainer {
     display: flex;
@@ -33,4 +33,77 @@ button {
 
 li {
     font-family: "Lato"
+}
+
+.drop-zone-inside {
+    width: 400px;
+    height: 400px;
+    border: 1px solid black;
+    display: block;
+}
+
+/* .drop-zone {
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    display: block
+} */
+
+.drop-zone__input {
+    opacity: 0;
+}
+
+.drag-pic {
+    border: 1px solid pink;
+    width: 150px;
+    height: 150px;
+}
+
+.upload-preview {
+    width: 200px;
+    height: 200px;
+    opacity: 1;
+}
+
+#file-upload {
+    opacity: 0;
+}
+
+.choose {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ff9293;
+    height: 35px;
+    width: 200px;
+    border-radius: 3px;
+
+}
+
+.choose:hover {
+    color: white
+}
+
+.imageContainer {
+    width: 800px;
+    height: 500px;
+    margin-right: 0;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+.upload-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.des-part{
+    display: flex;
+    flex-direction: column;
 }
