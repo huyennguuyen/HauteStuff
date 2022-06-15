@@ -104,38 +104,42 @@ export default function UploadForm () {
     return (
         <>
         <div className="firstContainer">
-            <div className="secondContainer">
-                <form onSubmit={submitting} className="forms"> 
-                    <ul>
-                    {hasSubmitted && errors.map((error, idx) => (
-                        <li key={idx}>
-                            {error}
-                        </li>
-                        ))}
-                    </ul>
-                    <div className="typeError">
-                        {typeError}
+            <div className="imageContainer">
+                <form onSubmit={submitting} className="upload-form">
+                    <div className="image-part">
+                        <ul>
+                        {hasSubmitted && errors.map((error, idx) => (
+                            <li key={idx}>
+                                {error}
+                            </li>
+                            ))}
+                        </ul>
+                        <div className="typeError">
+                            {typeError}
+                        </div>
+                        <div className="loading-text">
+                            {imageLoading && <p>Loading...</p>}
+                        </div>
+                        <div className="drop-zone">
+                            <FileUploader
+                                    onTypeError={onTypeError}
+                                    handleChange={handleChange}
+                                    name='image'
+                                    types={fileTypes}
+                                >
+                                    <div className="drop-zone-inside">
+                                        {imageUrl ? <img src={URL.createObjectURL(imageUrl)} alt='upload-preview' className="upload-preview"/> : <h4 id='upload-file'>Drag and Drop file here</h4>}
+                                        <label for="file-upload" className="choose">Choose photos to upload</label>
+                                        <input type="file" id="file-upload" onChange={updateFile} name="myFile"/>
+                                    </div>
+                            </FileUploader>
+                        </div>
+                    </div> 
+                    <div className="des-part">
+                        <label className="imagePart">Description:</label>
+                        <textarea value={description} onChange={(e) => setDescription(e.target.value)}/>
+                        <button type="submit" className="submitButton">Submit</button>
                     </div>
-                    <div className="loading-text">
-                        {imageLoading && <p>Loading...</p>}
-                    </div>
-                    <div className="drop-zone">
-                        <FileUploader
-                                onTypeError={onTypeError}
-                                handleChange={handleChange}
-                                name='image'
-                                types={fileTypes}
-                            >
-                                <div className="drop-zone-inside">
-                                    {imageUrl ? <img src={URL.createObjectURL(imageUrl)} alt='upload-preview' className="upload-preview"/> : <h4 id='upload-file'>Upload a file...</h4>}
-                                    <label for="file-upload" className="choose">Choose photos to upload</label>
-                                    <input type="file" id="file-upload" onChange={updateFile} name="myFile"/>
-                                </div>
-                         </FileUploader>
-                    </div>
-                    <label className="imagePart">Description:</label>
-                    <textarea value={description} onChange={(e) => setDescription(e.target.value)}/>
-                    <button type="submit" className="submitButton">Submit</button>
                 </form>
             </div>
         </div>

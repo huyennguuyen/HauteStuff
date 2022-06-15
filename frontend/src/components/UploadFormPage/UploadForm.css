@@ -36,8 +36,8 @@ li {
 }
 
 .drop-zone-inside {
-    width: 200px;
-    height: 200px;
+    width: 400px;
+    height: 400px;
     border: 1px solid black;
     display: block;
 }
@@ -70,6 +70,40 @@ li {
 }
 
 .choose {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #ff9293;
-    
+    height: 35px;
+    width: 200px;
+    border-radius: 3px;
+
+}
+
+.choose:hover {
+    color: white
+}
+
+.imageContainer {
+    width: 800px;
+    height: 500px;
+    margin-right: 0;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+.upload-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.des-part{
+    display: flex;
+    flex-direction: column;
 }
