@@ -98,19 +98,19 @@ export default function UploadForm () {
 
       };
 
-      const onDrag = dragging => {
-        // console.log(dragging)
-        // setDrag(dragging)
-        console.log(dragging)
-        if (dragging === false) {
-            const textImageDiv = document.querySelector(".text-image");
-            textImageDiv.classList.remove("drop-zone__input");
+    //   const onDrag = dragging => {
+    //     // console.log(dragging)
+    //     // setDrag(dragging)
+    //     console.log(dragging)
+    //     if (dragging === false) {
+    //         const textImageDiv = document.querySelector(".text-image");
+    //         textImageDiv.classList.remove("drop-zone__input");
 
-        } else {
-            const textImageDiv = document.querySelector(".text-image");
-            textImageDiv.classList.add("drop-zone__input");
-        }
-      }
+    //     } else {
+    //         const textImageDiv = document.querySelector(".text-image");
+    //         textImageDiv.classList.add("drop-zone__input");
+    //     }
+    //   }
 
 
       const onTypeError = (error) => {
@@ -136,29 +136,44 @@ export default function UploadForm () {
                         <div className="loading-text">
                             {imageLoading && <p>Loading...</p>}
                         </div>
-                        {/* <div className="drop-zone"> */}
+                        {/* <div className="drop-zone">
                             <FileUploader
                                     onTypeError={onTypeError}
                                     handleChange={handleChange}
                                     className="file-comp"
-                                    // hoverTitle="Drop Image Here"
-                                    // onDraggingStateChange={onDrag}
+                                    name="image"
+                                    hoverTitle="Drop Image Here"
+                                    onDraggingStateChange={onDrag}
                                     types={fileTypes}
                                 >
-                                    {/* <div className="drop-zone-inside"> */}
-                                        {/* {imageUrl ? <img src={URL.createObjectURL(imageUrl)} alt='upload-preview' className="upload-preview"/> :
+                                    <div className="drop-zone-inside">
+                                        {imageUrl ? <img src={URL.createObjectURL(imageUrl)} alt='upload-preview' className="upload-preview"/> :
                                             // <h4 className='upload-file'>Drag and Drop file here</h4>
                                             ''
-                                        } */}
-                                    {/* </div> */}
-                            </FileUploader>
-                            {/* <div className="text-image">
+                                        }
+                                    </div>
+                            </FileUploader> 
+                             <div className="text-image">
                                 <h4 className='upload-file'>Drag and Drop file here</h4>
                                 <p className="or-text">or</p>
                                 <label htmlFor="file-upload" className="choose">Choose photos to upload</label>
                                 <input type="file" id="file-upload" onChange={updateFile} name="myFile"/>
-                            </div> */}
-                        {/* </div> */}
+                            </div>
+                        </div> */}
+                        <div className="drop-zone">
+                            <FileUploader
+                                    onTypeError={onTypeError}
+                                    handleChange={handleChange}
+                                    name='image'
+                                    types={fileTypes}
+                                >
+                                    <div className="drop-zone-inside">
+                                        {imageUrl ? <img src={URL.createObjectURL(imageUrl)} alt='upload-preview' className="upload-preview"/> : <h4 id='upload-file'>Drag and Drop file here</h4>}
+                                        <label for="file-upload" className="choose">Choose photos to upload</label>
+                                        <input type="file" id="file-upload" onChange={updateFile} name="myFile"/>
+                                    </div>
+                            </FileUploader>
+                        </div>
                     </div> 
                     <div className="des-part">
                         <label className="des-label">Description</label>
