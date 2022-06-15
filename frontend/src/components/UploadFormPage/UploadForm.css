@@ -50,7 +50,7 @@ li {
 } */
 
 .drop-zone__input {
-    display:none;
+    opacity: 0;
 }
 
 .drag-pic {
@@ -63,4 +63,13 @@ li {
     width: 200px;
     height: 200px;
     opacity: 1;
+}
+
+#file-upload {
+    opacity: 0;
+}
+
+.choose {
+    background-color: #ff9293;
+    
 }

@@ -11,6 +11,7 @@ export default function UploadForm () {
     const dispatch= useDispatch()
      const [errors, setErrors] = useState([])
     const [imageUrl, setImage] = useState(null)
+    const [imageLoading, setImageLoading] = useState(false)
     const [typeError, setTypeError] = useState("")
     const [description, setDescription]= useState("")
     const sessionUser = useSelector(state => state.session.user);
@@ -59,6 +60,8 @@ export default function UploadForm () {
 
         console.log("THIS IS PAYLOAD------", payload)
 
+        setImageLoading(true)
+
         let picture = await dispatch(uploading(payload))
 
         // const pictureOne = Object.values(picture)
@@ -68,7 +71,7 @@ export default function UploadForm () {
        // setHasSubmitted(false)
 
        console.log("THIS IS PICTURE----", picture)
-
+            setImageLoading(false)
            history.push(`/photos/${picture?.id}`)
      
 
@@ -110,8 +113,11 @@ export default function UploadForm () {
                         </li>
                         ))}
                     </ul>
-                    <div>
+                    <div className="typeError">
                         {typeError}
+                    </div>
+                    <div className="loading-text">
+                        {imageLoading && <p>Loading...</p>}
                     </div>
                     <div className="drop-zone">
                         <FileUploader
@@ -122,7 +128,8 @@ export default function UploadForm () {
                             >
                                 <div className="drop-zone-inside">
                                     {imageUrl ? <img src={URL.createObjectURL(imageUrl)} alt='upload-preview' className="upload-preview"/> : <h4 id='upload-file'>Upload a file...</h4>}
-                                    <input type="file" onChange={updateFile} name="myFile" className="choose"/>
+                                    <label for="file-upload" className="choose">Choose photos to upload</label>
+                                    <input type="file" id="file-upload" onChange={updateFile} name="myFile"/>
                                 </div>
                          </FileUploader>
                     </div>
