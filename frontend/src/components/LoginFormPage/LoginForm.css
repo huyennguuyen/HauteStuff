@@ -41,7 +41,7 @@ label {
 } */
 
 .firstContainer {
-    opacity: 0.75;
+    /* opacity: 0.75; */
     width: 100vw;
     height: 100vh;
     position: absolute;

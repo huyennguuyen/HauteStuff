@@ -11,6 +11,7 @@ export default function UploadForm () {
     const dispatch= useDispatch()
      const [errors, setErrors] = useState([])
     const [imageUrl, setImage] = useState(null)
+    const [typeError, setTypeError] = useState("")
     const [description, setDescription]= useState("")
     const sessionUser = useSelector(state => state.session.user);
    const [hasSubmitted, setHasSubmitted] = useState(false)
@@ -27,12 +28,12 @@ export default function UploadForm () {
 
     useEffect(() => {
         let errors = [];
-        let imageFile = ["pdf", "png", "jpg", "jpeg", "gif"]
+        let imageFile = ["png", "jpg", "jpeg", "gif"]
         if(!imageUrl) errors.push("Please upload an image.")
 
         if(imageUrl) {
             
-            if(!imageFile.includes(imageUrl?.name.split(".").pop())) errors.push ("Please upload a pdf, png, jpg, jpeg, or gif file type.")
+            if(!imageFile.includes(imageUrl?.name.split(".").pop())) errors.push ("Please upload a png, jpg, jpeg, or gif file type.")
         }
 
         if(!description.length) errors.push("Please enter a description about your piece.")
@@ -82,15 +83,20 @@ export default function UploadForm () {
         if (file) setImage(file);
       };
 
-      const fileTypes = ["JPG", "PNG", "GIF"];
+      const fileTypes = ["JPG", "PNG", "GIF", "JPEG"];
 
       const handleChange = (file) => {
         setImage(file);
 
-        const chooseButton = document.querySelector(".choose")
-        chooseButton.classList.add("drop-zone__input")
+        const chooseButton = document.querySelector(".choose");
+        chooseButton.classList.add("drop-zone__input");
 
       };
+
+
+      const onTypeError = (error) => {
+        setTypeError("Please upload a jpg, png, gif, or jpeg file type.")
+      }
 
     return (
         <>
@@ -104,22 +110,19 @@ export default function UploadForm () {
                         </li>
                         ))}
                     </ul>
+                    <div>
+                        {typeError}
+                    </div>
                     <div className="drop-zone">
                         <FileUploader
-                                // onTypeError={(err) => setFileError('File type invalid. Recommended: .jpg .png .gif')}
+                                onTypeError={onTypeError}
                                 handleChange={handleChange}
                                 name='image'
                                 types={fileTypes}
                             >
                                 <div className="drop-zone-inside">
-                                    {/* <img
-                                        id="img-preview"
-                                        src={image
-                                            ? URL.createObjectURL(image)
-                                            : 'https://user-images.githubusercontent.com/88916829/159394080-4d2ad2ed-9370-4268-8699-a18fb30c86a4.png'}
-                                        alt='preview-upload'
-                                    /> */}
-                                <input type="file" onChange={updateFile} name="myFile" className="choose"/>
+                                    {imageUrl ? <img src={URL.createObjectURL(imageUrl)} alt='upload-preview' className="upload-preview"/> : <h4 id='upload-file'>Upload a file...</h4>}
+                                    <input type="file" onChange={updateFile} name="myFile" className="choose"/>
                                 </div>
                          </FileUploader>
                     </div>

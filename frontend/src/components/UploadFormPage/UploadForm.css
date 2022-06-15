@@ -42,13 +42,25 @@ li {
     display: block;
 }
 
-.drop-zone {
+/* .drop-zone {
     width: 200px;
     height: 200px;
     border: 1px solid black;
     display: block
-}
+} */
 
 .drop-zone__input {
     display:none;
+}
+
+.drag-pic {
+    border: 1px solid pink;
+    width: 150px;
+    height: 150px;
+}
+
+.upload-preview {
+    width: 200px;
+    height: 200px;
+    opacity: 1;
 }
