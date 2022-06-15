@@ -122,6 +122,19 @@ export default function UploadForm () {
         }
       }
 
+      const onDrop = (file) => {
+        // setImage(file);
+
+        const textImageDiv = document.querySelector(".text-image");
+        textImageDiv.classList.add("drop-zone__input");
+
+        const chooseButton = document.querySelector(".stupid-button")
+        chooseButton.classList.add("behind-button");
+
+      };
+
+      
+
 
       const onTypeError = (error) => {
         setTypeError("Please upload a jpg, png, gif, or jpeg file type.")
@@ -176,6 +189,7 @@ export default function UploadForm () {
                                     handleChange={handleChange}
                                     name='image'
                                     onDraggingStateChange={onDrag}
+                                    onDrop={onDrop}
                                     types={fileTypes}
                                 >
                                     <div className="drop-zone-inside">
