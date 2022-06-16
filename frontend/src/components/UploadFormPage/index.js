@@ -145,7 +145,7 @@ export default function UploadForm () {
                             {typeError}
                         </div>
                         <div className="loading-text">
-                            {imageLoading && <p>Loading...</p>}
+                            {imageLoading && <p className="loading-upload">Loading...</p>}
                         </div>
                         {/* <div className="drop-zone">
                             <FileUploader
