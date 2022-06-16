@@ -23,6 +23,18 @@ module.exports = (sequelize, DataTypes) => {
         len: [3, 256]
       }
     },
+    about: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
+    profileUrl: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    bannerUrl: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     hashedPassword: {
       type: DataTypes.STRING.BINARY,
       allowNull: false,
