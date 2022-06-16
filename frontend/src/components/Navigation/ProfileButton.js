@@ -45,7 +45,9 @@ function ProfileButton({ user }) {
               <ul className="pro">
                 <div className="side">
                   <div>
-                    <li>{user.username}</li>
+                    <NavLink to={`/users/${user.id}`}>            
+                      <li className="username">{user.username}</li>
+                    </NavLink>
                   </div>
                   <div className="user">
                     <li>{user.email}</li>

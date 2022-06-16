@@ -20,7 +20,7 @@ html {
 .developerInfo {
     background-color: #F4C2C2;
     height: 50px;
-    position: absolute;
+    position: fixed;
     /* top: 425.8vh; */
     bottom: 0;
     width: 100vw;

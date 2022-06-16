@@ -14,6 +14,7 @@ import {useParams} from "react-router-dom"
 import CommentFormPage from './components/CommentFormPage/CommentFormPage';
 import {AiFillGithub, AiFillLinkedin} from "react-icons/ai"
 import Splashpage from './components/Splashpage/Splashpage';
+import ProfilePage from './components/ProfilePage';
 
 
 
@@ -66,6 +67,9 @@ function App() {
           </Route>
           <Route exact path="/photos/:imageId/comments">
             <CommentFormPage/>
+          </Route>
+          <Route exact path="/users/:userId">
+            <ProfilePage/>
           </Route>
         </Switch>
       </>
