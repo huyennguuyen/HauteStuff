@@ -25,6 +25,14 @@ module.exports = (sequelize, DataTypes) => {
     },
     about: {
       type: DataTypes.TEXT,
+      allowNull: true,
+    },
+    firstName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    lastName: {
+      type: DataTypes.STRING,
       allowNull: false,
     },
     profileUrl: {

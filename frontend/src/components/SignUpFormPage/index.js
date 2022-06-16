@@ -9,6 +9,8 @@ function SignupFormPage() {
   const sessionUser = useSelector((state) => state.session.user);
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
@@ -38,6 +40,24 @@ function SignupFormPage() {
             <ul>
                 {errors.map((error, idx) => <li key={idx} className="errors">{error}</li>)}
             </ul>
+            <label>
+                First Name
+                <input
+                type="text"
+                className="signing"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+                />
+            </label>
+            <label>
+                Last Name
+                <input
+                type="text"
+                className="signing"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+                />
+            </label>
             <label>
                 Email
                 <input

@@ -89,7 +89,7 @@ export const restoreUser = () => async dispatch => {
 
     if(response.ok) {
       const res = await response.json()
-      // console.log("THIS IS RES FROM THE STORE---------", res)
+      console.log("THIS IS RES FROM THE STORE---------", res)
       dispatch(setUser(res))
     }
 
