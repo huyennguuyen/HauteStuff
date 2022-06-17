@@ -2,12 +2,15 @@ import { csrfFetch } from './csrf';
 
 const LOAD_CURRENT_USER = 'user/loadCurrentUser';
 
+// const LOAD_CURRENT_USER = 'user/loadCurrentUser';
+
 export const loadCurrentUser = (currentUser) => {
     return {
       type: LOAD_CURRENT_USER,
       payload: currentUser,
     };
   };
+
 
   export const oneUser = (id) => async(dispatch) => {
 
@@ -24,6 +27,49 @@ export const loadCurrentUser = (currentUser) => {
     }
 
   }
+
+  export const updateUser = (id, payload) => async(dispatch) => {
+
+    console.log("THIS IS ID--------", id)
+
+    console.log("THIS IS FORM------", payload)
+  const { lastName, firstName, username} = payload
+
+ 
+
+//   const formData = new FormData();
+//   formData.append("image", bannerUrl)
+//   formData.append("image", profileUrl)
+//   formData.append("lastName", lastName)
+//   formData.append("firstName", firstName)
+//   formData.append("username", username)
+
+  const response = await csrfFetch(`/api/users/${id}/edit`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({lastName,firstName,username}),
+  })
+
+  if(response.ok){
+    const updateUser = await response.json()
+    console.log("THIS IS DATA FROM STORE no image-----", updateUser)
+    dispatch(loadCurrentUser(updateUser))
+    return updateUser
+    
+    // console.log("THIS IS RES FROM THE STORE---------", response)
+
+    // if(response.ok) {
+    //   const res = await response.json()
+    // //   console.log("THIS IS RES FROM THE STORE---------", res)
+    //   dispatch(loadCurrentUser(res))
+    // }
+
+
+
+  }
+}
 
   const initialState = { user: null };
 

@@ -4,6 +4,7 @@ import React, { useEffect, useState, useRef } from "react"
 import { oneUser } from "../../store/user"
 import { NavLink } from "react-router-dom"
 import { useHistory } from "react-router-dom"
+import { updateUser } from "../../store/user"
 import "./Settings.css"
 
 
@@ -13,8 +14,8 @@ export default function Settings () {
     const history= useHistory()
     const dispatch= useDispatch()
     const [errors, setErrors] = useState([])
-    const [profileUrl, setProfileUrl] = useState(null)
-    const [bannerUrl, setBannerUrl] = useState(null)
+    // const [profileUrl, setProfileUrl] = useState(null)
+    // const [bannerUrl, setBannerUrl] = useState(null)
     const currentUser = useSelector(state => state.user.user);
 
     console.log("THIS IS CURRENT USER FROM SETTINGS", currentUser)
@@ -51,12 +52,12 @@ export default function Settings () {
       if(!firstName) errors.push("Please enter a first name.")
       if(!lastName) errors.push("Please enter a last name.")
       if(!username) errors.push("Please enter a username.")
-      if(!profileUrl) errors.push("Please upload a profile image.")
-      if(!bannerUrl) errors.push("Please upload a banner image. ")
+    //   if(!profileUrl) errors.push("Please upload a profile image.")
+    //   if(!bannerUrl) errors.push("Please upload a banner image. ")
 
       setErrors(errors)
 
-  }, [firstName, lastName, profileUrl, bannerUrl, username])
+  }, [firstName, lastName, username])
 
  
 
@@ -71,14 +72,12 @@ export default function Settings () {
           firstName, 
           lastName,
           username,
-          profileUrl,
-          bannerUrl
 
       }
 
       console.log("THIS IS EDIT PAYLOAD-----", payload)
 
-    //   let picture = await dispatch(updatePhoto(imageId, payload))
+      let picture = await dispatch(updateUser(userId, payload))
 
       // const pictureOne = Object.values(picture)
 
@@ -90,17 +89,17 @@ export default function Settings () {
 
   }
 
-  const updateProfile = (e) => {
-      const file = e.target.files[0];
-      console.log("THIS IS FILE-------", file)
-      if (file) setProfileUrl(file);
-    };
+//   const updateProfile = (e) => {
+//       const file = e.target.files[0];
+//       console.log("THIS IS FILE-------", file)
+//       if (file) setProfileUrl(file);
+//     };
 
-    const updateBanner = (e) => {
-        const file = e.target.files[0];
-        console.log("THIS IS FILE-------", file)
-        if (file) setBannerUrl(file);
-      };
+    // const updateBanner = (e) => {
+    //     const file = e.target.files[0];
+    //     console.log("THIS IS FILE-------", file)
+    //     if (file) setBannerUrl(file);
+    //   };
 
   return (
       <>
@@ -137,14 +136,14 @@ export default function Settings () {
                 onChange={(e) => setUsername(e.target.value)}
                 />
             </label>
-            <label>
+            {/* <label>
                 Profile Picture
                 <input type="file" onChange={updateProfile}/>
-            </label>
-            <label>
+            </label> */}
+            {/* <label>
                 Banner Picture
                 <input type="file" onChange={updateBanner}/>
-            </label>
+            </label> */}
             <button type="submit" className="signUpButton">Save Changes</button>
             </form>
         </div>

@@ -44,7 +44,7 @@ router.get("/:id", asyncHandler(async(req, res) => {
 
 }))
 
-router.put("/:id/edit", singleMulterUpload("banner"), singleMulterUpload("profile"), asyncHandler(async(req, res, next) => {
+router.put("/:id/edit", asyncHandler(async(req, res, next) => {
   const {firstName, lastName, username, about} = req.body
 
   console.log("THIS IS UPDATE BACKEND-----", req.body)
@@ -52,23 +52,23 @@ router.put("/:id/edit", singleMulterUpload("banner"), singleMulterUpload("profil
   // const imageUrl = await singlePublicFileUpload(req.file);
 
   // console.log("THIS IS IMAGEURL backend-----", imageUrl)
-  console.log("THIS IS REQ.FILE------", req.file)
+  // console.log("THIS IS REQ.FILE------", req.file)
 
   const id = parseInt(req.params.id, 10)
 
   const user = await db.User.findByPk(id)
 
-    const profileUrl = await singlePublicFileUpload(req.file);
+    // const profileUrl = await singlePublicFileUpload(req.file);
 
-    const bannerUrl = await singlePublicFileUpload(req.file);
+    // const bannerUrl = await singlePublicFileUpload(req.file);
 
       const updateUser= await user.update({
           firstName,
           lastName,
           username,
           about,
-          bannerUrl,
-          profileUrl
+          // bannerUrl,
+          // profileUrl
          })
  
          return res.json(updateUser)
