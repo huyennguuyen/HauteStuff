@@ -52,6 +52,7 @@ const sessionReducer = (state = initialState, action) => {
 export const restoreUser = () => async dispatch => {
     const response = await csrfFetch('/api/session');
     const data = await response.json();
+    console.log("THIS IS DATA FROM THE STORE SESSION------", data)
     dispatch(setUser(data.user));
     return response;
   };
@@ -82,20 +83,5 @@ export const restoreUser = () => async dispatch => {
     return response;
   };
 
-  export const oneUser = (id) => async(dispatch) => {
-
-    console.log("THIS IS ID--------", id)
-
-    const response = await csrfFetch(`/api/users/${id}`)
-    
-    console.log("THIS IS RES FROM THE STORE---------", response)
-
-    if(response.ok) {
-      const res = await response.json()
-      console.log("THIS IS RES FROM THE STORE---------", res)
-      dispatch(setUser(res))
-    }
-
-  }
 
 export default sessionReducer;

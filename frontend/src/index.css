@@ -56,9 +56,6 @@ html {
     margin-right: 35px;
   }
 
-  p {
-    font-family: "Lato";
-  }
 
   .name {
     margin-left: 15px;
@@ -72,7 +69,7 @@ html {
     list-style: none;
   }
 
-  h4, p, label {
+  h4, p, label, h3 {
     font-family: "Lato";
   }
 

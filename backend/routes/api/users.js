@@ -33,7 +33,7 @@ router.get("/:id", asyncHandler(async(req, res) => {
     console.log("THIS IS ID------------------------", id)
     const user = await db.User.findByPk(id)
 
-    console.log("THIS IS USER BACKEND-----------------------------------", user)
+    // console.log("THIS IS USER BACKEND-----------------------------------", user)
     return res.json(user)
 
 }))
