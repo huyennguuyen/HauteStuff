@@ -53,9 +53,9 @@ function ProfileButton({ user }) {
                     <li>{user.email}</li>
                   </div>
                   <li>
-                      {/* <NavLink> */}
+                      <NavLink to={`/users/${user.id}/edit`}> 
                         Settings
-                      {/* </NavLink> */}
+                      </NavLink>
                     </li>
                   <div className="user">
                     <li>

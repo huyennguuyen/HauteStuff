@@ -15,6 +15,7 @@ import CommentFormPage from './components/CommentFormPage/CommentFormPage';
 import {AiFillGithub, AiFillLinkedin} from "react-icons/ai"
 import Splashpage from './components/Splashpage/Splashpage';
 import ProfilePage from './components/ProfilePage';
+import Settings from './components/Settings';
 
 
 
@@ -40,8 +41,7 @@ function App() {
           <div className="leftSide">
               <a className="developerLink" href='https://github.com/huyennguuyen' target="_blank" rel="noopener noreferrer">Github <AiFillGithub /></a>
               <a className="developer-link" href="https://www.linkedin.com/in/huyen-nguyen-2804b523b/" target="_blank" rel="noopener noreferrer">LinkedIn <AiFillLinkedin/></a>
-          </div>
-         
+          </div> 
         </div>
         <Switch>
           <Route path="/login">
@@ -70,6 +70,9 @@ function App() {
           </Route>
           <Route exact path="/users/:userId">
             <ProfilePage/>
+          </Route>
+          <Route exact path="/users/:userId/edit">
+            <Settings />
           </Route>
         </Switch>
       </>

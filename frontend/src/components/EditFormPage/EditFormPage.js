@@ -16,7 +16,7 @@ export default function EditFormPage () {
      const [errors, setErrors] = useState([])
     const photo = useSelector(state => state.upload[imageId])
     const [imageUrl, setImage] = useState(null)
-    const [description, setDescription]= useState(`${photo?.description}`)
+    const [description, setDescription]= useState(photo?.description)
     const sessionUser = useSelector(state => state.session.user);
     const [hasSubmitted, setHasSubmitted] = useState(false)
 
@@ -37,7 +37,7 @@ export default function EditFormPage () {
         //     errors.push("Please enter a URl")
         // }
 
-        if(!description.length) errors.push("Please enter a description.")
+        if(!description) errors.push("Please enter a description.")
         setErrors(errors)
 
     }, [imageUrl, description])

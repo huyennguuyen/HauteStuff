@@ -15,11 +15,11 @@ export const loadCurrentUser = (currentUser) => {
 
     const response = await csrfFetch(`/api/users/${id}`)
     
-    console.log("THIS IS RES FROM THE STORE---------", response)
+    // console.log("THIS IS RES FROM THE STORE---------", response)
 
     if(response.ok) {
       const res = await response.json()
-      console.log("THIS IS RES FROM THE STORE---------", res)
+    //   console.log("THIS IS RES FROM THE STORE---------", res)
       dispatch(loadCurrentUser(res))
     }
 

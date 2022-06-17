@@ -44,8 +44,8 @@ router.get("/:id", asyncHandler(async(req, res) => {
 
 }))
 
-router.put("/:id/edit", singleMulterUpload("image"), asyncHandler(async(req, res, next) => {
-  const {firstName, lastName, username, about, bannerUrl, profileUrl} = req.body
+router.put("/:id/edit", singleMulterUpload("banner"), singleMulterUpload("profile"), asyncHandler(async(req, res, next) => {
+  const {firstName, lastName, username, about} = req.body
 
   console.log("THIS IS UPDATE BACKEND-----", req.body)
 
@@ -58,7 +58,9 @@ router.put("/:id/edit", singleMulterUpload("image"), asyncHandler(async(req, res
 
   const user = await db.User.findByPk(id)
 
-    const files = await singlePublicFileUpload(req.file);
+    const profileUrl = await singlePublicFileUpload(req.file);
+
+    const bannerUrl = await singlePublicFileUpload(req.file);
 
       const updateUser= await user.update({
           firstName,
@@ -70,10 +72,6 @@ router.put("/:id/edit", singleMulterUpload("image"), asyncHandler(async(req, res
          })
  
          return res.json(updateUser)
-
-  
-
-
   
 
   //console.log(photos)
@@ -83,9 +81,6 @@ router.put("/:id/edit", singleMulterUpload("image"), asyncHandler(async(req, res
   // return res.json(updatePhotos)
  
 }))
-
-
-
 
 
 router.post(

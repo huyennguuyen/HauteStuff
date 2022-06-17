@@ -32,7 +32,6 @@ export default function ProfilePage () {
     const currentUser = useSelector(state => state.user.user);
   
     console.log("THIS IS CURRENT USER-------", currentUser)
-    console.log()
     // console
 
     // const close = (e) => {
