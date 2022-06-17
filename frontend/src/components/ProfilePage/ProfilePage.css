@@ -4,13 +4,10 @@
     margin-top: 4em;
 }
 .up-profile {
-    position:relative;
-}
-.banner {
     width: 100vw;
     height: 12em;
-    /* background-size: cover; */
 }
+
 
 .profile-pic {
     height: 100px;
@@ -19,15 +16,19 @@
     left: 7em; */
     /* position: absolute; */
     border-radius: 50px;
+    margin-bottom: 1em;
 }
 
 .inside-banner {
-    top: 4.8em;
-    left: 7em;
-    /* border: 1px solid black; */
-    position: absolute;
+    margin-left: 7em;
+    border: 1px solid black;
+    object-fit: contain;
+    /* position: absolute; */
     display: flex;
     flex-direction: row;
+    align-items: flex-end; 
+    width: 100vw;
+    height: 12em;
 }
 
 
@@ -36,6 +37,7 @@
     margin-left: 15px;
     display: flex;
     flex-direction: column;
+    margin-bottom: 2em;
 }
 
 .profile-name-header {
@@ -51,15 +53,75 @@
 .profile-menu {
     width: 24px;
     height: 24px;
-}
-
-.menu-box{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1.3em;
-    margin-left: 15px;
-    width: 30px;
-    height: 30px;
     border: 1px solid black;
 }
+
+
+
+.inside-menu {
+    /* height: 40px;
+    height: 200px; */
+    margin-bottom: 4em;
+    margin-left: 1em;
+}
+
+
+.profile-menu-button {
+    background: none;
+    border: none;
+    width: 30px;
+    height: 30px;
+    /* margin-bottom: 4.5em;
+    margin-left: 1em; */
+}
+
+/* .popup-content {
+    margin-bottom: 2em;
+    width: 200px;
+    border: 1px solid black;
+}
+
+.popup-arrow {
+    width: 25px;
+    height: 25px;
+} */
+
+.popup-content {
+    /* margin: auto; */
+    background: rgb(255, 255, 255);
+    width: 50%;
+    padding: 5px;
+    margin-top: -4em;
+    border-radius: 4px;
+    /* height: 100px; */
+    /* padding-bottom: 50px; */
+  }
+
+
+ 
+ 
+
+  [role='tooltip'].popup-content {
+    width: 200px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
+  }
+
+  /* .inside-menu {
+    width: 200px;
+  } */
+
+  .profile-container {
+    height: 100vh;
+  }
+
+  /* .modal {
+    bottom: 5em;
+  } */
+  
+  /* .popup-overlay {
+    background: rgba(0, 0, 0, 0.5);
+  } */
+  /* [data-popup='tooltip'].popup-overlay {
+    background: transparent;
+  } */
+
