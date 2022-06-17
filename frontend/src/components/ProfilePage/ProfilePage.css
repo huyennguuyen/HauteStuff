@@ -24,7 +24,7 @@
 .inside-banner {
     top: 4.8em;
     left: 7em;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     position: absolute;
     display: flex;
     flex-direction: row;
@@ -46,4 +46,20 @@
 .profile-name {
     margin-top: 10px;
     margin-bottom: 0;
+}
+
+.profile-menu {
+    width: 24px;
+    height: 24px;
+}
+
+.menu-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.3em;
+    margin-left: 15px;
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
 }

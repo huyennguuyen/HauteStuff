@@ -40,7 +40,9 @@ export default function ProfilePage () {
                             <h2 className="profile-name-header">{currentUser?.firstName} {currentUser?.lastName}</h2>
                             <h3 className="profile-name">{currentUser?.username}</h3>
                         </div>
-                        <FiMoreHorizontal className="profile-menu"/>
+                        <div className="menu-box">
+                            <FiMoreHorizontal className="profile-menu"/>
+                        </div>
                     </div>
                     <img src="https://images.unsplash.com/photo-1547737694-af7c0238463b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80" className="banner"></img>
                 </div>

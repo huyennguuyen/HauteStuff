@@ -35,7 +35,7 @@ function SignupFormPage() {
 
   return (
     <div className="firstContainer">
-        <div className="secondContainer">
+        <div className="inside-signup">
             <form onSubmit={handleSubmit} className="forms" id="signupForm">
             <ul>
                 {errors.map((error, idx) => <li key={idx} className="errors">{error}</li>)}
@@ -49,7 +49,7 @@ function SignupFormPage() {
                 onChange={(e) => setFirstName(e.target.value)}
                 />
             </label>
-            <label>
+            <label className="sign-margin">
                 Last Name
                 <input
                 type="text"
@@ -58,7 +58,7 @@ function SignupFormPage() {
                 onChange={(e) => setLastName(e.target.value)}
                 />
             </label>
-            <label>
+            <label className="sign-margin">
                 Email
                 <input
                 type="text"
