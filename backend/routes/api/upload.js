@@ -31,6 +31,8 @@ router.post('/new',singleMulterUpload("image"), asyncHandler(async(req, res, nex
    //imageUrl was in req.body
    const imageUrl = await singlePublicFileUpload(req.file);
 
+   console.log("THIS IS IMAGE URL FROM BACKEND------", imageUrl)
+
    const photos= db.Photo.build({
     userId,
     albumId,

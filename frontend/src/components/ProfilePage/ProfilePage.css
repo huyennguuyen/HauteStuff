@@ -125,3 +125,14 @@
     background: transparent;
   } */
 
+  .yaga {
+    background-color: aqua;
+  }
+
+  .popup-overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  [data-popup='tooltip'].popup-overlay {
+    background: transparent;
+  }
+

@@ -6,6 +6,12 @@ const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
 const { User } = require('../../db/models');
+const {
+  singleMulterUpload,
+  singlePublicFileUpload,
+  multipleMulterUpload,
+  multiplePublicFileUpload,
+} = require("../../awsS3");
 const router = express.Router();
 
 const validateSignup = [
@@ -37,6 +43,50 @@ router.get("/:id", asyncHandler(async(req, res) => {
     return res.json(user)
 
 }))
+
+router.put("/:id/edit", singleMulterUpload("image"), asyncHandler(async(req, res, next) => {
+  const {firstName, lastName, username, about, bannerUrl, profileUrl} = req.body
+
+  console.log("THIS IS UPDATE BACKEND-----", req.body)
+
+  // const imageUrl = await singlePublicFileUpload(req.file);
+
+  // console.log("THIS IS IMAGEURL backend-----", imageUrl)
+  console.log("THIS IS REQ.FILE------", req.file)
+
+  const id = parseInt(req.params.id, 10)
+
+  const user = await db.User.findByPk(id)
+
+    const files = await singlePublicFileUpload(req.file);
+
+      const updateUser= await user.update({
+          firstName,
+          lastName,
+          username,
+          about,
+          bannerUrl,
+          profileUrl
+         })
+ 
+         return res.json(updateUser)
+
+  
+
+
+  
+
+  //console.log(photos)
+
+//    res.redirect(`/photos/${photos.id}`)
+
+  // return res.json(updatePhotos)
+ 
+}))
+
+
+
+
 
 router.post(
     '/',

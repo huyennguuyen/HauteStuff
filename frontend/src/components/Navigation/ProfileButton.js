@@ -52,6 +52,11 @@ function ProfileButton({ user }) {
                   <div className="user">
                     <li>{user.email}</li>
                   </div>
+                  <li>
+                      {/* <NavLink> */}
+                        Settings
+                      {/* </NavLink> */}
+                    </li>
                   <div className="user">
                     <li>
                       <NavLink exact to="/">
