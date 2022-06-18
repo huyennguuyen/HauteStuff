@@ -56,10 +56,18 @@ export default function ProfilePage () {
     return (
         <div className="profile-container">
             <div className="inside-profile">
-                <div className="up-profile" style={{backgroundImage: "url(" + "https://images.unsplash.com/photo-1547737694-af7c0238463b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80" + ")", 
+                {/* {currentUser?.bannerUrl ? } */}
+                <div className="up-profile" 
+                        style={ currentUser?.bannerUrl ? 
+                        { backgroundImage: `url(${currentUser?.bannerUrl})`, 
                         backgroundPosition: 'center',
                         backgroundSize: 'cover',
-                        backgroundRepeat: 'no-repeat'}}>
+                        backgroundRepeat: 'no-repeat'} :
+                        { backgroundImage: "url(" + "https://images.unsplash.com/photo-1547737694-af7c0238463b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80" + ")", 
+                        backgroundPosition: 'center',
+                        backgroundSize: 'cover',
+                        backgroundRepeat: 'no-repeat'}    
+                        }>
                     <div className="inside-banner">
                         {currentUser?.profileUrl ? <img src={currentUser?.profileUrl} className="profile-pic" onClick={e => setShowEditProfile(true)}></img>:
                         <img src="https://cdn.myportfolio.com/0da7f5fbc31f3b0a622becb5c04363c6/ee759715-7080-4029-8458-50a20bff014c_rw_1920.jpg?h=ba7face07c8aec7970909f3eb3c91045" className="profile-pic" onClick={e => setShowEditProfile(true)}></img>
