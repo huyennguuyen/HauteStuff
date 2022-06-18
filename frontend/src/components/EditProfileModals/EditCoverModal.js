@@ -81,6 +81,45 @@ export default function EditCoverModal () {
         if (file) setBannerUrl(file);
       };
 
+      const fileTypes = ["JPG", "PNG", "GIF", "JPEG"];
+
+
+    //   const handleChange = (file) => {
+    //     setImage(file);
+
+    //     // const textImageDiv = document.querySelector(".text-image");
+    //     // textImageDiv.classList.add("drop-zone__input");
+
+    //     // const chooseButton = document.querySelector(".stupid-button")
+    //     // chooseButton.classList.add("behind-button");
+
+    //     setDisabled(false)
+
+    //   };
+
+    //   const change = (e) => {
+
+    //     setDisabled(false)
+    //   }
+
+    //   const onDrag = dragging => {
+    //     // console.log(dragging)
+    //     // setDrag(dragging)
+    //     // console.log(dragging)
+    //     if (dragging === false) {
+    //         setDisabled(true)
+
+    //     } else {
+    //         setDisabled(false)
+    //     }
+    //   }
+
+
+
+    //   const onTypeError = (error) => {
+    //     setTypeError("Please upload a jpg, png, gif, or jpeg file type.")
+    //   }
+
   return (
       <>
        <div className="profile-pic-edit">
