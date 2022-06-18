@@ -32,6 +32,8 @@ export default function Homepage () {
       one[photo.id] = photo;
     });
 
+    console.log("THIS IS ONE---------", one)
+
     // const photosArray = Object.values(photos)
 
     

@@ -20,17 +20,10 @@ export default function OnePhoto () {
     const [users, setUsers] = useState([]);
     const sessionUser = useSelector(state => state.session.user);
 
-   // console.log(sessionUser.id)
-
-    // const photos = useSelector((state) => {
-    //     return Object.values(state.upload)
-    // })[imageId]
-
     const photos = useSelector((state) => {
         return state.upload[imageId]
     })
 
-    // console.log(photos)
 
     const comments = useSelector((state) => {
        return state.comments
@@ -41,20 +34,6 @@ export default function OnePhoto () {
      const loadComments = Object.values(comments)
 
      
-
-
-
-    //console.log(photos)
-
-  // console.log(photos.userId)
-
-   //console.log("this is user that made photo", photos.User.id)
-
-  //console.log( "this is photos.userId", photos.userId)
-
-   //console.log("this is session user id", sessionUser.id)
-
-   //console.log("this is photos", photos)
 
 
     if (!sessionUser) {
@@ -160,14 +139,12 @@ export default function OnePhoto () {
             <div className="photoDescription">
                 <img src={photos?.imageUrl}></img>
                 <p className="description-one">{photos?.description}</p>
-                {/* {users?.map((user) => (
-                    <li>{user}</li>
-                ))} */}
             </div>
-            {loadComments?.map((comment, idx) => (
+            {loadComments?.map((comment, {idx}) => (
                 <div key={idx}>
                 <li key={idx} className="box2">
-                    {}
+                    {/* {console.log("THIS IS THE OTHER USERS-----",users[comment?.userId].username)} */}
+                    <h4>{users[comment?.userId]?.username}</h4>
                     <p className="text">{comment.comment}</p>
                     {sessionUser?.id === comment?.userId && (
                     <>
