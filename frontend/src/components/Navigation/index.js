@@ -26,7 +26,7 @@ function Navigation({ isLoaded }){
         <NavLink to="/photos/new"> 
           <FaCloudUploadAlt />
         </NavLink>
-          <ProfileButton user={sessionUser} />
+          <ProfileButton user={sessionUser}/>
         </div>
       </nav>
       </>

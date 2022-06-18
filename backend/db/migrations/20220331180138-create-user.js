@@ -13,6 +13,26 @@ module.exports = {
         allowNull: false,
         unique: true
       },
+      firstName: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      lastName: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      about: {
+        type: Sequelize.TEXT,
+        allowNull: true,
+      },
+      bannerUrl: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
+      profileUrl: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
       email: {
         type: Sequelize.STRING(256),
         allowNull: false,

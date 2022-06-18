@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
@@ -9,20 +10,43 @@ function SignupFormPage() {
   const sessionUser = useSelector((state) => state.session.user);
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
+  const [hasSubmitted, setHasSubmitted] = useState(false)
 
-  if (sessionUser) return (
-    // <Redirect to="/" />
-    <Redirect to="/home" />
-  );
+  
+  useEffect(() => {
+      let errors = [];
+    
+      if(!firstName.length) errors.push("Please enter your first name.")
+      if(!lastName.length) errors.push("Please enter your last name.")
+      // if(!email.length) errors.push("Please enter an email.")
+      // if(!username.length) errors.push("Please enter a username.")
+      // if(!password.length) errors.push("Please enter a password.")
+      // if(!confirmPassword.length) errors.push("Please confirm your password.")
+      setErrors(errors)
+    
+    }, [firstName, lastName])
+    
+    if (sessionUser) return (
+      // <Redirect to="/" />
+      <Redirect to="/home" />
+    );
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    setHasSubmitted(true)
+
+    if(errors.length > 0) return; 
+
     if (password === confirmPassword) {
       setErrors([]);
-      return dispatch(sessionActions.signup({ email, username, password }))
+      return dispatch(sessionActions.signup({ email, username, password, lastName, firstName}))
         .catch(async (res) => {
           const data = await res.json();
           if (data && data.errors) setErrors(data.errors);
@@ -33,12 +57,30 @@ function SignupFormPage() {
 
   return (
     <div className="firstContainer">
-        <div className="secondContainer">
+        <div className="inside-signup">
             <form onSubmit={handleSubmit} className="forms" id="signupForm">
             <ul>
-                {errors.map((error, idx) => <li key={idx} className="errors">{error}</li>)}
+                {hasSubmitted && errors.map((error, idx) => <li key={idx} className="errors">{error}</li>)}
             </ul>
             <label>
+                First Name
+                <input
+                type="text"
+                className="signing"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+                />
+            </label>
+            <label className="sign-margin">
+                Last Name
+                <input
+                type="text"
+                className="signing"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+                />
+            </label>
+            <label className="sign-margin">
                 Email
                 <input
                 type="text"

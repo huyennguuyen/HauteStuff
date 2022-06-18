@@ -3,12 +3,14 @@ import thunk from "redux-thunk";
 import sessionReducer from './session';
 import uploadReducer from "./upload";
  import commentsReducer from "./comments";
+ import currentUserReducer from "./user";
 
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   upload: uploadReducer,
   comments: commentsReducer,
+  user: currentUserReducer,
 
 });
 

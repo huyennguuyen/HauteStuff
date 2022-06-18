@@ -23,6 +23,26 @@ module.exports = (sequelize, DataTypes) => {
         len: [3, 256]
       }
     },
+    about: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+    },
+    firstName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    lastName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    profileUrl: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    bannerUrl: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     hashedPassword: {
       type: DataTypes.STRING.BINARY,
       allowNull: false,
@@ -90,12 +110,14 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
 
-  User.signup = async function ({ username, email, password }) {
+  User.signup = async function ({ username, email, password, firstName, lastName }) {
     const hashedPassword = bcrypt.hashSync(password);
     const user = await User.create({
       username,
       email,
-      hashedPassword
+      hashedPassword,
+      lastName,
+      firstName
     });
     return await User.scope('currentUser').findByPk(user.id)
   }
@@ -103,6 +125,7 @@ module.exports = (sequelize, DataTypes) => {
   User.associate = function(models) {
     // associations can be defined here
     User.hasMany(models.Photo, {foreignKey: 'userId'});
+    User.hasMany(models.Album, {foreignKey: 'userId'});
     User.hasMany(models.Comment, {foreignKey:'userId'})
   };
 

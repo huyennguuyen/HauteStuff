@@ -40,6 +40,18 @@ export const loading = () => async dispatch => {
   
 }
 
+export const loadMyPhotos = (userId) => async dispatch => {
+  const response = await csrfFetch(`/api/photos/users/${userId}`)
+
+  if (response.ok) {
+    const photos = await response.json()
+    //console.log("==================",photos)
+    dispatch(load(photos))
+  }
+
+  
+}
+
 export const getOne = (id) => async dispatch => {
 
   const response = await csrfFetch (`/api/photos/${id}`)

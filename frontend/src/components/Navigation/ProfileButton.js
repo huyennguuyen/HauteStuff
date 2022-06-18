@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import './Navigation.css';
 import {NavLink} from "react-router-dom";
+// import { oneUser } from "../../store/user"
 import {ReactComponent as SVG} from "../../logo.svg";
+import {useDispatch, useSelector} from "react-redux"
 
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
+  // const currentUser = useSelector(state => state.user.user);
   
   const openMenu = () => {
     if (showMenu) return;
@@ -26,6 +28,10 @@ function ProfileButton({ user }) {
   
     return () => document.removeEventListener("click", closeMenu);
   }, [showMenu]);
+
+  // useEffect( () => {
+  //   dispatch(oneUser(currentUser.id))
+  // },[currentUser, dispatch])
 
   const logout = (e) => {
     e.preventDefault();
@@ -45,11 +51,18 @@ function ProfileButton({ user }) {
               <ul className="pro">
                 <div className="side">
                   <div>
-                    <li>{user.username}</li>
+                    <NavLink to={`/users/${user?.id}`}>            
+                      <li className="username">{user?.username}</li>
+                    </NavLink>
                   </div>
-                  <div className="user">
+                  {/* <div className="user">
                     <li>{user.email}</li>
-                  </div>
+                  </div> */}
+                  <li>
+                      <NavLink to={`/users/${user?.id}/edit`}> 
+                        Settings
+                      </NavLink>
+                    </li>
                   <div className="user">
                     <li>
                       <NavLink exact to="/">
