@@ -12,8 +12,9 @@ import "./EditProfileModals.css"
 
 
 
-export default function EditCoverModal ({close}) {
-    const {userId} = useParams()
+export default function EditCoverModal ({close, userId}) {
+    // const {userId} = useParams()
+    console.log("THIS IS USERID-------------- FROM EDIT COVER", userId)
     const history= useHistory()
     const dispatch= useDispatch()
     const [errors, setErrors] = useState([])

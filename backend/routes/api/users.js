@@ -36,7 +36,7 @@ const validateSignup = [
 
 router.get("/:id", asyncHandler(async(req, res) => {
     const id = parseInt(req.params.id, 10)
-    console.log("THIS IS ID------------------------", id)
+    // console.log("THIS IS ID------------------------", id)
     const user = await db.User.findByPk(id)
 
     // console.log("THIS IS USER BACKEND-----------------------------------", user)
@@ -48,7 +48,7 @@ router.get("/:id", asyncHandler(async(req, res) => {
 
 router.put("/:id/profile/edit",singleMulterUpload("image"), asyncHandler(async(req, res, next) => {
   
-  console.log("THIS IS UPDATE BACKEND-----", req.body)
+  // console.log("THIS IS UPDATE BACKEND-----", req.body)
 
   // const imageUrl = await singlePublicFileUpload(req.file);
 
@@ -80,7 +80,7 @@ router.put("/:id/profile/edit",singleMulterUpload("image"), asyncHandler(async(r
 
 router.put("/:id/banner/edit", singleMulterUpload("image"), asyncHandler(async(req, res, next) => {
 
-  console.log("THIS IS UPDATE BACKEND-----", req.body)
+  // console.log("THIS IS UPDATE BACKEND-----", req.body)
 
 
   const id = parseInt(req.params.id, 10)
@@ -102,7 +102,7 @@ router.put("/:id/banner/edit", singleMulterUpload("image"), asyncHandler(async(r
 router.put("/:id/edit", asyncHandler(async(req, res, next) => {
   const {firstName, lastName, username, about} = req.body
 
-  console.log("THIS IS UPDATE BACKEND-----", req.body)
+  // console.log("THIS IS UPDATE BACKEND-----", req.body)
 
   // const imageUrl = await singlePublicFileUpload(req.file);
 

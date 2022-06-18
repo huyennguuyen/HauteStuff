@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const asyncHandler = require('express-async-handler');
 const db = require("../../db/models");
-const user = require("../../db/models/user");
+// const user = require("../../db/models/user");
 const {
     singleMulterUpload,
     singlePublicFileUpload,
@@ -31,7 +31,7 @@ router.post('/new',singleMulterUpload("image"), asyncHandler(async(req, res, nex
    //imageUrl was in req.body
    const imageUrl = await singlePublicFileUpload(req.file);
 
-   console.log("THIS IS IMAGE URL FROM BACKEND------", imageUrl)
+//    console.log("THIS IS IMAGE URL FROM BACKEND------", imageUrl)
 
    const photos= db.Photo.build({
     userId,
@@ -50,6 +50,24 @@ router.post('/new',singleMulterUpload("image"), asyncHandler(async(req, res, nex
 
 }))
 
+
+
+router.get("/users/:id", asyncHandler(async(req, res, next) => {
+
+    const id = parseInt(req.params.id, 10)
+
+
+    const photos = await db.Photo.findAll({
+        where: {
+          userId: id,
+        },
+      });
+
+
+    return res.json(photos)
+}))
+
+
 router.get("/:id", asyncHandler(async(req, res, next) => {
     const id = parseInt(req.params.id, 10)
     const photos = await db.Photo.findByPk(id, {
@@ -64,12 +82,12 @@ router.get("/:id", asyncHandler(async(req, res, next) => {
 router.put("/:id/edit", singleMulterUpload("image"), asyncHandler(async(req, res, next) => {
     const {userId, description} = req.body
 
-    console.log("THIS IS UPDATE BACKEND-----", req.body)
+    // console.log("THIS IS UPDATE BACKEND-----", req.body)
 
     // const imageUrl = await singlePublicFileUpload(req.file);
 
     // console.log("THIS IS IMAGEURL backend-----", imageUrl)
-    console.log("THIS IS REQ.FILE------", req.file)
+    // console.log("THIS IS REQ.FILE------", req.file)
 
     const id = parseInt(req.params.id, 10)
 

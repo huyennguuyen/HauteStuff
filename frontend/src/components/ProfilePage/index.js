@@ -10,7 +10,10 @@ import Popup from "reactjs-popup"
 import { Modal } from "../context/Modal";
 import EditCoverModal from "../EditProfileModals/EditCoverModal"
 import EditProfileModal from "../EditProfileModals/EditProfileModal"
+import ProfilePhotos from "../ProfilePhotos"
+import About from "../About"
 import "./ProfilePage.css"
+
 
 export default function ProfilePage () {
     const dispatch = useDispatch();
@@ -29,6 +32,9 @@ export default function ProfilePage () {
     const close = () => setOpening(false);
     const [showEditCover, setShowEditCover] = useState(false)
     const [showEditProfile, setShowEditProfile] = useState(false)
+    const [showAbout, setShowAbout] = useState(false)
+    const [showPhotos, setShowPhotos] = useState(false)
+    const [first, setFirst] = useState(true)
 
     const currentUser = useSelector(state => state.user.user);
   
@@ -53,6 +59,20 @@ export default function ProfilePage () {
         dispatch(oneUser(userId))
       },[userId, dispatch])
 
+    const about = () => {
+        setShowAbout(true)
+        setShowPhotos(false)
+        setFirst(false)
+    }
+
+    const photos = () => {
+        setShowAbout(false)
+        setShowPhotos(true)
+        setFirst(false)
+    }
+
+
+
     return (
         <div className="profile-container">
             <div className="inside-profile">
@@ -74,7 +94,7 @@ export default function ProfilePage () {
                         }
                         {showEditProfile && (
                             <Modal onClose={() => setShowEditProfile(false)}> 
-                                <EditProfileModal closeModal={() => setShowEditProfile(false)}/>
+                                <EditProfileModal closeModal={() => setShowEditProfile(false)} userId={userId}/>
                             </Modal>
                         )}
                         <div className="name-section">
@@ -99,7 +119,7 @@ export default function ProfilePage () {
                                 >
                                     {close => (
                                         <>
-                                            <EditCoverModal close={close}/>
+                                            <EditCoverModal close={close} userId={userId}/>
                                             {/* <button className="signUpButton" onClick={close}>Cancel Changes</button> */}
                                         </>
                                     )}
@@ -111,9 +131,32 @@ export default function ProfilePage () {
                         </div>
                     </div>
                     <div className="profile-navlinks">
-                        <div>
-
-                        </div>
+                        {/* <NavLink to={`/users/${currentUser?.id}/about`} className="prof-link"> */}
+                         <>
+                            <h2 onClick={about}>About</h2>
+                            {/* {showAbout && (
+                                  <About />
+                            )} */}
+                            {/* </NavLink> */}
+                            {/* <NavLink to={`/users/${currentUser?.id}/all-photos`} className="prof-link"> */}
+                            <h2 onClick={photos}>Photos</h2>
+                            
+                            {/* {showPhotos && (
+                                <ProfilePhotos />
+                            )} */}
+                            {/* </NavLink> */}
+                         </>
+                    </div>
+                    <div className="under-prof-nav">
+                        {first && (
+                         <ProfilePhotos userId={userId}/> 
+                        )}
+                        {showAbout && (
+                            <About userId={userId}/>
+                        )}
+                        {showPhotos && (
+                            <ProfilePhotos userId={userId}/>
+                        )}
                     </div>
                 </div>
             </div>

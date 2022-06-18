@@ -12,8 +12,8 @@ import "./EditProfileModals.css"
 
 
 
-export default function EditProfileModal ({closeModal}) {
-    const {userId} = useParams()
+export default function EditProfileModal ({closeModal, userId}) {
+    // const {userId} = useParams()
     const history= useHistory()
     const dispatch= useDispatch()
     const [errors, setErrors] = useState([])

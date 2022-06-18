@@ -21,7 +21,7 @@
 
 .inside-banner {
     margin-left: 7em;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     object-fit: contain;
     /* position: absolute; */
     display: flex;
@@ -54,7 +54,7 @@
     width: 24px;
     height: 24px;
     border: 1px solid black;
-}
+} 
 
 
 
@@ -143,4 +143,17 @@
     justify-content: center;
     align-items: center;
   }
+
+  .profile-navlinks {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+
+  }
+
+  /* .prof-link {
+    
+  } */
 
