@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
-import { useEffect } from "react"
+import { useEffect, useState} from "react"
 import { getOne} from "../../store/upload"
 import { NavLink } from "react-router-dom"
 import "./OnePhoto.css"
@@ -17,6 +17,7 @@ export default function OnePhoto () {
     const history = useHistory()
     const dispatch = useDispatch()
     const {imageId} = useParams()
+    const [users, setUsers] = useState([]);
     const sessionUser = useSelector(state => state.session.user);
 
    // console.log(sessionUser.id)
@@ -79,6 +80,21 @@ export default function OnePhoto () {
       dispatch(getOne(imageId))
       dispatch(allComments(imageId))
     },[imageId, dispatch])
+
+    useEffect(() => {
+        async function fetchData() {
+          const response = await fetch('/api/users/all');
+          const responseData = await response.json();
+          const one = {};
+          responseData.forEach((user) => {
+              one[user.id] = user;
+            });
+            
+        console.log("THIS IS response DATA-----", one)
+          setUsers(one);
+        }
+        fetchData();
+      }, []);
 
     let loggedIn;
     if(sessionUser) {
@@ -144,10 +160,14 @@ export default function OnePhoto () {
             <div className="photoDescription">
                 <img src={photos?.imageUrl}></img>
                 <p className="description-one">{photos?.description}</p>
+                {/* {users?.map((user) => (
+                    <li>{user}</li>
+                ))} */}
             </div>
-          {loadComments?.map((comment, idx) => (
+            {loadComments?.map((comment, idx) => (
                 <div key={idx}>
                 <li key={idx} className="box2">
+                    {}
                     <p className="text">{comment.comment}</p>
                     {sessionUser?.id === comment?.userId && (
                     <>

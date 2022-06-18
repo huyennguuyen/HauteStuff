@@ -34,13 +34,22 @@ const validateSignup = [
     handleValidationErrors
   ];
 
-router.get("/:id", asyncHandler(async(req, res) => {
-    const id = parseInt(req.params.id, 10)
+router.get("/all", asyncHandler(async(req, res) => {
     // console.log("THIS IS ID------------------------", id)
-    const user = await db.User.findByPk(id)
+    const users = await db.User.findAll()
 
     // console.log("THIS IS USER BACKEND-----------------------------------", user)
-    return res.json(user)
+    return res.json(users)
+
+}))
+
+router.get("/all", asyncHandler(async(req, res) => {
+  const id = parseInt(req.params.id, 10)
+  // console.log("THIS IS ID------------------------", id)
+  const user = await db.User.findByPk(id)
+
+  // console.log("THIS IS USER BACKEND-----------------------------------", user)
+  return res.json(user)
 
 }))
 
