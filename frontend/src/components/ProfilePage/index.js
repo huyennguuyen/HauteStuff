@@ -13,7 +13,8 @@ import EditProfileModal from "../EditProfileModals/EditProfileModal"
 import "./ProfilePage.css"
 
 export default function ProfilePage () {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
+    const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
     console.log("This is sessionUser", sessionUser)
     const {userId} = useParams()
@@ -40,6 +41,12 @@ export default function ProfilePage () {
     //     closeTooltip()
     //     // setShowEditCover(true)
     // }
+
+    if (!sessionUser) {
+        history.push("/")
+        
+    }
+    
     
 
     useEffect( () => {
@@ -54,7 +61,9 @@ export default function ProfilePage () {
                         backgroundSize: 'cover',
                         backgroundRepeat: 'no-repeat'}}>
                     <div className="inside-banner">
+                        {currentUser?.profileUrl ? <img src={currentUser?.profileUrl} className="profile-pic" onClick={e => setShowEditProfile(true)}></img>:
                         <img src="https://cdn.myportfolio.com/0da7f5fbc31f3b0a622becb5c04363c6/ee759715-7080-4029-8458-50a20bff014c_rw_1920.jpg?h=ba7face07c8aec7970909f3eb3c91045" className="profile-pic" onClick={e => setShowEditProfile(true)}></img>
+                        }
                         {showEditProfile && (
                             <Modal onClose={() => setShowEditProfile(false)}> 
                                 <EditProfileModal closeModal={() => setShowEditProfile(false)}/>

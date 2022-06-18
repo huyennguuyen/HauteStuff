@@ -25,8 +25,85 @@ export const loadCurrentUser = (currentUser) => {
     //   console.log("THIS IS RES FROM THE STORE---------", res)
       dispatch(loadCurrentUser(res))
     }
+  }
+
+  export const updateUserBanner = (id, payload) => async(dispatch) => {
+
+    const {bannerUrl} = payload
+   
+   
+  
+    const formData = new FormData();
+  
+    formData.append("image", bannerUrl)
+  
+  
+    const response = await csrfFetch(`/api/users/${id}/banner/edit`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "multipart/form-data"
+      },
+      body: formData,
+    })
+  
+    if(response.ok){
+      const updateUser = await response.json()
+      console.log("THIS IS DATA FROM STORE no image-----", updateUser)
+      dispatch(loadCurrentUser(updateUser))
+      return updateUser
+      
+      // console.log("THIS IS RES FROM THE STORE---------", response)
+  
+      // if(response.ok) {
+      //   const res = await response.json()
+      // //   console.log("THIS IS RES FROM THE STORE---------", res)
+      //   dispatch(loadCurrentUser(res))
+      // }
+  
+  
+  
+    }
+  }
+
+  
+  export const updateUserProfile = (id, payload) => async(dispatch) => {
+
+  const {profileUrl} = payload
+ 
+ 
+
+  const formData = new FormData();
+
+  formData.append("image", profileUrl)
+
+
+  const response = await csrfFetch(`/api/users/${id}/profile/edit`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "multipart/form-data"
+    },
+    body: formData,
+  })
+
+  if(response.ok){
+    const updateUser = await response.json()
+    console.log("THIS IS DATA FROM STORE no image-----", updateUser)
+    dispatch(loadCurrentUser(updateUser))
+    return updateUser
+    
+    // console.log("THIS IS RES FROM THE STORE---------", response)
+
+    // if(response.ok) {
+    //   const res = await response.json()
+    // //   console.log("THIS IS RES FROM THE STORE---------", res)
+    //   dispatch(loadCurrentUser(res))
+    // }
+
+
 
   }
+}
+
 
   export const updateUser = (id, payload) => async(dispatch) => {
 

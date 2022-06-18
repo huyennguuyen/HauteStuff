@@ -6,28 +6,23 @@ import React, { useEffect, useState, useRef } from "react"
 import { oneUser } from "../../store/user"
 import { NavLink } from "react-router-dom"
 import { useHistory } from "react-router-dom"
-import { updateUser } from "../../store/user"
+import { updateUserProfile } from "../../store/user"
 // import "./Settings.css"
 
 
 
-export default function Settings () {
+export default function EditProfileModal () {
     const {userId} = useParams()
     const history= useHistory()
     const dispatch= useDispatch()
     const [errors, setErrors] = useState([])
     const [profileUrl, setProfileUrl] = useState(null)
-    // const [bannerUrl, setBannerUrl] = useState(null)
+    const [hasSubmitted, setHasSubmitted] = useState(false)
     const currentUser = useSelector(state => state.user.user);
 
     console.log("THIS IS CURRENT USER FROM SETTINGS", currentUser)
 
-
-    const [lastName, setLastName]= useState(currentUser?.lastName)
-    const [firstName, setFirstName]= useState(currentUser?.firstName)
-    const [username, setUsername]= useState(currentUser?.username)
     const sessionUser = useSelector(state => state.session.user);
-    const [hasSubmitted, setHasSubmitted] = useState(false)
     
     //console.log(photo)
     const url = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/
@@ -45,21 +40,12 @@ export default function Settings () {
   useEffect(() => {
       let errors = [];
 
-      // if(!(imageUrl.match(url))){
-      //     errors.push("Please enter a valid URL.")
-      // } else if (!imageUrl.length) {
-      //     errors.push("Please enter a URl")
-      // }
-
-      if(!firstName) errors.push("Please enter a first name.")
-      if(!lastName) errors.push("Please enter a last name.")
-      if(!username) errors.push("Please enter a username.")
       if(!profileUrl) errors.push("Please upload a profile image.")
-    //   if(!bannerUrl) errors.push("Please upload a banner image. ")
+
 
       setErrors(errors)
 
-  }, [firstName, lastName, profileUrl, username])
+  }, [ profileUrl])
 
  
 
@@ -71,15 +57,13 @@ export default function Settings () {
       if (errors.length > 0) return; 
 
       const payload = {
-          firstName, 
-          lastName,
-          username,
+          profileUrl
 
       }
 
       console.log("THIS IS EDIT PAYLOAD-----", payload)
 
-      let picture = await dispatch(updateUser(userId, payload))
+      let picture = await dispatch(updateUserProfile(userId, payload))
 
       // const pictureOne = Object.values(picture)
 
@@ -91,11 +75,11 @@ export default function Settings () {
 
   }
 
-//   const updateProfile = (e) => {
-//       const file = e.target.files[0];
-//       console.log("THIS IS FILE-------", file)
-//       if (file) setProfileUrl(file);
-//     };
+  const updateProfile = (e) => {
+      const file = e.target.files[0];
+      console.log("THIS IS FILE-------", file)
+      if (file) setProfileUrl(file);
+    };
 
     // const updateBanner = (e) => {
     //     const file = e.target.files[0];
@@ -105,47 +89,16 @@ export default function Settings () {
 
   return (
       <>
-       <div className="firstContainer">
-        <div className="inside-signup">
+       <div className="profile-pic-edit">
+        <div className="inside-profile-pic-edit">
             <form onSubmit={handleSubmit} className="forms" id="signupForm">
             <ul>
                 {hasSubmitted && errors.map((error, idx) => <li key={idx} className="errors">{error}</li>)}
             </ul>
             <label>
-                First Name
-                <input
-                type="text"
-                className="signing"
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
-                />
-            </label>
-            <label className="sign-margin">
-                Last Name
-                <input
-                type="text"
-                className="signing"
-                value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
-                />
-            </label>
-            <label className="sign-margin">
-                Username
-                <input
-                type="text"
-                className="signing"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                />
-            </label>
-            {/* <label>
                 Profile Picture
                 <input type="file" onChange={updateProfile}/>
-            </label> */}
-            {/* <label>
-                Banner Picture
-                <input type="file" onChange={updateBanner}/>
-            </label> */}
+            </label>
             <button type="submit" className="signUpButton">Save Changes</button>
             </form>
         </div>

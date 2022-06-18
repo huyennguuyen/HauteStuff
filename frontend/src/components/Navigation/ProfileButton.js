@@ -10,7 +10,7 @@ import {useDispatch, useSelector} from "react-redux"
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
-  const currentUser = useSelector(state => state.user.user);
+  // const currentUser = useSelector(state => state.user.user);
   
   const openMenu = () => {
     if (showMenu) return;
@@ -51,15 +51,15 @@ function ProfileButton({ user }) {
               <ul className="pro">
                 <div className="side">
                   <div>
-                    <NavLink to={`/users/${currentUser.id}`}>            
-                      <li className="username">{currentUser?.username}</li>
+                    <NavLink to={`/users/${user?.id}`}>            
+                      <li className="username">{user?.username}</li>
                     </NavLink>
                   </div>
                   {/* <div className="user">
                     <li>{user.email}</li>
                   </div> */}
                   <li>
-                      <NavLink to={`/users/${currentUser.id}/edit`}> 
+                      <NavLink to={`/users/${user?.id}/edit`}> 
                         Settings
                       </NavLink>
                     </li>
