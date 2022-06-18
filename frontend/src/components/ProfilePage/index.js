@@ -93,11 +93,16 @@ export default function ProfilePage () {
                                 <>
                                 <Popup
                                 trigger ={<button>Change cover photo</button>}
-                                
+                                className="foo"
                                 modal
                                 closeOnDocumentClick
                                 >
-                                <EditCoverModal />
+                                    {close => (
+                                        <>
+                                            <EditCoverModal close={close}/>
+                                            {/* <button className="signUpButton" onClick={close}>Cancel Changes</button> */}
+                                        </>
+                                    )}
                                 </Popup>
                                 <button>Edit username</button>
                                 <button>Edit real name</button>

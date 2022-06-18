@@ -25,3 +25,23 @@
     width: 300px;
     object-fit: contain;
 }
+
+
+
+.drop-banner-inside {
+    height: 300px;
+    width: 600px;
+    border: 4px dotted grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-box {
+    display: flex;
+    justify-content: center;
+}
+
+
+
+

@@ -165,10 +165,6 @@ export default function EditProfileModal ({closeModal}) {
                             }
                         </div>
                     </FileUploader>
-                    {/* <label>
-                        Profile Picture
-                        <input type="file" onChange={updateProfile}/>
-                    </label> */}
                     <div className="button-box">
                         <button  className="signUpButton" onClick={() => closeModal()}>Cancel Changes</button>
                         <button type="submit" className="signUpButton">Save Changes</button>
