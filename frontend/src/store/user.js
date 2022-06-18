@@ -65,7 +65,7 @@ export const loadCurrentUser = (currentUser) => {
     }
   }
 
-  
+
   export const updateUserProfile = (id, payload) => async(dispatch) => {
 
   const {profileUrl} = payload
@@ -110,7 +110,7 @@ export const loadCurrentUser = (currentUser) => {
     console.log("THIS IS ID--------", id)
 
     console.log("THIS IS FORM------", payload)
-  const { lastName, firstName, username} = payload
+  const { lastName, firstName, username, about} = payload
 
  
 
@@ -126,7 +126,7 @@ export const loadCurrentUser = (currentUser) => {
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify({lastName,firstName,username}),
+    body: JSON.stringify({lastName,firstName,username, about}),
   })
 
   if(response.ok){

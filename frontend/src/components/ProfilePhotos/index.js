@@ -14,6 +14,8 @@ export default function ProfilePhotos ({userId}) {
 
     const photos = useSelector(state => state.upload.photos)
 
+    console.log("THIS IS PHOTOS------", photos)
+
 
     useEffect( () => {
     dispatch(loadMyPhotos(userId))
@@ -28,18 +30,27 @@ export default function ProfilePhotos ({userId}) {
 
     return (
         <>
-        <ul className="photos">
-            {photos.map(({id}) => (
-            <div className="box" key={(id)}>
-            <li key={id} className="box2">
-                <NavLink to={`/photos/${id}`}>
-                    <img src={one[id]?.imageUrl}></img>
-                </NavLink>
-                    {/* <p className="text">{one[id]?.description}</p> */}
-            </li>   
+        {photos.length ? 
+            <ul className="photos">
+            {photos?.map(({id}) => (
+                <div className="box" key={(id)}>
+                <li key={id} className="box2">
+                    <NavLink to={`/photos/${id}`}>
+                        <img src={one[id]?.imageUrl}></img>
+                    </NavLink>
+                        {/* <p className="text">{one[id]?.description}</p> */}
+                </li>   
+                </div>
+                ))
+            }
+            </ul>:
+            <div className="no-photos">
+                <h3>Start by uploading some photos</h3> 
+                <NavLink to={`/photos/new`}>
+                    <button>Start Here</button>
+                </NavLink>   
             </div>
-            ))}
-        </ul>
+        }
         </>
     )
 
