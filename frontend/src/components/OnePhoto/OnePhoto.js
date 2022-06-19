@@ -9,6 +9,7 @@ import { useHistory } from "react-router-dom"
 import CommentFormPage from "../CommentFormPage/CommentFormPage"
 import { deletingOne } from "../../store/upload"
 import { allComments } from "../../store/comments"
+import EditCommentForm from "../EditCommentForm"
 
 
 
@@ -18,6 +19,7 @@ export default function OnePhoto () {
     const dispatch = useDispatch()
     const {imageId} = useParams()
     const [users, setUsers] = useState([]);
+    const [showModal, setShowModal] = useState(false);
     const sessionUser = useSelector(state => state.session.user);
 
     const photos = useSelector((state) => {
@@ -148,7 +150,8 @@ export default function OnePhoto () {
                     <p className="text">{comment.comment}</p>
                     {sessionUser?.id === comment?.userId && (
                     <>
-                    <button onClick={editComment}>Edit Comment </button>
+                    <button onClick={() => setShowModal(!showModal)}>Edit Comment </button>
+                    {showModal && <EditCommentForm commentId={comment?.userId} setShowModal={setShowModal}/>}
                     <button onClick={() => {
                         dispatch(deletingComment(comment.id))
                         history.push(`/photos/${imageId}`)
