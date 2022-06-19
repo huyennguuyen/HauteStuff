@@ -9,6 +9,7 @@ import { useHistory } from "react-router-dom"
 import CommentFormPage from "../CommentFormPage/CommentFormPage"
 import { deletingOne } from "../../store/upload"
 import { allComments } from "../../store/comments"
+import { loadAll, loadAllUsers } from "../../store/allUsers"
 import EditCommentForm from "../EditCommentForm"
 
 
@@ -18,7 +19,7 @@ export default function OnePhoto () {
     const history = useHistory()
     const dispatch = useDispatch()
     const {imageId} = useParams()
-    const [users, setUsers] = useState([]);
+    // const [users, setUsers] = useState([]);
     const [showModal, setShowModal] = useState(false);
     const sessionUser = useSelector(state => state.session.user);
 
@@ -31,7 +32,11 @@ export default function OnePhoto () {
        return state.comments
     })
 
-    const allUsers = useSelector(state => state.session.allUsers)
+
+    const allUsers = useSelector(state => state.allUsers.user);
+
+
+    console.log("THIS IS ALL USERS--", allUsers)
 
      
 
@@ -49,6 +54,13 @@ export default function OnePhoto () {
     // photos.forEach((photo) => {
     //   one[photo.id] = photo;
     // });
+
+    const users = {};
+    allUsers?.forEach((user) => {
+      users[user.id] = user;
+    });
+
+    console.log("THIS IS ALL USERS ONE PHOTO", users)
     
 
 
@@ -57,6 +69,10 @@ export default function OnePhoto () {
     // console.log(currentOne)
     
     //console.log(onePhoto)
+
+    useEffect( () => {
+        dispatch(loadAllUsers())
+      },[dispatch])
 
 
     useEffect( () => {
