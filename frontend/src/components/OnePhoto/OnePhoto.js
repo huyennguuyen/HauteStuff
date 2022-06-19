@@ -140,7 +140,7 @@ export default function OnePhoto () {
                 <img src={photos?.imageUrl}></img>
                 <p className="description-one">{photos?.description}</p>
             </div>
-            {loadComments?.map((comment, {idx}) => (
+            {loadComments?.map((comment, idx) => (
                 <div key={idx}>
                 <li key={idx} className="box2">
                     {/* {console.log("THIS IS THE OTHER USERS-----",users[comment?.userId].username)} */}
