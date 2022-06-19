@@ -98,13 +98,13 @@ footer {
 }
 
 .home-container {
-    background-color: #f9f1f1;
+    /* background-color: #f9f1f1; */
     display:flex;
     justify-content: center;
 }
 
 .home-inside{
-    background-color: #f9f1f1;
+    /* background-color: #f9f1f1; */
     display: flex;
     justify-content: center;
     flex-direction: row;

@@ -8,7 +8,6 @@ export default function Splashpage () {
 
     return (
         <>
-        <div className="belowNav">
             {sessionUser ?
                 <>
                 <div className="onlyUser">
@@ -31,7 +30,6 @@ export default function Splashpage () {
                 </div>
                 </>
             }
-        </div>
         </>
     )
 }
