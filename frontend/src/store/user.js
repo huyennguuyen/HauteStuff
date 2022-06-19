@@ -14,7 +14,7 @@ export const loadCurrentUser = (currentUser) => {
 
   export const oneUser = (id) => async(dispatch) => {
 
-    console.log("THIS IS ID--------", id)
+    // console.log("THIS IS ID--------", id)
 
     const response = await csrfFetch(`/api/users/${id}`)
     
@@ -107,7 +107,7 @@ export const loadCurrentUser = (currentUser) => {
 
   export const updateUser = (id, payload) => async(dispatch) => {
 
-    console.log("THIS IS ID--------", id)
+    // console.log("THIS IS ID--------", id)
 
     console.log("THIS IS FORM------", payload)
   const { lastName, firstName, username, about} = payload
@@ -157,6 +157,8 @@ export const loadCurrentUser = (currentUser) => {
         newState = Object.assign({}, state);
         newState.user = action.payload;
         return newState;
+      case CLEAR_STORE:
+        return {}
     //   case REMOVE_USER:
     //     newState = Object.assign({}, state);
     //     newState.user = null;

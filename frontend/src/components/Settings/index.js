@@ -14,18 +14,15 @@ export default function Settings () {
     const history= useHistory()
     const dispatch= useDispatch()
     const [errors, setErrors] = useState([])
+    const [users, setUsers] = useState("")
+    const sessionUser = useSelector(state => state.session.user);
+    console.log("THIS IS SESSIONUSER---", sessionUser)
     // const [profileUrl, setProfileUrl] = useState(null)
     // const [bannerUrl, setBannerUrl] = useState(null)
     const currentUser = useSelector(state => state.user.user);
 
+
     console.log("THIS IS CURRENT USER FROM SETTINGS", currentUser)
-
-
-    const [lastName, setLastName]= useState(currentUser?.lastName)
-    const [firstName, setFirstName]= useState(currentUser?.firstName)
-    const [username, setUsername]= useState(currentUser?.username)
-    const sessionUser = useSelector(state => state.session.user);
-    const [hasSubmitted, setHasSubmitted] = useState(false)
     
     //console.log(photo)
     const url = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/
@@ -34,9 +31,32 @@ export default function Settings () {
         history.push("/")
         
     }
+
+    // useEffect(() => {
+    //     async function fetchData() {
+    //       const response = await fetch('/api/users/all');
+    //       const responseData = await response.json();
+    //       const one = {};
+    //       responseData.forEach((user) => {
+    //           one[user.id] = user;
+    //         });
+            
+    //     console.log("THIS IS response DATA FROM SETTINGS-----", one[userId].lastName)
+    //       setUsers(one[userId]);
+    //     }
+    //     fetchData();
+    //   }, []);
+
+
+      const [lastName, setLastName]= useState(currentUser?.lastName)
+      const [firstName, setFirstName]= useState(currentUser?.firstName)
+      const [username, setUsername]= useState(sessionUser?.username)
+      const [hasSubmitted, setHasSubmitted] = useState(false)
+    
     
     
     useEffect( () => {
+        dispatch(clearStore())
         dispatch(oneUser(userId))
       },[userId, dispatch])
     
@@ -109,6 +129,7 @@ export default function Settings () {
             <ul>
                 {hasSubmitted && errors.map((error, idx) => <li key={idx} className="errors">{error}</li>)}
             </ul>
+            <label>{users?.lastName}</label>
             <label>
                 First Name
                 <input
