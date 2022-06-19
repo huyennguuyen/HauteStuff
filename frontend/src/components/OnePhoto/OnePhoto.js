@@ -31,6 +31,8 @@ export default function OnePhoto () {
        return state.comments
     })
 
+    const allUsers = useSelector(state => state.session.allUsers)
+
      
 
      const loadComments = Object.values(comments)
@@ -62,20 +64,7 @@ export default function OnePhoto () {
       dispatch(allComments(imageId))
     },[imageId, dispatch])
 
-    useEffect(() => {
-        async function fetchData() {
-          const response = await fetch('/api/users/all');
-          const responseData = await response.json();
-          const one = {};
-          responseData.forEach((user) => {
-              one[user.id] = user;
-            });
-            
-        console.log("THIS IS response DATA-----", one)
-          setUsers(one);
-        }
-        fetchData();
-      }, []);
+
 
     let loggedIn;
     if(sessionUser) {
@@ -151,7 +140,7 @@ export default function OnePhoto () {
                     {sessionUser?.id === comment?.userId && (
                     <>
                     <button onClick={() => setShowModal(!showModal)}>Edit Comment </button>
-                    {showModal && <EditCommentForm commentId={comment?.userId} setShowModal={setShowModal}/>}
+                    {/* {showModal && <EditCommentForm commentId={comment?.userId} setShowModal={setShowModal}/>} */}
                     <button onClick={() => {
                         dispatch(deletingComment(comment.id))
                         history.push(`/photos/${imageId}`)

@@ -6,6 +6,7 @@ import { NavLink } from "react-router-dom"
 import { useHistory } from "react-router-dom"
 import { updateUser } from "../../store/user"
 import { clearPrevious } from "../../store/user"
+import { loadAllUsers } from "../../store/allUsers"
 import "./Settings.css"
 
 
@@ -20,7 +21,11 @@ export default function Settings () {
     console.log("THIS IS SESSIONUSER---", sessionUser)
     // const [profileUrl, setProfileUrl] = useState(null)
     // const [bannerUrl, setBannerUrl] = useState(null)
+
+
     const currentUser = useSelector(state => state.user.user);
+
+    const allUsers = useSelector(state => state.allUsers.user);
 
 
     console.log("THIS IS CURRENT USER FROM SETTINGS", currentUser)
@@ -32,40 +37,47 @@ export default function Settings () {
         history.push("/")
         
     }
+
+    const one = {};
+    allUsers.forEach((user) => {
+      one[user.id] = user;
+    });
+
+    
+
        
     // useEffect( () => {
-    //     dispatch(clearPrevious())
-    //     dispatch(oneUser(userId))
-    //   },[userId])
+    //    dispatch(loadAllUsers())
+    //   },[dispatch])
 
 
-        useEffect(() => {
-            async function fetchData() {
-              const response = await fetch('/api/users/all');
-              const responseData = await response.json();
-              const one = {};
-              responseData.forEach((user) => {
-                  one[user.id] = user;
-                });
+        // useEffect(() => {
+        //     async function fetchData() {
+        //       const response = await fetch('/api/users/all');
+        //       const responseData = await response.json();
+        //       const one = {};
+        //       responseData.forEach((user) => {
+        //           one[user.id] = user;
+        //         });
                 
-            console.log("THIS IS response DATA-----", one)
-              setUsers(one[sessionUser?.id]);
-            }
-            fetchData();
-          }, [sessionUser]);
+        //     console.log("THIS IS response DATA-----", one)
+        //       setUsers(one[sessionUser?.id]);
+        //     }
+        //     fetchData();
+        //   }, [sessionUser]);
 
 
-      const [lastName, setLastName]= useState(currentUser?.lastName)
-      const [firstName, setFirstName]= useState(currentUser?.firstName)
-      const [username, setUsername]= useState(currentUser?.username)
+      const [lastName, setLastName]= useState(one[sessionUser.id]?.lastName)
+      const [firstName, setFirstName]= useState(one[sessionUser.id]?.firstName)
+      const [username, setUsername]= useState(one[sessionUser.id]?.username)
       const [hasSubmitted, setHasSubmitted] = useState(false)
     
     
     
     // useEffect( () => {
-    //     dispatch(clearPrevious())
-    //     dispatch(oneUser(userId))
-    //   },[userId])
+    //     // dispatch(clearPrevious())
+    //     dispatch(oneUser(sessionUser.id))
+    //   },[sessionUser])
     
   useEffect(() => {
       let errors = [];
@@ -85,6 +97,12 @@ export default function Settings () {
       setErrors(errors)
 
   }, [firstName, lastName, username])
+
+
+   useEffect( () => {
+       dispatch(loadAllUsers())
+      },[dispatch])
+
 
  
 

@@ -24,6 +24,18 @@ export const loadCurrentUser = (currentUser) => {
 
   }
 
+  // export const loading = () => async dispatch => {
+  //   const response = await csrfFetch("/api/photos/home")
+  
+  //   if (response.ok) {
+  //     const photos = await response.json()
+  //     //console.log("==================",photos)
+  //     dispatch(load(photos))
+  //   }
+  
+    
+  // }
+
 
 
   export const oneUser = (id) => async(dispatch) => {
