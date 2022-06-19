@@ -12,6 +12,7 @@ export default function Homepage () {
     const history = useHistory()
     const dispatch = useDispatch()
     const {imageId} = useParams()
+    const [users, setUsers] = useState("")
 
     // const photos = useSelector(state => {
     //   return state.upload
@@ -25,6 +26,21 @@ export default function Homepage () {
         history.push("/")
 
     }
+
+    useEffect(() => {
+        async function fetchData() {
+          const response = await fetch('/api/users/all');
+          const responseData = await response.json();
+          const one = {};
+          responseData.forEach((user) => {
+              one[user.id] = user;
+            });
+            
+        console.log("THIS IS response DATA-----", one)
+          setUsers(one);
+        }
+        fetchData();
+      }, []);
 
 
     const one = {};
@@ -56,6 +72,12 @@ export default function Homepage () {
                         {photos.map(({id}) => (
                         <div className="box" key={(id)}>
                         <li key={id} className="box2">
+                            <NavLink to={`/users/${one[id]?.userId}`}>
+                                {users[one[id]?.userId]?.profileUrl ? <img src={users[one[id]?.userId]?.profileUrl} className="profile-homepage"></img>:
+                                <img src="https://cdn.myportfolio.com/0da7f5fbc31f3b0a622becb5c04363c6/ee759715-7080-4029-8458-50a20bff014c_rw_1920.jpg?h=ba7face07c8aec7970909f3eb3c91045" className="profile-homepage"></img>
+                                }
+                                <h4>{users[one[id]?.userId]?.username}</h4>
+                            </NavLink>
                             <NavLink to={`/photos/${id}`}>
                                 <img src={one[id]?.imageUrl}></img>
                             </NavLink>
