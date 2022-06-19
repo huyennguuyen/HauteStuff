@@ -1,6 +1,7 @@
 import { csrfFetch } from './csrf';
 
 const LOAD_CURRENT_USER = 'user/loadCurrentUser';
+const CLEAR_STORE = "user/clearStore"
 
 // const LOAD_CURRENT_USER = 'user/loadCurrentUser';
 
@@ -10,6 +11,19 @@ export const loadCurrentUser = (currentUser) => {
       payload: currentUser,
     };
   };
+
+  export const clearingStore = () => {
+    return {
+      type: CLEAR_STORE,
+    };
+  };
+
+  export const clearPrevious = () => (dispatch) => {
+
+    dispatch(clearingStore())
+
+  }
+
 
 
   export const oneUser = (id) => async(dispatch) => {

@@ -5,6 +5,7 @@ import { oneUser } from "../../store/user"
 import { NavLink } from "react-router-dom"
 import { useHistory } from "react-router-dom"
 import { updateUser } from "../../store/user"
+import { clearPrevious } from "../../store/user"
 import "./Settings.css"
 
 
@@ -12,7 +13,7 @@ import "./Settings.css"
 export default function Settings () {
     const {userId} = useParams()
     const history= useHistory()
-    const dispatch= useDispatch()
+    const dispatch = useDispatch()
     const [errors, setErrors] = useState([])
     const [users, setUsers] = useState("")
     const sessionUser = useSelector(state => state.session.user);
@@ -31,34 +32,40 @@ export default function Settings () {
         history.push("/")
         
     }
+       
+    // useEffect( () => {
+    //     dispatch(clearPrevious())
+    //     dispatch(oneUser(userId))
+    //   },[userId])
 
-    // useEffect(() => {
-    //     async function fetchData() {
-    //       const response = await fetch('/api/users/all');
-    //       const responseData = await response.json();
-    //       const one = {};
-    //       responseData.forEach((user) => {
-    //           one[user.id] = user;
-    //         });
-            
-    //     console.log("THIS IS response DATA FROM SETTINGS-----", one[userId].lastName)
-    //       setUsers(one[userId]);
-    //     }
-    //     fetchData();
-    //   }, []);
+
+        useEffect(() => {
+            async function fetchData() {
+              const response = await fetch('/api/users/all');
+              const responseData = await response.json();
+              const one = {};
+              responseData.forEach((user) => {
+                  one[user.id] = user;
+                });
+                
+            console.log("THIS IS response DATA-----", one)
+              setUsers(one[sessionUser?.id]);
+            }
+            fetchData();
+          }, [sessionUser]);
 
 
       const [lastName, setLastName]= useState(currentUser?.lastName)
       const [firstName, setFirstName]= useState(currentUser?.firstName)
-      const [username, setUsername]= useState(sessionUser?.username)
+      const [username, setUsername]= useState(currentUser?.username)
       const [hasSubmitted, setHasSubmitted] = useState(false)
     
     
     
-    useEffect( () => {
-        dispatch(clearStore())
-        dispatch(oneUser(userId))
-      },[userId, dispatch])
+    // useEffect( () => {
+    //     dispatch(clearPrevious())
+    //     dispatch(oneUser(userId))
+    //   },[userId])
     
   useEffect(() => {
       let errors = [];
@@ -89,6 +96,7 @@ export default function Settings () {
       if (errors.length > 0) return; 
 
       const payload = {
+            ...currentUser,
           firstName, 
           lastName,
           username,
@@ -97,7 +105,7 @@ export default function Settings () {
 
       console.log("THIS IS EDIT PAYLOAD-----", payload)
 
-      let picture = await dispatch(updateUser(userId, payload))
+      let picture = await dispatch(updateUser(sessionUser.id, payload))
 
       // const pictureOne = Object.values(picture)
 
@@ -129,7 +137,6 @@ export default function Settings () {
             <ul>
                 {hasSubmitted && errors.map((error, idx) => <li key={idx} className="errors">{error}</li>)}
             </ul>
-            <label>{users?.lastName}</label>
             <label>
                 First Name
                 <input
