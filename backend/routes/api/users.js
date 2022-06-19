@@ -43,7 +43,7 @@ router.get("/all", asyncHandler(async(req, res) => {
 
 }))
 
-router.get("/all", asyncHandler(async(req, res) => {
+router.get("/:id", asyncHandler(async(req, res) => {
   const id = parseInt(req.params.id, 10)
   // console.log("THIS IS ID------------------------", id)
   const user = await db.User.findByPk(id)
