@@ -81,6 +81,8 @@ export const uploadComment = (id, comment) => async dispatch => {
 
    }
 
+   const updateComment =()
+
 
 
 

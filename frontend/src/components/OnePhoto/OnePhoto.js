@@ -148,6 +148,7 @@ export default function OnePhoto () {
                     <p className="text">{comment.comment}</p>
                     {sessionUser?.id === comment?.userId && (
                     <>
+                    <button onClick={editComment}>Edit Comment </button>
                     <button onClick={() => {
                         dispatch(deletingComment(comment.id))
                         history.push(`/photos/${imageId}`)
