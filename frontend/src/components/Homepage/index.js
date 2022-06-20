@@ -79,7 +79,7 @@ export default function Homepage () {
             <div className="home-inside">
                 <div className="left-home">
                     <ul className="photos">
-                        {photos.map(({id}) => (
+                        {/* {photos.map(({id}) => (
                         <div className="box" key={(id)}>
                         <li key={id} className="box2">
                             <NavLink to={`/users/${one[id]?.userId}`}>
@@ -94,6 +94,15 @@ export default function Homepage () {
                                 <p className="text">{one[id]?.description}</p>
                         </li>   
                         </div>
+                        ))} */}
+                        {allUsers.map(({id}) => (
+                            <div className="user-box" key={(id)}>
+                                <li key={id} className="inside-user-box">
+                                    <NavLink to={`/users/`}>
+
+                                    </NavLink>
+                                </li>
+                            </div>
                         ))}
                     </ul>
                 </div>
