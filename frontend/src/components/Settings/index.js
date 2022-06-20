@@ -39,7 +39,7 @@ export default function Settings () {
     }
 
     const one = {};
-    allUsers.forEach((user) => {
+    allUsers?.forEach((user) => {
       one[user.id] = user;
     });
 
@@ -67,9 +67,9 @@ export default function Settings () {
         //   }, [sessionUser]);
 
 
-      const [lastName, setLastName]= useState(one[sessionUser.id]?.lastName)
-      const [firstName, setFirstName]= useState(one[sessionUser.id]?.firstName)
-      const [username, setUsername]= useState(one[sessionUser.id]?.username)
+      const [lastName, setLastName]= useState(one[sessionUser?.id]?.lastName)
+      const [firstName, setFirstName]= useState(one[sessionUser?.id]?.firstName)
+      const [username, setUsername]= useState(one[sessionUser?.id]?.username)
       const [hasSubmitted, setHasSubmitted] = useState(false)
     
     

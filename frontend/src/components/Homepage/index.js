@@ -2,6 +2,7 @@ import {useState, useEffect} from "react"
 import {useSelector, useDispatch} from "react-redux"
 import { NavLink, Route, useParams } from 'react-router-dom';
 import {loading } from "../../store/upload";
+import { loadAllUsers } from "../../store/allUsers";
 import { useHistory } from "react-router-dom";
 import "./Homepage.css"
 
@@ -46,13 +47,13 @@ export default function Homepage () {
 
 
     const one = {};
-    photos.forEach((photo) => {
+    photos?.forEach((photo) => {
       one[photo.id] = photo;
     });
 
 
     const users = {};
-    allUsers.forEach((user) => {
+    allUsers?.forEach((user) => {
       users[user.id] = user;
     });
 
@@ -64,6 +65,7 @@ export default function Homepage () {
 
     useEffect(() => {
         dispatch(loading())
+        dispatch(loadAllUsers())
     }, [dispatch])
 
 
