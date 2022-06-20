@@ -86,7 +86,7 @@ export default function Homepage () {
                                 {users[one[id]?.userId]?.profileUrl ? <img src={users[one[id]?.userId]?.profileUrl} className="profile-homepage"></img>:
                                 <img src="https://cdn.myportfolio.com/0da7f5fbc31f3b0a622becb5c04363c6/ee759715-7080-4029-8458-50a20bff014c_rw_1920.jpg?h=ba7face07c8aec7970909f3eb3c91045" className="profile-homepage"></img>
                                 }
-                                <h4>{users[one[id]?.userId]?.username}</h4>
+                                <h4>{users[one[id]?.userId]?.firstName} {users[one[id]?.userId]?.lastName}</h4>
                             </NavLink>
                             <NavLink to={`/photos/${id}`}>
                                 <img src={one[id]?.imageUrl}></img>

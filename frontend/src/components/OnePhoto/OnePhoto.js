@@ -151,7 +151,7 @@ export default function OnePhoto () {
                 <div key={idx}>
                 <li key={idx} className="box2">
                     {/* {console.log("THIS IS THE OTHER USERS-----",users[comment?.userId].username)} */}
-                    <h4>{users[comment?.userId]?.username}</h4>
+                    <h4>{users[comment?.userId]?.firstName} {users[comment?.userId]?.lastName}</h4>
                     <p className="text">{comment.comment}</p>
                     {sessionUser?.id === comment?.userId && (
                     <>
