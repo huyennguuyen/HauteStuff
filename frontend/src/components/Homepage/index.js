@@ -3,8 +3,10 @@ import {useSelector, useDispatch} from "react-redux"
 import { NavLink, Route, useParams } from 'react-router-dom';
 import {loading } from "../../store/upload";
 import { loadAllUsers } from "../../store/allUsers";
+// import ProfilePhotos from "../ProfilePhotos";
 import { useHistory } from "react-router-dom";
 import "./Homepage.css"
+import ProfilePhotos from "../ProfilePhotos";
 
 
 
@@ -95,12 +97,18 @@ export default function Homepage () {
                         </li>   
                         </div>
                         ))} */}
-                        {allUsers.map(({id}) => (
+                        {allUsers?.map(({id}) => (
                             <div className="user-box" key={(id)}>
                                 <li key={id} className="inside-user-box">
-                                    <NavLink to={`/users/`}>
-
+                                    <NavLink to={`/users/${users[id]?.id}`}>
+                                    {users[id]?.profileUrl ? <img src={users[id]?.profileUrl} className="profile-homepage"></img>:
+                                    <img src="https://cdn.myportfolio.com/0da7f5fbc31f3b0a622becb5c04363c6/ee759715-7080-4029-8458-50a20bff014c_rw_1920.jpg?h=ba7face07c8aec7970909f3eb3c91045" className="profile-homepage"></img>
+                                    }
+                                    <h4>{users[id]?.firstName} {users[id]?.lastName}</h4>
                                     </NavLink>
+                                    {/* <NavLink to={`/photos/${}`}>
+                                    <img src={one[id]?.imageUrl}></img>
+                                    </NavLink>   */}
                                 </li>
                             </div>
                         ))}
