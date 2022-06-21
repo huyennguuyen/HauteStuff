@@ -65,22 +65,24 @@ function ProfileButton({ user }) {
         >
           <ul className="pro">
             <div className="side">
-              <div>
+              <div className="div-header-prof-drop"> 
                 <NavLink to={`/users/${user?.id}`}>
-                  <h3>Hi, <li className="username">{user?.username}!</li></h3>          
+                  <h3 className="header-prof-drop">Hi,  <li className="username"> {user?.username}!</li></h3>          
                 </NavLink>
               </div>
-              <li>
-                  <NavLink to={`/users/${user?.id}/edit`}> 
-                    Settings
-                  </NavLink>
-                </li>
-              <div className="user">
-                <li>
-                  <NavLink exact to="/">
-                  <button onClick={logout} className="logout">Log Out</button>
-                  </NavLink>
-                </li>
+              <div className="bottom-prof-drop">         
+                <li className="settings on-top">
+                    <NavLink to={`/users/${user?.id}/edit`} className="bottom-prof"> 
+                      Settings
+                    </NavLink>
+                  </li>
+                <div className="user">
+                  <li className="settings on-bottom">
+                    <NavLink exact to="/" onClick={logout} className="bottom-prof">
+                    Logout
+                    </NavLink>
+                  </li>
+              </div>
               </div>
             </div>
           </ul>

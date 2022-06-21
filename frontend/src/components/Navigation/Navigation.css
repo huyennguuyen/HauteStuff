@@ -55,7 +55,7 @@ button {
 }
 
 .logo:hover {
-   filter: contrast(130%)
+    filter: contrast(130%);
 
 }
 
@@ -86,13 +86,13 @@ ul {
     align-items: center;
 }
 
-.side {
+/* .side {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     margin-right: 10px;
-}
+} */
 
 .user{
     border-bottom: 1px border black;
@@ -107,6 +107,8 @@ ul {
 
 .pro {
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .sesh {
@@ -117,6 +119,7 @@ ul {
 
 .username {
     font-size: 20px;
+    margin-left: 6px;
 }
 
 .username:hover {
@@ -136,7 +139,7 @@ ul {
 }
 
 .profile-nav-pic:hover {
-    filter: contrast(150%);
+   filter: contrast(130%);
 }
 
 .upload-icon {
@@ -147,7 +150,7 @@ ul {
 }
 
 .upload-icon:hover {
-    color: white;
+   color: white;
 }
 
 .logo-out {
@@ -170,3 +173,38 @@ ul {
 
 }
 
+.header-prof-drop {
+    display: flex;
+    margin-top: 15px;
+    margin-left: 15px;
+    margin-bottom: 60px;
+
+}
+
+.div-header-prof-drop {
+    border-bottom: 1px #D3D3D3 solid;
+}
+
+
+.settings {
+    width: 200px;
+    font-size: 15px;
+}
+
+.settings:hover {
+    background-color: pink;
+    width: 100%;
+    
+}
+
+.bottom-prof {
+    margin-left: 15px;
+}
+
+.on-top {
+    margin-top: 15px;
+}
+
+.on-bottom {
+    margin-bottom: 15px;
+}
