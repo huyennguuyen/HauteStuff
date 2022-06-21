@@ -15,6 +15,7 @@ export default function Homepage () {
     const history = useHistory()
     const dispatch = useDispatch()
     const {imageId} = useParams()
+    const [image, setImage] = useState("")
     // const [users, setUsers] = useState("")
 
     // const photos = useSelector(state => {
@@ -53,7 +54,7 @@ export default function Homepage () {
       one[photo.id] = photo;
     });
 
-   console.log("THIS IS PHOTOS-----------", photos)
+//    console.log("THIS IS PHOTOS-----------", photos)
 
     
 
@@ -63,7 +64,7 @@ export default function Homepage () {
       users[user.id] = user;
     });
 
-    console.log("THIS IS ONE---------", users)
+    // console.log("THIS IS ONE---------", users)
 
     // const photosArray = Object.values(photos)
 
@@ -74,10 +75,20 @@ export default function Homepage () {
         dispatch(loadAllUsers())
     }, [dispatch])
 
+    const random = Math.floor(Math.random() * photos.length);
+
+    useEffect(() => {
+
+         setImage(photos[random]?.imageUrl)
+
+    })
+
 
     if(!photos) {
         return null;;
     }
+
+
 
     return (
         <>
@@ -144,7 +155,13 @@ export default function Homepage () {
                 </div>
                 <div className="right-home">
                     <div className="random-pics">
-                        
+                        {photos.map(photo => (
+                            photo?.imageUrl === image && (
+                            <NavLink to={`/photos/${photo?.id}`}>
+                                <img src={image}></img>
+                            </NavLink>
+                            )
+                        ))}
                     </div>
                 </div>
             </div>
