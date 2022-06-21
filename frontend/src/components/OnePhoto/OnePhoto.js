@@ -42,6 +42,10 @@ export default function OnePhoto () {
 
      const loadComments = Object.values(comments)
 
+     console.log("THIS IS COMMENTS---------", comments)
+
+     console.log("THIS IS LOAD COMMENTS---------", loadComments)
+
      
 
 

@@ -53,6 +53,10 @@ export default function Homepage () {
       one[photo.id] = photo;
     });
 
+   console.log("THIS IS PHOTOS-----------", photos)
+
+    
+
 
     const users = {};
     allUsers?.forEach((user) => {
@@ -81,20 +85,40 @@ export default function Homepage () {
             <div className="home-inside">
                 <div className="left-home">
                     <ul className="photos">
-                        {photos.map(({id}) => (
+                        {/* {photos.map(({id}) => (
                         <div className="box" key={(id)}>
                         <li key={id} className="box2">
-                            <div className="user-profile-home">
+                            <div>
                                 <NavLink to={`/users/${one[id]?.userId}`} className="user-profile-home">
                                     {users[one[id]?.userId]?.profileUrl ? <img src={users[one[id]?.userId]?.profileUrl} className="profile-homepage"></img>:
                                     <img src="https://cdn.myportfolio.com/0da7f5fbc31f3b0a622becb5c04363c6/ee759715-7080-4029-8458-50a20bff014c_rw_1920.jpg?h=ba7face07c8aec7970909f3eb3c91045" className="profile-homepage"></img>
                                     }
-                                    <h4>{users[one[id]?.userId]?.firstName} {users[one[id]?.userId]?.lastName}</h4>
+                                    <h4 className="user-name">{users[one[id]?.userId]?.firstName} {users[one[id]?.userId]?.lastName}</h4>
                                 </NavLink>
                             </div>
                             <div className="user-profile-photos">
                                 <NavLink to={`/photos/${id}`}>
                                     <img src={one[id]?.imageUrl} className="homepage-photos"></img>
+                                </NavLink>
+                                    <p className="text">{one[id]?.description}</p>
+                            </div>
+                        </li>   
+                        </div>
+                        ))} */}
+                        {photos.map((photo, id) => (
+                        <div className="box" key={id}>
+                        <li key={id} className="box2">
+                            <div>
+                                <NavLink to={`/users/${photo?.userId}`} className="user-profile-home">
+                                    {users[photo?.userId]?.profileUrl ? <img src={users[photo?.userId]?.profileUrl} className="profile-homepage"></img>:
+                                    <img src="https://cdn.myportfolio.com/0da7f5fbc31f3b0a622becb5c04363c6/ee759715-7080-4029-8458-50a20bff014c_rw_1920.jpg?h=ba7face07c8aec7970909f3eb3c91045" className="profile-homepage"></img>
+                                    }
+                                    <h4 className="user-name">{users[photo?.userId]?.firstName} {users[photo?.userId]?.lastName}</h4>
+                                </NavLink>
+                            </div>
+                            <div className="user-profile-photos">
+                                <NavLink to={`/photos/${photo?.id}`}>
+                                    <img src={photo?.imageUrl} className="homepage-photos"></img>
                                 </NavLink>
                                     {/* <p className="text">{one[id]?.description}</p> */}
                             </div>
@@ -120,7 +144,7 @@ export default function Homepage () {
                 </div>
                 <div className="right-home">
                     <div className="random-pics">
-                        <h1>Hi</h1>
+                        
                     </div>
                 </div>
             </div>
