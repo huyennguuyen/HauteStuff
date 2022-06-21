@@ -93,7 +93,7 @@ export default function Homepage () {
             <div className="home-inside">
                 <div className="left-home">
                     <ul className="photos">
-                        {/* {photos.map(({id}) => (
+                        {photos.map(({id}) => (
                         <div className="box" key={(id)}>
                         <li key={id} className="box2">
                             <div>
@@ -108,12 +108,12 @@ export default function Homepage () {
                                 <NavLink to={`/photos/${id}`}>
                                     <img src={one[id]?.imageUrl} className="homepage-photos"></img>
                                 </NavLink>
-                                    <p className="text">{one[id]?.description}</p>
+                                    {/* <p className="text">{one[id]?.description}</p> */}
                             </div>
                         </li>   
                         </div>
-                        ))} */}
-                        {photos.map((photo, id) => (
+                        ))}
+                        {/* {photos.map((photo, id) => (
                         <div className="box" key={id}>
                         <li key={id} className="box2">
                             <div>
@@ -128,11 +128,11 @@ export default function Homepage () {
                                 <NavLink to={`/photos/${photo?.id}`}>
                                     <img src={photo?.imageUrl} className="homepage-photos"></img>
                                 </NavLink>
-                                    {/* <p className="text">{one[id]?.description}</p> */}
+                                    <p className="text">{one[id]?.description}</p>
                             </div>
                         </li>   
                         </div>
-                        ))}
+                        ))} */}
                         {/* {allUsers?.map(({id}) => (
                             <div className="user-box" key={(id)}>
                                 <li key={id} className="inside-user-box">
