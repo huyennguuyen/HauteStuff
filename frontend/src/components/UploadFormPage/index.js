@@ -32,13 +32,13 @@ export default function UploadForm () {
 
     useEffect(() => {
         let errors = [];
-        let imageFile = ["png", "jpg", "jpeg", "gif"]
+        // let imageFile = ["png", "jpg", "jpeg", "gif"]
         if(!imageUrl) errors.push("Please upload an image.")
 
-        if(imageUrl) {
+        // if(imageUrl) {
             
-            if(!imageFile.includes(imageUrl?.name.split(".").pop())) errors.push ("Please upload a png, jpg, jpeg, or gif file type.")
-        }
+        //     if(!imageFile.includes(imageUrl?.name.split(".").pop())) errors.push ("Please upload a png, jpg, jpeg, or gif file type.")
+        // }
 
         if(!description.length) errors.push("Please enter a description about your piece.")
         setErrors(errors)

@@ -4,6 +4,7 @@ import sessionReducer from './session';
 import uploadReducer from "./upload";
  import commentsReducer from "./comments";
  import currentUserReducer from "./user";
+ import allUsersReducer from "./allUsers";
 
 
 const rootReducer = combineReducers({
@@ -11,6 +12,8 @@ const rootReducer = combineReducers({
   upload: uploadReducer,
   comments: commentsReducer,
   user: currentUserReducer,
+  allUsers: allUsersReducer,
+  
 
 });
 

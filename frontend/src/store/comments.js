@@ -81,6 +81,30 @@ export const uploadComment = (id, comment) => async dispatch => {
 
    }
 
+   export const updateComment =(id, form ) => async dispatch => {
+    const {userId, comment} = form 
+
+
+
+    const response = await csrfFetch(`/api/comments/${id}/edit`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({userId, comment}),
+    })
+
+
+    if(response.ok){
+      const updateComment = await response.json()
+      // console.log("THIS IS DATA FROM STORE no image-----", updateUser)
+      dispatch(commenting(updateComment))
+      return updateComment
+
+    }
+
+   }
+
 
 
 

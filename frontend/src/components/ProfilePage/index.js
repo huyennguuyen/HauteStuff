@@ -83,7 +83,7 @@ export default function ProfilePage () {
                         backgroundPosition: 'center',
                         backgroundSize: 'cover',
                         backgroundRepeat: 'no-repeat'} :
-                        { backgroundImage: "url(" + "https://images.unsplash.com/photo-1547737694-af7c0238463b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80" + ")", 
+                        { backgroundImage: "url(" + "https://images.unsplash.com/photo-1514810771018-276192729582?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80" + ")", 
                         backgroundPosition: 'center',
                         backgroundSize: 'cover',
                         backgroundRepeat: 'no-repeat'}    
@@ -92,7 +92,8 @@ export default function ProfilePage () {
                         {currentUser?.profileUrl ? <img src={currentUser?.profileUrl} className="profile-pic" onClick={e => setShowEditProfile(true)}></img>:
                         <img src="https://cdn.myportfolio.com/0da7f5fbc31f3b0a622becb5c04363c6/ee759715-7080-4029-8458-50a20bff014c_rw_1920.jpg?h=ba7face07c8aec7970909f3eb3c91045" className="profile-pic" onClick={e => setShowEditProfile(true)}></img>
                         }
-                        {showEditProfile && (
+
+                        {sessionUser?.id === currentUser?.id && showEditProfile && (
                             <Modal onClose={() => setShowEditProfile(false)}> 
                                 <EditProfileModal closeModal={() => setShowEditProfile(false)} userId={userId}/>
                             </Modal>
@@ -103,7 +104,7 @@ export default function ProfilePage () {
                         </div>
                         <div className="inside-menu"> 
                             <Popup
-                                trigger ={<button className="profile-menu-button"><FiMoreHorizontal className="profile-menu" /></button>}
+                                trigger ={sessionUser?.id === currentUser?.id && <button className="profile-menu-button"><FiMoreHorizontal className="profile-menu" /></button>}
                                 position="bottom left"
                                 nested
                                 // open={open}
@@ -118,7 +119,7 @@ export default function ProfilePage () {
                                 closeOnDocumentClick
                                 >
                                     {close => (
-                                        <>
+                                        <> 
                                             <EditCoverModal close={close} userId={userId}/>
                                             {/* <button className="signUpButton" onClick={close}>Cancel Changes</button> */}
                                         </>

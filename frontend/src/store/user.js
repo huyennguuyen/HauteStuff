@@ -1,6 +1,7 @@
 import { csrfFetch } from './csrf';
 
 const LOAD_CURRENT_USER = 'user/loadCurrentUser';
+const CLEAR_STORE = "user/clearStore"
 
 // const LOAD_CURRENT_USER = 'user/loadCurrentUser';
 
@@ -11,10 +12,35 @@ export const loadCurrentUser = (currentUser) => {
     };
   };
 
+  export const clearingStore = () => {
+    return {
+      type: CLEAR_STORE,
+    };
+  };
+
+  export const clearPrevious = () => (dispatch) => {
+
+    dispatch(clearingStore())
+
+  }
+
+  // export const loading = () => async dispatch => {
+  //   const response = await csrfFetch("/api/photos/home")
+  
+  //   if (response.ok) {
+  //     const photos = await response.json()
+  //     //console.log("==================",photos)
+  //     dispatch(load(photos))
+  //   }
+  
+    
+  // }
+
+
 
   export const oneUser = (id) => async(dispatch) => {
 
-    console.log("THIS IS ID--------", id)
+    // console.log("THIS IS ID--------", id)
 
     const response = await csrfFetch(`/api/users/${id}`)
     
@@ -22,7 +48,7 @@ export const loadCurrentUser = (currentUser) => {
 
     if(response.ok) {
       const res = await response.json()
-    //   console.log("THIS IS RES FROM THE STORE---------", res)
+      console.log("THIS IS RES FROM THE STORE---------", res)
       dispatch(loadCurrentUser(res))
     }
   }
@@ -107,7 +133,7 @@ export const loadCurrentUser = (currentUser) => {
 
   export const updateUser = (id, payload) => async(dispatch) => {
 
-    console.log("THIS IS ID--------", id)
+    // console.log("THIS IS ID--------", id)
 
     console.log("THIS IS FORM------", payload)
   const { lastName, firstName, username, about} = payload
@@ -157,6 +183,8 @@ export const loadCurrentUser = (currentUser) => {
         newState = Object.assign({}, state);
         newState.user = action.payload;
         return newState;
+      case CLEAR_STORE:
+        return {}
     //   case REMOVE_USER:
     //     newState = Object.assign({}, state);
     //     newState.user = null;

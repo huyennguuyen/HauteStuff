@@ -5,6 +5,8 @@ import { oneUser } from "../../store/user"
 import { NavLink } from "react-router-dom"
 import { useHistory } from "react-router-dom"
 import { updateUser } from "../../store/user"
+import { clearPrevious } from "../../store/user"
+import { loadAllUsers } from "../../store/allUsers"
 import "./Settings.css"
 
 
@@ -12,20 +14,21 @@ import "./Settings.css"
 export default function Settings () {
     const {userId} = useParams()
     const history= useHistory()
-    const dispatch= useDispatch()
+    const dispatch = useDispatch()
     const [errors, setErrors] = useState([])
+    const [users, setUsers] = useState("")
+    const sessionUser = useSelector(state => state.session.user);
+    console.log("THIS IS SESSIONUSER---", sessionUser)
     // const [profileUrl, setProfileUrl] = useState(null)
     // const [bannerUrl, setBannerUrl] = useState(null)
+
+
     const currentUser = useSelector(state => state.user.user);
 
+    const allUsers = useSelector(state => state.allUsers.user);
+
+
     console.log("THIS IS CURRENT USER FROM SETTINGS", currentUser)
-
-
-    const [lastName, setLastName]= useState(currentUser?.lastName)
-    const [firstName, setFirstName]= useState(currentUser?.firstName)
-    const [username, setUsername]= useState(currentUser?.username)
-    const sessionUser = useSelector(state => state.session.user);
-    const [hasSubmitted, setHasSubmitted] = useState(false)
     
     //console.log(photo)
     const url = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/
@@ -34,11 +37,47 @@ export default function Settings () {
         history.push("/")
         
     }
+
+    const one = {};
+    allUsers?.forEach((user) => {
+      one[user.id] = user;
+    });
+
+    
+
+       
+    // useEffect( () => {
+    //    dispatch(loadAllUsers())
+    //   },[dispatch])
+
+
+        // useEffect(() => {
+        //     async function fetchData() {
+        //       const response = await fetch('/api/users/all');
+        //       const responseData = await response.json();
+        //       const one = {};
+        //       responseData.forEach((user) => {
+        //           one[user.id] = user;
+        //         });
+                
+        //     console.log("THIS IS response DATA-----", one)
+        //       setUsers(one[sessionUser?.id]);
+        //     }
+        //     fetchData();
+        //   }, [sessionUser]);
+
+
+      const [lastName, setLastName]= useState(one[sessionUser?.id]?.lastName)
+      const [firstName, setFirstName]= useState(one[sessionUser?.id]?.firstName)
+      const [username, setUsername]= useState(one[sessionUser?.id]?.username)
+      const [hasSubmitted, setHasSubmitted] = useState(false)
     
     
-    useEffect( () => {
-        dispatch(oneUser(userId))
-      },[userId, dispatch])
+    
+    // useEffect( () => {
+    //     // dispatch(clearPrevious())
+    //     dispatch(oneUser(sessionUser.id))
+    //   },[sessionUser])
     
   useEffect(() => {
       let errors = [];
@@ -59,6 +98,12 @@ export default function Settings () {
 
   }, [firstName, lastName, username])
 
+
+   useEffect( () => {
+       dispatch(loadAllUsers())
+      },[dispatch])
+
+
  
 
   const handleSubmit = async (e) => {
@@ -69,6 +114,7 @@ export default function Settings () {
       if (errors.length > 0) return; 
 
       const payload = {
+            ...currentUser,
           firstName, 
           lastName,
           username,
@@ -77,7 +123,7 @@ export default function Settings () {
 
       console.log("THIS IS EDIT PAYLOAD-----", payload)
 
-      let picture = await dispatch(updateUser(userId, payload))
+      let picture = await dispatch(updateUser(sessionUser.id, payload))
 
       // const pictureOne = Object.values(picture)
 

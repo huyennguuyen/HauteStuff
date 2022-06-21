@@ -9,7 +9,7 @@
     margin: 0px;
     background-color: #f9c6c6;
     height: 64px;
-    z-index: 10000;
+    /* z-index: 10000; */
     opacity: 0.75;
 }
 
