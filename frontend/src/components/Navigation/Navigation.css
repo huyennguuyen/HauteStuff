@@ -126,3 +126,8 @@ ul {
     text-decoration: underline;
 }
 
+.profile-nav-image {
+    width: 100px;
+    height: 100px;
+}
+
