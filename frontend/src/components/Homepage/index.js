@@ -15,8 +15,8 @@ export default function Homepage () {
     const history = useHistory()
     const dispatch = useDispatch()
     const {imageId} = useParams()
-    const [image, setImage] = useState("")
-    const [image2, setImage2] = useState("")
+    // const [image, setImage] = useState("")
+    // const [image2, setImage2] = useState("")
     // const [users, setUsers] = useState("")
 
     // const photos = useSelector(state => {
@@ -63,13 +63,13 @@ export default function Homepage () {
     }, [dispatch])
 
     
-    const random = Math.floor(Math.random() * photos.length);
-    const random1 = Math.floor(Math.random() * photos.length);
-    const random2 = Math.floor(Math.random() * photos.length);
-    const random3 = Math.floor(Math.random() * photos.length);
-    const random4 = Math.floor(Math.random() * photos.length);
-    const random5 = Math.floor(Math.random() * photos.length);
-    const random6 = Math.floor(Math.random() * photos.length);
+    // const random = Math.floor(Math.random() * photos.length);
+    // const random1 = Math.floor(Math.random() * photos.length);
+    // const random2 = Math.floor(Math.random() * photos.length);
+    // const random3 = Math.floor(Math.random() * photos.length);
+    // const random4 = Math.floor(Math.random() * photos.length);
+    // const random5 = Math.floor(Math.random() * photos.length);
+    // const random6 = Math.floor(Math.random() * photos.length);
     
     // useEffect(() => {
         
@@ -93,7 +93,7 @@ export default function Homepage () {
             <div className="home-inside">
                 <div className="left-home">
                     <ul className="photos">
-                        {/* {photos.map(({id}) => (
+                        {photos.map(({id}) => (
                         <div className="box" key={(id)}>
                         <li key={id} className="box2">
                             <div>
@@ -108,12 +108,12 @@ export default function Homepage () {
                                 <NavLink to={`/photos/${id}`}>
                                     <img src={one[id]?.imageUrl} className="homepage-photos"></img>
                                 </NavLink>
-                                    <p className="text">{one[id]?.description}</p>
+                                    {/* <p className="text">{one[id]?.description}</p> */}
                             </div>
                         </li>   
                         </div>
-                        ))} */}
-                        {photos.map((photo, id) => (
+                        ))}
+                        {/* {photos.map((photo, id) => (
                         <div className="box" key={id}>
                         <li key={id} className="box2">
                             <div>
@@ -128,11 +128,11 @@ export default function Homepage () {
                                 <NavLink to={`/photos/${photo?.id}`}>
                                     <img src={photo?.imageUrl} className="homepage-photos"></img>
                                 </NavLink>
-                                    {/* <p className="text">{one[id]?.description}</p> */}
+                                    <p className="text">{one[id]?.description}</p>
                             </div>
                         </li>   
                         </div>
-                        ))}
+                        ))} */}
                         {/* {allUsers?.map(({id}) => (
                             <div className="user-box" key={(id)}>
                                 <li key={id} className="inside-user-box">
@@ -151,7 +151,7 @@ export default function Homepage () {
                     </ul>
                 </div>
                 <div className="right-home">
-                    <div className="random-pics">
+                    {/* <div className="random-pics">
                         <h3 className="explore-header">Explore photos here</h3>
                         <div className="pics-box">
                             <NavLink to={`/photos/${photos[random]?.id}`} className="photo-link">
@@ -181,8 +181,8 @@ export default function Homepage () {
                                 <img src={photos[random6]?.imageUrl}
                                 className="random-right-six"></img>
                             </NavLink>   
-                        </div>
-                    </div>
+                        </div> */}
+                    {/* </div> */}
                     <div className="editorial">
                         <h3 className="explore-header">Haute Stuff Editorial</h3>
                         <div className="latest-news">
