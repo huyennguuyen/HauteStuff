@@ -81,23 +81,27 @@ export default function Homepage () {
             <div className="home-inside">
                 <div className="left-home">
                     <ul className="photos">
-                        {/* {photos.map(({id}) => (
+                        {photos.map(({id}) => (
                         <div className="box" key={(id)}>
                         <li key={id} className="box2">
-                            <NavLink to={`/users/${one[id]?.userId}`}>
-                                {users[one[id]?.userId]?.profileUrl ? <img src={users[one[id]?.userId]?.profileUrl} className="profile-homepage"></img>:
-                                <img src="https://cdn.myportfolio.com/0da7f5fbc31f3b0a622becb5c04363c6/ee759715-7080-4029-8458-50a20bff014c_rw_1920.jpg?h=ba7face07c8aec7970909f3eb3c91045" className="profile-homepage"></img>
-                                }
-                                <h4>{users[one[id]?.userId]?.firstName} {users[one[id]?.userId]?.lastName}</h4>
-                            </NavLink>
-                            <NavLink to={`/photos/${id}`}>
-                                <img src={one[id]?.imageUrl}></img>
-                            </NavLink>
-                                <p className="text">{one[id]?.description}</p>
+                            <div className="user-profile-home">
+                                <NavLink to={`/users/${one[id]?.userId}`} className="user-profile-home">
+                                    {users[one[id]?.userId]?.profileUrl ? <img src={users[one[id]?.userId]?.profileUrl} className="profile-homepage"></img>:
+                                    <img src="https://cdn.myportfolio.com/0da7f5fbc31f3b0a622becb5c04363c6/ee759715-7080-4029-8458-50a20bff014c_rw_1920.jpg?h=ba7face07c8aec7970909f3eb3c91045" className="profile-homepage"></img>
+                                    }
+                                    <h4>{users[one[id]?.userId]?.firstName} {users[one[id]?.userId]?.lastName}</h4>
+                                </NavLink>
+                            </div>
+                            <div className="user-profile-photos">
+                                <NavLink to={`/photos/${id}`}>
+                                    <img src={one[id]?.imageUrl} className="homepage-photos"></img>
+                                </NavLink>
+                                    {/* <p className="text">{one[id]?.description}</p> */}
+                            </div>
                         </li>   
                         </div>
-                        ))} */}
-                        {allUsers?.map(({id}) => (
+                        ))}
+                        {/* {allUsers?.map(({id}) => (
                             <div className="user-box" key={(id)}>
                                 <li key={id} className="inside-user-box">
                                     <NavLink to={`/users/${users[id]?.id}`}>
@@ -106,12 +110,12 @@ export default function Homepage () {
                                     }
                                     <h4>{users[id]?.firstName} {users[id]?.lastName}</h4>
                                     </NavLink>
-                                    {/* <NavLink to={`/photos/${}`}>
+                                    <NavLink to={`/photos/${}`}>
                                     <img src={one[id]?.imageUrl}></img>
-                                    </NavLink>   */}
+                                    </NavLink>  
                                 </li>
                             </div>
-                        ))}
+                        ))} */}
                     </ul>
                 </div>
                 <div className="right-home">
