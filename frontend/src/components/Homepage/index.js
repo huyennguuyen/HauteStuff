@@ -15,8 +15,8 @@ export default function Homepage () {
     const history = useHistory()
     const dispatch = useDispatch()
     const {imageId} = useParams()
-    const [image, setImage] = useState("")
-    const [image2, setImage2] = useState("")
+    // const [image, setImage] = useState("")
+    // const [image2, setImage2] = useState("")
     // const [users, setUsers] = useState("")
 
     // const photos = useSelector(state => {
@@ -182,7 +182,7 @@ export default function Homepage () {
                                 className="random-right-six"></img>
                             </NavLink>   
                         </div> */}
-                    </div>
+                    {/* </div> */}
                     <div className="editorial">
                         <h3 className="explore-header">Haute Stuff Editorial</h3>
                         <div className="latest-news">
