@@ -190,11 +190,11 @@ export default function Homepage () {
                             <p>
                                 Ran out of clothes to wear? Don't worry, pajama sets will work just fine. This  latest trend is too good to be true, cute and comfy. Time to swap out mini bags for pillows. What do you think? Share your lastest set!
                             </p>
-                            <a href="https://www.instagram.com/emmachamberlain/" target="_blank" rel="noopener noreferrer">
+                            {/* <a href="https://www.instagram.com/emmachamberlain/" target="_blank" rel="noopener noreferrer"> */}
                             <p className="emma-insta">
                                 pc: Emma Chamberlain
                             </p>
-                            </a>
+                            {/* </a> */}
                         </div>
                     </div>
                 </div>
