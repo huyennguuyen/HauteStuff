@@ -63,13 +63,13 @@ export default function Homepage () {
     }, [dispatch])
 
     
-    const random = Math.floor(Math.random() * photos.length);
-    const random1 = Math.floor(Math.random() * photos.length);
-    const random2 = Math.floor(Math.random() * photos.length);
-    const random3 = Math.floor(Math.random() * photos.length);
-    const random4 = Math.floor(Math.random() * photos.length);
-    const random5 = Math.floor(Math.random() * photos.length);
-    const random6 = Math.floor(Math.random() * photos.length);
+    // const random = Math.floor(Math.random() * photos.length);
+    // const random1 = Math.floor(Math.random() * photos.length);
+    // const random2 = Math.floor(Math.random() * photos.length);
+    // const random3 = Math.floor(Math.random() * photos.length);
+    // const random4 = Math.floor(Math.random() * photos.length);
+    // const random5 = Math.floor(Math.random() * photos.length);
+    // const random6 = Math.floor(Math.random() * photos.length);
     
     // useEffect(() => {
         
@@ -151,7 +151,7 @@ export default function Homepage () {
                     </ul>
                 </div>
                 <div className="right-home">
-                    <div className="random-pics">
+                    {/* <div className="random-pics">
                         <h3 className="explore-header">Explore photos here</h3>
                         <div className="pics-box">
                             <NavLink to={`/photos/${photos[random]?.id}`} className="photo-link">
@@ -181,7 +181,7 @@ export default function Homepage () {
                                 <img src={photos[random6]?.imageUrl}
                                 className="random-right-six"></img>
                             </NavLink>   
-                        </div>
+                        </div> */}
                     </div>
                     <div className="editorial">
                         <h3 className="explore-header">Haute Stuff Editorial</h3>
