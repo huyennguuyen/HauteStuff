@@ -55,36 +55,36 @@ function ProfileButton({ user }) {
   return (
     <>
     <div className="together">
-            <Popup
-              trigger ={users[user?.id]?.profileUrl ? <img src={users[user?.id]?.profileUrl} onClick={openMenu} className="profile-homepage side"></img>:
-              <img src="https://cdn.myportfolio.com/0da7f5fbc31f3b0a622becb5c04363c6/ee759715-7080-4029-8458-50a20bff014c_rw_1920.jpg?h=ba7face07c8aec7970909f3eb3c91045" className="profile-homepage side" onClick={openMenu}></img>
-              }
-              position="bottom right"
-              className="foo"
-              closeOnDocumentClick
-              >
-                <ul className="pro">
-                  <div className="side">
-                    <div>
-                      <NavLink to={`/users/${user?.id}`}>            
-                        <li className="username">{user?.username}</li>
-                      </NavLink>
-                    </div>
-                    <li>
-                        <NavLink to={`/users/${user?.id}/edit`}> 
-                          Settings
-                        </NavLink>
-                      </li>
-                    <div className="user">
-                      <li>
-                        <NavLink exact to="/">
-                        <button onClick={logout} className="logout">Log Out</button>
-                        </NavLink>
-                      </li>
-                    </div>
-                  </div>
-                </ul>
-          </Popup>
+      <Popup
+        trigger ={users[user?.id]?.profileUrl ? <img src={users[user?.id]?.profileUrl} onClick={openMenu} className="profile-nav-pic side"></img>:
+        <img src="https://cdn.myportfolio.com/0da7f5fbc31f3b0a622becb5c04363c6/ee759715-7080-4029-8458-50a20bff014c_rw_1920.jpg?h=ba7face07c8aec7970909f3eb3c91045" className="profile-nav-pic side" onClick={openMenu}></img>
+        }
+        position="bottom right"
+        className="prof"
+        closeOnDocumentClick
+        >
+          <ul className="pro">
+            <div className="side">
+              <div>
+                <NavLink to={`/users/${user?.id}`}>
+                  <h3>Hi, <li className="username">{user?.username}!</li></h3>          
+                </NavLink>
+              </div>
+              <li>
+                  <NavLink to={`/users/${user?.id}/edit`}> 
+                    Settings
+                  </NavLink>
+                </li>
+              <div className="user">
+                <li>
+                  <NavLink exact to="/">
+                  <button onClick={logout} className="logout">Log Out</button>
+                  </NavLink>
+                </li>
+              </div>
+            </div>
+          </ul>
+      </Popup>
     </div>
     </>
   );
