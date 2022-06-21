@@ -10,8 +10,12 @@
     justify-content: center;
     align-items: center;
     border-radius: 8px;
-    background-color: #f9ebdf;
+    background-color: #f9f1f1;
 
+}
+
+.single-photo-box {
+    background-color: #f9f1f1;
 }
 
 h1 {
@@ -20,9 +24,9 @@ h1 {
 }
 
 .inside {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     border-radius: 8px;
-    background-color: #e0dbc7;
+    background-color: #f9f1f1;
 }
 
 .button-one-photo {
@@ -46,9 +50,16 @@ h1 {
 }
 
 .photoDescription {
-    background-color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding-top: 4em;
     border: 1px solid black;
+    
     border-radius: 8px;
+    height: 500px;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .button-one-photo {
@@ -64,6 +75,12 @@ h1 {
 
 .delete {
     margin-left: 10px;
+}
+
+.single-image {
+    width: 665px;
+    height: 400px;
+    object-fit: contain;
 }
 
 

@@ -142,41 +142,38 @@ export default function OnePhoto () {
 
         return (
         <>
-        <div className="onePhotoHeader">
-            <h1 className="yourPhoto">Your Photo</h1>
-        </div>
-        <div className="photo-box">        
-        <div className="inside">
-            <div className="photoDescription">
-                <img src={photos?.imageUrl}></img>
-                <p className="description-one">{photos?.description}</p>
-            </div>
-            {loadComments?.map((comment, idx) => (
-                <div key={idx}>
-                <li key={idx} className="box2">
-                    {/* {console.log("THIS IS THE OTHER USERS-----",users[comment?.userId].username)} */}
-                    <h4>{users[comment?.userId]?.firstName} {users[comment?.userId]?.lastName}</h4>
-                    <p className="text">{comment.comment}</p>
-                    {sessionUser?.id === comment?.userId && (
-                    <>
-                    <button onClick={() => setShowModal(!showModal)}>Edit Comment </button>
-                    {/* {showModal && <EditCommentForm commentId={comment?.userId} setShowModal={setShowModal}/>} */}
-                    <button onClick={() => {
-                        dispatch(deletingComment(comment.id))
-                        history.push(`/photos/${imageId}`)
-                    }}>Delete</button>
-                    </>
-                     )}
-                </li>   
+        <div className="single-photo-box">    
+            <div className="inside">
+                <div className="photoDescription">
+                    <img src={photos?.imageUrl} className="single-image"></img>
                 </div>
-                ))}
-            { sessionUser?.id === photos?.userId ? loggedIn : ""} 
-            {sessionUser && (
-                <div>
-                    <CommentFormPage imageId={imageId}/>
-                 </div>
-            )}
-        </div>
+                <p className="description-one">{photos?.description}</p>
+                {loadComments?.map((comment, idx) => (
+                    <div key={idx}>
+                    <li key={idx} className="box2">
+                        {/* {console.log("THIS IS THE OTHER USERS-----",users[comment?.userId].username)} */}
+                        <h4>{users[comment?.userId]?.firstName} {users[comment?.userId]?.lastName}</h4>
+                        <p className="text">{comment.comment}</p>
+                        {sessionUser?.id === comment?.userId && (
+                        <>
+                        <button onClick={() => setShowModal(!showModal)}>Edit Comment </button>
+                        {showModal && <EditCommentForm commentId={comment?.userId} setShowModal={setShowModal}/>}
+                        <button onClick={() => {
+                            dispatch(deletingComment(comment.id))
+                            history.push(`/photos/${imageId}`)
+                        }}>Delete</button>
+                        </>
+                        )}
+                    </li>   
+                    </div>
+                    ))}
+                { sessionUser?.id === photos?.userId ? loggedIn : ""} 
+                {sessionUser && (
+                    <div>
+                        <CommentFormPage imageId={imageId}/>
+                    </div>
+                )}
+            </div>
         </div>
         </>
     )
