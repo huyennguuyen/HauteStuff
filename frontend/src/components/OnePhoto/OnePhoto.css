@@ -184,7 +184,8 @@ h1 {
 }
 
 .single-bottom-inside {
-    border: 1px solid black;
+    /* border: 1px solid black; */
+    height: 2000px;
     width: 900px;
 }
 

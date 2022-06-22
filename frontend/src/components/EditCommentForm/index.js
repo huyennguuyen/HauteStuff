@@ -102,7 +102,7 @@ export default function EditCommentForm ({commentId, setShowModal, setShowEdit})
                     <input className="input-edit-val" value={comment} onChange={(e) => setComment(e.target.value)}/>
                     <ul className="edit-comment-form">
                         {hasSubmitted && errors.map((error, idx) => (
-                            <li key={idx}>
+                            <li key={idx} className="comment-errors">
                                 {error}
                             </li>
                         ))}
