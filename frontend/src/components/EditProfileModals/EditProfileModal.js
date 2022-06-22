@@ -133,9 +133,9 @@ export default function EditProfileModal ({closeModal, userId}) {
 
   return (
       <>
-       <div className="profile-pic-edit">
-        <div className="inside-profile-pic-edit">
-            <form onSubmit={handleSubmit} className="forms" id="signupForm">
+       <div >
+        <div >
+            <form onSubmit={handleSubmit} className="forms profile-form" id="signupForm">
                 <ul>
                     {hasSubmitted && errors.map((error, idx) => <li key={idx} className="errors">{error}</li>)}
                 </ul>
@@ -165,9 +165,9 @@ export default function EditProfileModal ({closeModal, userId}) {
                             }
                         </div>
                     </FileUploader>
-                    <div className="button-box">
-                        <button type="submit" className="save-cover-button">Save Changes</button>
+                    <div className="button-cover profile-moving">
                         <button  className="cancel-cover-button" onClick={() => closeModal()}>Cancel Changes</button>
+                        <button type="submit" className="save-cover-button">Save Changes</button>
                     </div>
                 </div>
             </form>
