@@ -15,6 +15,7 @@
 
 .single-photo-box {
     background-color: #f9f1f1;
+    height: 200vh;
 }
 
 h1 {
@@ -304,6 +305,15 @@ h1 {
 .trash {
     background: none;
     border: none;
+}
+
+.moving {
+    margin-left: 26px;
+    margin-top: 20px;
+}
+
+.comment-box {
+    display: flex
 }
 
 

@@ -344,7 +344,10 @@ export default function OnePhoto () {
                             </div>
                             ))}
                         {sessionUser && (
-                            <div>
+                            <div className="comment-box">
+                                {users[sessionUser?.id]?.profileUrl ? <img src={users[sessionUser?.id]?.profileUrl} className="profile-32 moving"></img>:
+                                <img src="https://cdn.myportfolio.com/0da7f5fbc31f3b0a622becb5c04363c6/ee759715-7080-4029-8458-50a20bff014c_rw_1920.jpg?h=ba7face07c8aec7970909f3eb3c91045" className="profile-32"></img>
+                                }
                                 <CommentFormPage imageId={imageId}/>
                             </div>
                         )}

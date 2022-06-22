@@ -86,7 +86,11 @@ export default function CommentFormPage ({imageId}) {
     return (
         <>
         <div className="outsideComments">
-                <form onSubmit={submitting} className="forms"> 
+                <form onSubmit={submitting}> 
+                <div className="enter-comment">
+
+                </div>
+                    <input className="enter-comment" value={comment} onChange={(e) => setComment(e.target.value)}/>
                 <ul>
                 {hasSubmitted && errors.map((error, idx) => (
                     <li key={idx}>
@@ -94,8 +98,6 @@ export default function CommentFormPage ({imageId}) {
                     </li>
                     ))}
                 </ul>
-                <label>Comment:</label>
-                <input value={comment} onChange={(e) => setComment(e.target.value)}/>
                 <button id="comment" >Comment</button>
                 </form>
          </div>

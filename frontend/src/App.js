@@ -33,7 +33,7 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <>
-        <div className="developerInfo">
+        {/* <div className="developerInfo">
           <div className="rightSide">
             <p className="name">@2022 Haute Stuff</p>
             <p className="name">Created By: Huyen Nguyen</p>
@@ -42,7 +42,7 @@ function App() {
               <a className="developerLink" href='https://github.com/huyennguuyen' target="_blank" rel="noopener noreferrer">Github <AiFillGithub /></a>
               <a className="developer-link" href="https://www.linkedin.com/in/huyen-nguyen-2804b523b/" target="_blank" rel="noopener noreferrer">LinkedIn <AiFillLinkedin/></a>
           </div> 
-        </div>
+        </div> */}
         <Switch>
           <Route path="/login">
             <LoginFormPage />
