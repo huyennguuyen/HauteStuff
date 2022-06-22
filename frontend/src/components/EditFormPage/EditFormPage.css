@@ -48,6 +48,10 @@ input[type="file"]::file-selector-button {
     
 }
 
+input[type="file"]::file-selector-button:hover {
+    color: white;
+}
+
 .space {
     margin-bottom: 5px;
 }

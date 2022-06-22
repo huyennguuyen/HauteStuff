@@ -69,9 +69,6 @@ h1 {
     margin-right: 10px;
 }
 
-.delete {
-    margin-left: 10px;
-}
 
 .single-image {
     width: 870px;
@@ -152,6 +149,67 @@ h1 {
 
 
 }
+
+.delete-single {
+    width: 620px;
+    height: 182px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+
+}
+
+.delete {
+    width: 82px;
+    height: 29px;
+    border: none;
+
+
+}
+
+.delete:hover {
+    color: white;
+}
+
+.right {
+    margin-left: 15px;
+    background: rgb(233, 44, 44);
+}
+
+.cancel-logo {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.cancel-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 19px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.confirm-message {
+    margin-left: 20px;
+    margin-top: 0;
+}
+
+.delete-header {
+    margin-top: 0;
+    font-size: 18px;
+}
+
+.button-box {
+    width: 620px;
+    height: 50px;
+    display: flex;
+    padding-left: 12em;
+    align-items: flex-end;
+}
+
+
 
 
 

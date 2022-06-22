@@ -15,6 +15,7 @@ import {FiEdit} from "react-icons/fi"
 import { Modal } from "../context/Modal"
 import Popup from "reactjs-popup"
 import EditCommentForm from "../EditCommentForm"
+import cancel from "./cancel.png"
 
 
 
@@ -229,16 +230,25 @@ export default function OnePhoto () {
                             <Popup
                                 trigger ={<button className="edit-single-button on-bottom">Delete</button>}
                                 modal
+                                className="delete-single"
                                 closeOnDocumentClick
                             >
                                 {close => (
                                     <>
-                                    <h3>Are you sure you want to delete?</h3>
-                                    <button onClick={close}>Cancel</button>
-                                    <button className="delete" onClick={async () => {
-                                    await dispatch(deletingOne(imageId))
-                                    history.push("/home")
-                                    }}>Delete</button>    
+                                    <div className="delete-single">
+                                        <div className="cancel-button">
+                                            <h4 className="delete-header">Delete Photo</h4>
+                                            <img src={cancel} className="cancel-logo" onClick={close}></img>
+                                        </div>
+                                        <p className="confirm-message">Do you want to permanently delete this photo?</p>
+                                        <div className="button-box">
+                                            <button onClick={close} className="delete">Cancel</button>
+                                            <button className="delete right" onClick={async () => {
+                                            await dispatch(deletingOne(imageId))
+                                            history.push("/home")
+                                            }}>Delete</button>    
+                                        </div>
+                                    </div>
                                     </>
                                 )}
                             </Popup>
