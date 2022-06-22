@@ -6,3 +6,8 @@
     flex-direction: column;
     height: 200px;
 }
+
+.profile-photos {
+    height: 200px;
+    width: 200px;
+}

@@ -20,6 +20,31 @@
     align-items: center;
 }
 
+.drop-prof-inside-cover {
+    height: 300px;
+    width: 600px;
+    border: 4px dotted grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.button-cover {
+    margin-top: 20px;
+    margin-right: 6px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.cover-container {
+    width: 610px;
+}
+
+.cover-uploading {
+    width: 600px;
+}
+
 .upload-preview-prof {
     height: 200px;
     width: 300px;
@@ -37,9 +62,38 @@
     align-items: center;
 }
 
+.drop-banner-inside {
+    width: 608px;
+}
+
 .button-box {
     display: flex;
     justify-content: center;
+}
+
+.save-cover-button {
+    width: 100px;
+    height: 30px;
+    margin-left: 10px;
+    border: none;
+}
+
+.save-cover-button:hover {
+    color: white;
+}
+
+
+.cancel-cover-button {
+    width: 110px;
+    height: 30px;
+    margin-right: 10px;
+    border: none;
+
+
+}
+
+.cancel-cover-button:hover {
+    color:white;
 }
 
 

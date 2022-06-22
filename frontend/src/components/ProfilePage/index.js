@@ -114,7 +114,7 @@ export default function ProfilePage () {
                             >
                                 <>
                                 <Popup
-                                trigger ={<button>Change cover photo</button>}
+                                trigger ={<button className="edit-single-button on-top">Change cover photo</button>}
                                 className="foo"
                                 modal
                                 closeOnDocumentClick
@@ -126,8 +126,10 @@ export default function ProfilePage () {
                                         </>
                                     )}
                                 </Popup>
-                                <button>Edit username</button>
-                                <button>Edit real name</button>
+                                <NavLink to={`/users/${userId}/edit`}>
+                                    <button className="edit-single-button">Edit username</button>
+                                    <button className="edit-single-button on-bottom">Edit real name</button>
+                                </NavLink>
                                 </>
                             </Popup>
                         </div>
@@ -135,13 +137,17 @@ export default function ProfilePage () {
                     <div className="profile-navlinks">
                         {/* <NavLink to={`/users/${currentUser?.id}/about`} className="prof-link"> */}
                          <>
-                            <h2 onClick={about}>About</h2>
+                            <div onClick={about} className="about-box">
+                                <h2 onClick={about} className="about">About</h2>
+                            </div>
                             {/* {showAbout && (
                                   <About />
                             )} */}
                             {/* </NavLink> */}
                             {/* <NavLink to={`/users/${currentUser?.id}/all-photos`} className="prof-link"> */}
-                            <h2 onClick={photos}>Photos</h2>
+                            <div onClick={photos} className="about-photos-box">
+                                <h2 onClick={photos} className="about-photos">Photos</h2>
+                            </div>
                             
                             {/* {showPhotos && (
                                 <ProfilePhotos />

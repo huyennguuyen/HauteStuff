@@ -36,7 +36,7 @@ export default function ProfilePhotos ({userId}) {
                 <div className="box" key={(id)}>
                 <li key={id} className="box2">
                     <NavLink to={`/photos/${id}`}>
-                        <img src={one[id]?.imageUrl}></img>
+                        <img src={one[id]?.imageUrl} className="profile-photos"></img>
                     </NavLink>
                         {/* <p className="text">{one[id]?.description}</p> */}
                 </li>   

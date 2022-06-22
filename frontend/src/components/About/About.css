@@ -1,0 +1,78 @@
+
+.before-about {
+    margin-top: 0;
+    margin-left: 60px;
+}
+
+.outside-about {
+    display: flex;
+    justify-content: center;
+}
+
+.inside-about {
+    margin-top: 25px;
+    width: 900px;
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: center;
+    height: 500px;
+    border-radius: 4px;
+    background: white;
+
+}
+
+.pen-about {
+    display:flex;
+    justify-content: space-between;
+}
+
+
+.edit-about-form {
+    margin-top: 35px;
+    width: 820px;
+    /* border: 1px solid black; */
+    height: 300px;
+}
+
+.pen-pointer {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+
+.inside-about-form {
+    margin-left: 60px;
+}
+
+.texting-about {
+    width: 690px;
+    height: 200px;
+    border-radius: 4px;
+    border: 1px solid rgb(214, 213, 213);
+}
+
+.button-box-about {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 62px;
+}
+
+.about-save {
+    margin-right: 5px;
+}
+
+.about-cancel {
+    margin-left: 5px;;
+}
+
+.about-section {
+    width: 696px;
+    height: 206px;
+    margin-left: 60px;
+    overflow: hidden;
+    border-bottom: 1px solid #d3d3d3;
+}
+
+.about-section {
+    overflow: auto;
+}
