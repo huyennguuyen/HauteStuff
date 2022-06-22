@@ -248,6 +248,7 @@ export default function OnePhoto () {
                                             <button onClick={close} className="delete">Cancel</button>
                                             <button className="delete right" onClick={async () => {
                                             await dispatch(deletingOne(imageId))
+                                            close()
                                             history.push("/home")
                                             }}>Delete</button>    
                                         </div>
@@ -305,10 +306,34 @@ export default function OnePhoto () {
                                                 setShowEdit(showEdit == comment?.id ? "" : comment?.id)
 
                                             }} className="react-icon-edit"/>
-                                            <BiTrash onClick={() => {
-                                                dispatch(deletingComment(comment.id))
+                                            <Popup
+                                                trigger={<button className="trash"><BiTrash className="react-icon-delete"/></button>}
+                                                modal
+                                            >
+                                                {close => (
+                                                    <>
+                                                    <div className="delete-single">
+                                                        <div className="cancel-button">
+                                                            <h4 className="delete-header">Delete Comment</h4>
+                                                            <img src={cancel} className="cancel-logo" onClick={close}></img>
+                                                        </div>
+                                                        <p className="confirm-message">Do you want to permanently delete this comment?</p>
+                                                        <div className="button-box">
+                                                            <button onClick={close} className="delete">Cancel</button>
+                                                            <button className="delete right" onClick={async () => {
+                                                                dispatch(deletingComment(comment?.id))
+                                                                close()
+                                                                history.push(`/photos/${imageId}`)
+                                                            }}>Delete</button>    
+                                                        </div>
+                                                    </div>
+                                                    </>
+                                                )}
+                                            </Popup>
+                                            {/* <BiTrash onClick={() => {
+                                                dispatch(deletingComment(comment?.id))
                                                 history.push(`/photos/${imageId}`)
-                                            }} className="react-icon-delete"/>
+                                            }} className="react-icon-delete"/> */}
                                             </>
                                             )}
                                         </div>

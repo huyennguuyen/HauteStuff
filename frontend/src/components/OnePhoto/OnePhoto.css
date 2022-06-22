@@ -301,6 +301,11 @@ h1 {
     align-items: flex-end;
 }
 
+.trash {
+    background: none;
+    border: none;
+}
+
 
 
 
