@@ -15,11 +15,11 @@ export const loadAll = (users) => {
   export const loadAllUsers = () => async dispatch => {
     const response = await csrfFetch("/api/allUsers/all")
 
-    console.log("THIS IS FOR ALL USERS----", response)
+    // console.log("THIS IS FOR ALL USERS----", response)
   
     if (response.ok) {
       const allUsers = await response.json()
-      console.log("==================",allUsers)
+      // console.log("==================",allUsers)
       dispatch(loadAll(allUsers))
     }
   

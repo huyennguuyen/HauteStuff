@@ -8,7 +8,7 @@ import Navigation from './components/Navigation';
 import Homepage from "./components/Homepage"
 import UploadForm from './components/UploadFormPage';
 import OnePhoto from './components/OnePhoto/OnePhoto';
-import EditFormPage from './components/EditFormPage/EditFormPage';
+// import EditFormPage from './components/EditFormPage/EditFormPage';
 import {useSelector} from "react-redux";
 import {useParams} from "react-router-dom"
 import CommentFormPage from './components/CommentFormPage/CommentFormPage';
@@ -53,9 +53,9 @@ function App() {
           <Route path="/home" >
             <Homepage />
           </Route>
-          <Route exact path="/photos/:imageId/edit">
+          {/* <Route exact path="/photos/:imageId/edit">
             <EditFormPage />
-          </Route>
+          </Route> */}
           <Route path="/photos/new">
             <UploadForm />
           </Route>

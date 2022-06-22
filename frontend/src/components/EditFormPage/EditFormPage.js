@@ -9,12 +9,13 @@ import { useParams } from "react-router-dom";
 import "./EditFormPage.css"
 
 
-export default function EditFormPage () {
-    const {imageId} = useParams()
+export default function EditFormPage ({close, imageId}) {
+    // const {imageId} = useParams()
     const history= useHistory()
     const dispatch= useDispatch()
      const [errors, setErrors] = useState([])
     const photo = useSelector(state => state.upload[imageId])
+    // console.log("THIS IS PHOTO FROM STORE-----", photo)
     const [imageUrl, setImage] = useState(null)
     const [description, setDescription]= useState(photo?.description)
     const sessionUser = useSelector(state => state.session.user);
@@ -40,7 +41,7 @@ export default function EditFormPage () {
         if(!description) errors.push("Please enter a description.")
         setErrors(errors)
 
-    }, [imageUrl, description])
+    }, [ description])
 
    
 
@@ -52,13 +53,13 @@ export default function EditFormPage () {
         if (errors.length > 0) return; 
 
         const payload = {
-            ...photo,
+            // ...photo,
             userId: sessionUser.id,
             imageUrl,
             description
         }
 
-        console.log("THIS IS EDIT PAYLOAD-----", payload)
+        // console.log("THIS IS EDIT PAYLOAD-----", payload)
 
         let picture = await dispatch(updatePhoto(imageId, payload))
 
@@ -66,22 +67,25 @@ export default function EditFormPage () {
 
         // console.log(pictureOne)
 
-       if(picture) {
-           history.push(`/photos/${picture.id}`)
-       }
+        // setImageLoading(false)
+        close()
+
+    //    if(picture) {
+    //        history.push(`/photos/${picture.id}`)
+    //    }
 
     }
 
     const updateFile = (e) => {
         const file = e.target.files[0];
-        console.log("THIS IS FILE-------", file)
+        // console.log("THIS IS FILE-------", file)
         if (file) setImage(file);
       };
 
     return (
         <>
-        <div className="firstContainer">
-            <div className="outsideEdit">
+        <div className="edit-photo">
+            <div className="edit-photo-inside">
                 <form onSubmit={submitting} className="forms" id="editForm"> 
                 <ul>
                     {hasSubmitted && errors.map((error, idx) => (

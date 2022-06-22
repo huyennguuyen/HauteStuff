@@ -94,11 +94,11 @@ formData.append("userId", userId)
 }
 
 export const updatePhoto = (id, form) => async dispatch => {
-  console.log("THIS IS FORM------", form)
+  // console.log("THIS IS FORM------", form)
   const {imageUrl, description, userId} = form 
 
 
- console.log("THIS IS imageURL store--------", imageUrl)
+//  console.log("THIS IS imageURL store--------", imageUrl)
 
  
 
@@ -117,7 +117,7 @@ export const updatePhoto = (id, form) => async dispatch => {
 
   if(response.ok){
     const updatePhoto = await response.json()
-    console.log("THIS IS DATA FROM STORE no image-----", updatePhoto)
+    // console.log("THIS IS DATA FROM STORE no image-----", updatePhoto)
     dispatch(uploadPhoto(updatePhoto))
     return updatePhoto 
   }

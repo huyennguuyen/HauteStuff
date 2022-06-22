@@ -208,3 +208,17 @@ ul {
 .on-bottom {
     margin-bottom: 15px;
 }
+
+.profile-dropdown {
+    position: absolute;
+    /* right: 0; */
+    margin-left: 10px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 55px;
+    /* margin-top: 25px; */
+    margin-right: 15px;
+    background-color: white;
+    border-radius: 8px; 
+ }

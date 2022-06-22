@@ -9,7 +9,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 8px;
     background-color: #f9f1f1;
 
 }
@@ -25,14 +24,13 @@ h1 {
 
 .inside {
     /* border: 1px solid black; */
-    border-radius: 8px;
     background-color: #f9f1f1;
 }
 
-.button-one-photo {
+/* .button-one-photo {
     display: flex;
     justify-content: center;
-}
+} */
 
 .description-one {
     display: flex;
@@ -53,8 +51,6 @@ h1 {
     background-color: rgba(0, 0, 0, 0.7);
     padding-top: 4em;
     border: 1px solid black;
-    
-    border-radius: 8px;
     height: 500px;
     width: 100vw;
     display: flex;
@@ -81,6 +77,32 @@ h1 {
     width: 665px;
     height: 400px;
     object-fit: contain;
+}
+
+.creator-photo-header {
+    display: flex;
+}
+
+.profile-pic-single {
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+}
+
+.single-bottom {
+  display: flex;
+  justify-content: center;
+}
+
+.single-bottom-inside {
+    border: 1px solid black;
+    width: 900px;
+}
+
+.edit-photo-icon {
+    width: 18px;
+    height: 18px;
+    color: white;
 }
 
 
