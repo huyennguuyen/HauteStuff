@@ -103,9 +103,9 @@ export default function EditFormPage ({close, imageId}) {
                     <div>
                         {imageLoading && <p className="loading-upload">Loading...</p>}
                     </div>
-                    <label>Image:</label>
+                    <label>Image</label>
                     <input type="file" onChange={updateFile}/>
-                    <label>Description:</label>
+                    <label>Description</label>
                     <textarea value={description} onChange={(e) => setDescription(e.target.value)}/>
                     <button className="editSubmit" type="submit">Submit</button>
                 </form>
