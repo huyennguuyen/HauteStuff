@@ -12,10 +12,12 @@ import { allComments } from "../../store/comments"
 import EditFormPage from "../EditFormPage/EditFormPage"
 import { loadAll, loadAllUsers } from "../../store/allUsers"
 import {FiEdit} from "react-icons/fi"
+import {BiTrash} from "react-icons/bi"
 import { Modal } from "../context/Modal"
 import Popup from "reactjs-popup"
 import EditCommentForm from "../EditCommentForm"
 import cancel from "./cancel.png"
+import { clearPrevious } from "../../store/user"
 
 
 
@@ -26,7 +28,7 @@ export default function OnePhoto () {
     const {imageId} = useParams()
     // const [users, setUsers] = useState([]);
     const [showModal, setShowModal] = useState(false);
-    const [showEditProfile, setShowEditProfile] = useState(false)
+    const [showEdit, setShowEdit] = useState(true)
     const sessionUser = useSelector(state => state.session.user);
 
     const photos = useSelector((state) => {
@@ -187,6 +189,7 @@ export default function OnePhoto () {
 
     // const id = parseInt(req.params.id, 10)
 
+
         return (
         <>
         <div className="single-photo-box">    
@@ -260,29 +263,58 @@ export default function OnePhoto () {
                     <div className="single-bottom-inside">
                         <div className="creator-photo">
                             <div className="creator-photo-header">
-                                {users[photos?.userId]?.profileUrl ? <img src={users[photos?.userId]?.profileUrl} className="profile-pic-single"></img>:
-                                <img src="https://cdn.myportfolio.com/0da7f5fbc31f3b0a622becb5c04363c6/ee759715-7080-4029-8458-50a20bff014c_rw_1920.jpg?h=ba7face07c8aec7970909f3eb3c91045" className="profile-pic-single"></img>
-                                }
-                                <h4>{users[photos?.userId]?.firstName} {users[photos?.userId]?.lastName}</h4>
+                                <NavLink to={`/users/${photos?.userId}`}>
+                                    {users[photos?.userId]?.profileUrl ? <img src={users[photos?.userId]?.profileUrl} className="profile-pic-single"></img>:
+                                    <img src="https://cdn.myportfolio.com/0da7f5fbc31f3b0a622becb5c04363c6/ee759715-7080-4029-8458-50a20bff014c_rw_1920.jpg?h=ba7face07c8aec7970909f3eb3c91045" className="profile-pic-single"></img>
+                                    }
+                                </NavLink>
+                                <div className="des-holder">
+                                    <NavLink to={`/users/${photos?.userId}`}>
+                                        <h4 className="prof-username">{users[photos?.userId]?.firstName} {users[photos?.userId]?.lastName}</h4>
+                                    </NavLink>
+                                    <p className="photo-des">{photos?.description}</p>
+                                </div>
                             </div>
-                            <p className="description-one">{photos?.description}</p>
                         </div>
                         {loadComments?.map((comment, idx) => (
                             <div key={idx}>
-                            <li key={idx} className="box2">
+                            <li key={idx}>
+                                <div className="beneath-single">
+                                    <NavLink to={`/users/${comment?.userId}`}>
+                                        {users[comment?.userId]?.profileUrl ? <img src={users[comment?.userId]?.profileUrl} className="profile-32"></img>:
+                                        <img src="https://cdn.myportfolio.com/0da7f5fbc31f3b0a622becb5c04363c6/ee759715-7080-4029-8458-50a20bff014c_rw_1920.jpg?h=ba7face07c8aec7970909f3eb3c91045" className="profile-32"></img>
+                                        }
+                                    </NavLink>
+                                    <div className="des-holder no-border"> 
+                                        <NavLink to={`/users/${comment?.userId}`}>
+                                            <h4 className="prof-username no-margin">{users[comment?.userId]?.firstName} {users[comment?.userId]?.lastName}</h4>
+                                        </NavLink>
+                                        <div className="edit-delete-comment">
+                                            {showEdit !== comment?.id && <p className="comment">{comment?.comment}</p>}
+                                            {showModal == comment?.id && <EditCommentForm commentId={comment?.id} setShowModal={setShowModal} setShowEdit={setShowEdit}/>
+                                            }
+                                        </div>
+                                    </div>
+                                    {showEdit !== comment?.id && (
+                                        
+                                        <div className="fiEdit">
+                                            {sessionUser?.id === comment?.userId && (
+                                            <>
+                                            <FiEdit onClick={() => {
+                                                setShowModal(showModal == comment?.id ? "" : comment?.id)
+                                                setShowEdit(showEdit == comment?.id ? "" : comment?.id)
+
+                                            }} className="react-icon-edit"/>
+                                            <BiTrash onClick={() => {
+                                                dispatch(deletingComment(comment.id))
+                                                history.push(`/photos/${imageId}`)
+                                            }} className="react-icon-delete"/>
+                                            </>
+                                            )}
+                                        </div>
+                                    )}
+                                </div>
                                 {/* {console.log("THIS IS THE OTHER USERS-----",users[comment?.userId].username)} */}
-                                <h4>{users[comment?.userId]?.firstName} {users[comment?.userId]?.lastName}</h4>
-                                <p className="text">{comment.comment}</p>
-                                {sessionUser?.id === comment?.userId && (
-                                <>
-                                <button onClick={() => setShowModal(!showModal)}>Edit Comment </button>
-                                {showModal && <EditCommentForm commentId={comment?.id} setShowModal={setShowModal}/>}
-                                <button onClick={() => {
-                                    dispatch(deletingComment(comment.id))
-                                    history.push(`/photos/${imageId}`)
-                                }}>Delete</button>
-                                </>
-                                )}
                             </li>   
                             </div>
                             ))}

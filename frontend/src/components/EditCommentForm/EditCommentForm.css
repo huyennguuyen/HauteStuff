@@ -1,0 +1,29 @@
+
+.edit-comment-form {
+    margin-top: 0;
+    padding-top: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.input-edit-val {
+    margin-left: 15px;
+    width: 750px;
+    height: 40px;
+}
+
+.editSubmit {
+    height: 28px;
+    width: 70px;
+    border: none;
+    
+}
+
+.editSubmit:hover {
+    color: white
+}
+
+.ending {
+    display: flex;
+    justify-content: flex-end;
+}

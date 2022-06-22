@@ -78,12 +78,103 @@ h1 {
 
 .creator-photo-header {
     display: flex;
+    margin-top: 15px;
+}
+
+.prof-username {
+    margin-left: 15px;
+}
+
+.photo-des {
+    margin-left: 15px;
+    width: 770px;
+    height: 98px;
+    overflow: hidden;
+}
+
+.photo-des:hover {
+    overflow: auto;
+}
+
+.des-holder {
+    border-bottom: 1px solid #d3d3d3;
 }
 
 .profile-pic-single {
     width: 60px;
     height: 60px;
     border-radius: 50px;
+}
+
+.profile-32 {
+    margin: 5px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50px;
+}
+
+.beneath-single {
+    display: flex;
+    margin-top: 7px;
+    padding-left: 20px;
+    padding-top: 8px;
+   
+}
+
+
+
+.beneath-single:hover {
+    background-color: white;
+}
+
+.fiEdit {
+    opacity: 0;
+    width: 70px;
+    /* padding-right: 15px; */
+}
+
+.beneath-single:hover > .fiEdit {
+    opacity: 1;
+}
+
+.no-border {
+    border-bottom: none;
+}
+
+.prof-username:hover {
+    text-decoration: underline;
+}
+
+
+.no-margin {
+    margin-top: 3px;
+}
+
+.react-icon-edit {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    color: grey;
+}
+
+.react-icon-delete {
+    width: 28px;
+    height: 28px;
+    margin-left: 5px;
+    cursor: pointer;
+    color: grey;
+}
+
+
+.comment {
+    margin-left: 15px;
+    height: 40px;
+    width: 750px;
+    overflow: hidden;
+}
+
+.comment:hover{
+    overflow: auto;
 }
 
 .single-bottom {
@@ -95,6 +186,7 @@ h1 {
     border: 1px solid black;
     width: 900px;
 }
+
 
 .edit-photo-icon {
     width: 24px;
