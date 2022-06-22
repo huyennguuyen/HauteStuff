@@ -39,10 +39,18 @@ export default function EditFormPage ({close, imageId}) {
         //     errors.push("Please enter a URl")
         // }
 
+        let imageFile = ["png", "jpg", "jpeg", "gif"]
+
+        if(imageUrl) {
+            
+            if(!imageFile.includes(imageUrl?.name.split(".").pop())) errors.push ("Please upload a png, jpg, jpeg, or gif file type.")
+        }
+       
+
         if(!description) errors.push("Please enter a description.")
         setErrors(errors)
 
-    }, [ description])
+    }, [imageUrl, description])
 
    
 
@@ -89,25 +97,31 @@ export default function EditFormPage ({close, imageId}) {
         <>
         <div className="edit-photo">
             <div className="edit-photo-inside">
-                <form onSubmit={submitting} className="forms" id="editForm"> 
-                    <ul>
-                        {hasSubmitted && errors.map((error, idx) => (
-                            <li key={idx}>
-                                {error}
-                            </li>
-                        ))}
-                    </ul>
-                    <div>
-                        <p>Loading</p>
+                <form onSubmit={submitting} className="forms"  id="editForm"> 
+                    <div className="forms">
+                        <ul>
+                            {hasSubmitted && errors.map((error, idx) => (
+                                <li key={idx} className="errors">
+                                    {error}
+                                </li>
+                            ))}
+                        </ul>
+                        {/* <div>
+                            <p className="editing-single">Loading</p>
+                        </div> */}
+                        <div>
+                            {imageLoading && <p className="loading-upload editing-single">Loading...</p>}
+                        </div>
+                        <div className="edit-photo-input">
+                            <label className="space">Image</label>
+                            <input type="file" className="edit-photo-input" onChange={updateFile}/>
+                        </div>
+                        <div className="loginForm">
+                            <label className="space">Description</label>
+                            <textarea value={description} className="passwords" onChange={(e) => setDescription(e.target.value)}/>
+                        </div>
+                        <button className="loginButton" type="submit">Submit</button>
                     </div>
-                    <div>
-                        {imageLoading && <p className="loading-upload">Loading...</p>}
-                    </div>
-                    <label>Image</label>
-                    <input type="file" onChange={updateFile}/>
-                    <label>Description</label>
-                    <textarea value={description} onChange={(e) => setDescription(e.target.value)}/>
-                    <button className="editSubmit" type="submit">Submit</button>
                 </form>
             </div>
         </div>

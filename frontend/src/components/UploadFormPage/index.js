@@ -32,8 +32,8 @@ export default function UploadForm () {
 
     useEffect(() => {
         let errors = [];
-        // let imageFile = ["png", "jpg", "jpeg", "gif"]
         if(!imageUrl) errors.push("Please upload an image.")
+        // let imageFile = ["png", "jpg", "jpeg", "gif"]
 
         // if(imageUrl) {
             
