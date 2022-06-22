@@ -19,6 +19,7 @@ export default function EditFormPage ({close, imageId}) {
     const [imageUrl, setImage] = useState(null)
     const [description, setDescription]= useState(photo?.description)
     const sessionUser = useSelector(state => state.session.user);
+    const [imageLoading, setImageLoading] = useState(false)
     const [hasSubmitted, setHasSubmitted] = useState(false)
 
     //console.log(photo)
@@ -61,13 +62,15 @@ export default function EditFormPage ({close, imageId}) {
 
         // console.log("THIS IS EDIT PAYLOAD-----", payload)
 
+        setImageLoading(true)
+
         let picture = await dispatch(updatePhoto(imageId, payload))
 
         // const pictureOne = Object.values(picture)
 
         // console.log(pictureOne)
 
-        // setImageLoading(false)
+        setImageLoading(false)
         close()
 
     //    if(picture) {
@@ -87,18 +90,21 @@ export default function EditFormPage ({close, imageId}) {
         <div className="edit-photo">
             <div className="edit-photo-inside">
                 <form onSubmit={submitting} className="forms" id="editForm"> 
-                <ul>
-                    {hasSubmitted && errors.map((error, idx) => (
-                        <li key={idx}>
-                            {error}
-                        </li>
-                    ))}
-                </ul>
-                <label>Image:</label>
-                <input type="file" onChange={updateFile}/>
-                <label>Description:</label>
-                <textarea value={description} onChange={(e) => setDescription(e.target.value)}/>
-                <button className="editSubmit" type="submit">Submit</button>
+                    <ul>
+                        {hasSubmitted && errors.map((error, idx) => (
+                            <li key={idx}>
+                                {error}
+                            </li>
+                        ))}
+                    </ul>
+                    <div className="loading-text">
+                        {imageLoading && <p className="loading-upload">Loading...</p>}
+                    </div>
+                    <label>Image:</label>
+                    <input type="file" onChange={updateFile}/>
+                    <label>Description:</label>
+                    <textarea value={description} onChange={(e) => setDescription(e.target.value)}/>
+                    <button className="editSubmit" type="submit">Submit</button>
                 </form>
             </div>
         </div>

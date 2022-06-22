@@ -13,7 +13,7 @@ function Navigation({ isLoaded }){
   if (sessionUser) {
     return isLoaded && (
       <>
-      <nav className="nav">
+      <nav className="nav-session">
         <div className="left-side">
           <NavLink exact to="/home" className="home">
               <div className="logo">

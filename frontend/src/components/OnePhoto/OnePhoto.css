@@ -74,7 +74,7 @@ h1 {
 }
 
 .single-image {
-    width: 665px;
+    width: 870px;
     height: 400px;
     object-fit: contain;
 }
@@ -100,9 +100,24 @@ h1 {
 }
 
 .edit-photo-icon {
-    width: 18px;
-    height: 18px;
+    width: 24px;
+    height: 24px;
     color: white;
+}
+
+.edit-single-icon {
+    background: none;
+    border: none;
+}
+
+.popup-single {
+    display: flex;
+    align-items: flex-end;
+    /* justify-content: flex-end; */
+    height: 100%;
+    margin-bottom: 2em;
+    /* width: 25%; */
+    /* margin-left: 9em; */
 }
 
 

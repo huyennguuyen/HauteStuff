@@ -202,45 +202,47 @@ export default function OnePhoto () {
                                 <EditFormPage closeModal={() => setShowEditProfile(false)} imageId={imageId}/>
                             </Modal>
                          )}  */}
-                    <Popup
-                        trigger = {sessionUser?.id == photos?.userId && <button><FiEdit className="edit-photo-icon"/></button>}
-                        position="bottom center"
-                        nested
-                        // open={open}
-                        // onClose={close}
-                        closeOnDocumentClick
-                    >
-                        <>
+                    <div className="popup-single">
                         <Popup
-                        trigger ={<button>Edit</button>}
-                        modal
-                        // closeOnDocumentClick
-                        >
-                            {close => (
-                                <> 
-                                    <EditFormPage  close={close} imageId={imageId}/>
-
-                                </>
-                            )}
-                        </Popup>
-                        <Popup
-                            trigger ={<button>Delete</button>}
-                            modal
+                            trigger = {sessionUser?.id == photos?.userId && <button className="edit-single-icon"><FiEdit className="edit-photo-icon"/></button>}
+                            position="top right"
+                            nested
+                            // open={open}
+                            // onClose={close}
                             closeOnDocumentClick
                         >
-                            {close => (
-                                <>
-                                <h3>Are you sure you want to delete?</h3>
-                                <button onClick={close}>Cancel</button>
-                                <button className="delete" onClick={async () => {
-                                await dispatch(deletingOne(imageId))
-                                history.push("/home")
-                                }}>Delete</button>    
-                                </>
-                            )}
-                        </Popup>
-                        </>
-                    </Popup>  
+                            <>
+                            <Popup
+                            trigger ={<button className="edit-single-button">Edit</button>}
+                            modal
+                            // closeOnDocumentClick
+                            >
+                                {close => (
+                                    <> 
+                                        <EditFormPage  close={close} imageId={imageId}/>
+
+                                    </>
+                                )}
+                            </Popup>
+                            <Popup
+                                trigger ={<button className="edit-single-button">Delete</button>}
+                                modal
+                                closeOnDocumentClick
+                            >
+                                {close => (
+                                    <>
+                                    <h3>Are you sure you want to delete?</h3>
+                                    <button onClick={close}>Cancel</button>
+                                    <button className="delete" onClick={async () => {
+                                    await dispatch(deletingOne(imageId))
+                                    history.push("/home")
+                                    }}>Delete</button>    
+                                    </>
+                                )}
+                            </Popup>
+                            </>
+                        </Popup>  
+                    </div>
                 </div>
                 <div className="single-bottom">
                     <div className="single-bottom-inside">

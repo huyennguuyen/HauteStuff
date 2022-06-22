@@ -61,30 +61,33 @@ function ProfileButton({ user }) {
         <div className="outsideProfile">
           <div className="profile-dropdown">
             {showMenu && (
-              <ul className="pro">
-                <div className="side">
-                  <div>
-                    <NavLink to={`/users/${user?.id}`}>            
-                      <li className="username">{user?.username}</li>
-                    </NavLink>
-                  </div>
-                  {/* <div className="user">
-                    <li>{user.email}</li>
-                  </div> */}
-                  <li>
-                      <NavLink to={`/users/${user?.id}/edit`}> 
-                        Settings
+              <>
+              <div className="profile-menu-nav">
+                <ul className="pro">
+                  <div className="side">
+                    <div className="div-header-prof-drop">
+                      <NavLink to={`/users/${user?.id}`}>            
+                        <h3 className="header-prof-drop">Hi,  <li className="username"> {user?.username}!</li></h3> 
                       </NavLink>
-                    </li>
-                  <div className="user">
-                    <li>
-                      <NavLink exact to="/">
-                      <button onClick={logout} className="logout">Log Out</button>
-                      </NavLink>
-                    </li>
+                    </div>
+                    <div className="bottom-prof-drop">         
+                      <li className="settings on-top">
+                          <NavLink to={`/users/${user?.id}/edit`} className="bottom-prof"> 
+                            Settings
+                          </NavLink>
+                        </li>
+                      <div className="user">
+                        <li className="settings on-bottom">
+                          <NavLink exact to="/" onClick={logout} className="bottom-prof">
+                          Logout
+                          </NavLink>
+                        </li>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </ul>
+                </ul>
+              </div>
+              </>
             )}
           </div>
         </div>
