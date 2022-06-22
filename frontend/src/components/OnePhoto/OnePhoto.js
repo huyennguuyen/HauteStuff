@@ -206,7 +206,7 @@ export default function OnePhoto () {
                         <Popup
                             trigger = {sessionUser?.id == photos?.userId && <button className="edit-single-icon"><FiEdit className="edit-photo-icon"/></button>}
                             position="top right"
-                            className="picture"
+                            className="single-container"
                             nested
                             // open={open}
                             // onClose={close}
@@ -214,7 +214,8 @@ export default function OnePhoto () {
                         >
                             <>
                             <Popup
-                            trigger ={<button className="edit-single-button">Edit photo/description</button>}
+                            trigger ={<button className="edit-single-button on-top">Edit photo/description</button>}
+                            className="edit-single"
                             modal
                             // closeOnDocumentClick
                             >
@@ -226,7 +227,7 @@ export default function OnePhoto () {
                                 )}
                             </Popup>
                             <Popup
-                                trigger ={<button className="edit-single-button">Delete</button>}
+                                trigger ={<button className="edit-single-button on-bottom">Delete</button>}
                                 modal
                                 closeOnDocumentClick
                             >

@@ -116,6 +116,7 @@ h1 {
     /* justify-content: flex-end; */
     height: 100%;
     margin-bottom: 2em;
+    padding: 0;
     /* width: 25%; */
     /* margin-left: 9em; */
 }
@@ -130,7 +131,8 @@ h1 {
     margin-bottom: 5px; */
     width: 200px;
     height: 28px;
-    border-radius: none;
+    /* font-family: "Lato"; */
+    border-radius: 0;
 }
 
 .edit-single-button:hover {
@@ -140,19 +142,17 @@ h1 {
 
 
 
-.picture-popup-content {
-    display: flex;
+.single-container-content {
+    /* display: flex;
     align-items: flex-start;
-    flex-direction: column;
+    flex-direction: column; */
     font-size: 14px;
     padding: 0;
 
 
 }
 
-.picture-popup {
-    padding: 0;
-}
+
 
 
 
