@@ -97,7 +97,10 @@ export default function EditFormPage ({close, imageId}) {
                             </li>
                         ))}
                     </ul>
-                    <div className="loading-text">
+                    <div>
+                        <p>Loading</p>
+                    </div>
+                    <div>
                         {imageLoading && <p className="loading-upload">Loading...</p>}
                     </div>
                     <label>Image:</label>

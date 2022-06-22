@@ -120,6 +120,44 @@ h1 {
     /* margin-left: 9em; */
 }
 
+.edit-single-button {
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    background: none;
+    border: none;
+    /* margin-top: 5px;
+    margin-bottom: 5px; */
+    width: 200px;
+    height: 28px;
+    border-radius: none;
+}
+
+.edit-single-button:hover {
+    background-color: pink;
+}
+
+
+
+
+.picture-popup-content {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    font-size: 14px;
+    padding: 0;
+
+
+}
+
+.picture-popup {
+    padding: 0;
+}
+
+
+
+
+
 
 
 

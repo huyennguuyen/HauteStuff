@@ -63,29 +63,31 @@ function ProfileButton({ user }) {
             {showMenu && (
               <>
               <div className="profile-menu-nav">
-                <ul className="pro">
+                <div className="pro">
                   <div className="side">
                     <div className="div-header-prof-drop">
                       <NavLink to={`/users/${user?.id}`}>            
                         <h3 className="header-prof-drop">Hi,  <li className="username"> {user?.username}!</li></h3> 
                       </NavLink>
                     </div>
-                    <div className="bottom-prof-drop">         
-                      <li className="settings on-top">
-                          <NavLink to={`/users/${user?.id}/edit`} className="bottom-prof"> 
+                    <div className="bottom-prof-drop">
+                      <div className="settings">
+                        <NavLink to={`/users/${user?.id}/edit`} className="bottom-prof"> 
+                          <p className="nav-text on-top">
                             Settings
-                          </NavLink>
-                        </li>
-                      <div className="user">
-                        <li className="settings on-bottom">
-                          <NavLink exact to="/" onClick={logout} className="bottom-prof">
-                          Logout
-                          </NavLink>
-                        </li>
+                          </p>
+                        </NavLink>
+                      </div>        
+                      <div className="settings">
+                        <NavLink exact to="/" onClick={logout} className="bottom-prof">
+                          <p className="nav-text on-bottom">
+                            Logout
+                          </p>
+                        </NavLink>
                       </div>
                     </div>
                   </div>
-                </ul>
+                </div>
               </div>
               </>
             )}

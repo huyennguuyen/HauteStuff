@@ -109,11 +109,11 @@ ul {
     margin-right: 10px;
 } */
 
-.user{
+/* .user{
     border-bottom: 1px border black;
     margin-top: 5px;
     
-}
+} */
 
 .hs {
     font-family: "Playfair Display";
@@ -213,16 +213,10 @@ ul {
 }
 
 .bottom-prof {
-    margin-left: 15px;
+    width: 200px;
+    /* border: 1px solid black; */
 }
 
-.on-top {
-    margin-top: 15px;
-}
-
-.on-bottom {
-    margin-bottom: 15px;
-}
 
 .profile-dropdown {
     position: absolute;
@@ -264,3 +258,20 @@ ul {
     border-style: solid;
 
  }
+
+ .nav-text {
+    display: flex;
+    align-items: center;
+    height: 28px;
+    margin-left: 15px;
+    margin-top: 0;
+    margin-bottom: 0;
+ }
+
+ .on-top {
+    margin-top: 15px;
+}
+
+.on-bottom {
+    margin-bottom: 15px;
+}
