@@ -107,6 +107,7 @@ export default function ProfilePage () {
                                 trigger ={sessionUser?.id === currentUser?.id && <button className="profile-menu-button"><FiMoreHorizontal className="profile-menu" /></button>}
                                 position="bottom left"
                                 nested
+                                className="profile"
                                 // open={open}
                                 // onClose={close}
                                 closeOnDocumentClick

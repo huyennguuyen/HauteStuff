@@ -32,8 +32,8 @@ export default function UploadForm () {
 
     useEffect(() => {
         let errors = [];
-        // let imageFile = ["png", "jpg", "jpeg", "gif"]
         if(!imageUrl) errors.push("Please upload an image.")
+        // let imageFile = ["png", "jpg", "jpeg", "gif"]
 
         // if(imageUrl) {
             
@@ -194,7 +194,7 @@ export default function UploadForm () {
                                     </div>
                             </FileUploader>
                             {disabled && (
-                                <div className="stupid-button">
+                                <div className="uploading-button">
                                     <label htmlFor="file-upload" className="choose">Choose photos to upload</label>
                                     <input type="file" id="file-upload" accept='image/jpeg, image/jpg, image/png, image/gif' onChange={updateFile}/>
                                 </div>

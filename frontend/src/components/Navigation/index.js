@@ -13,7 +13,7 @@ function Navigation({ isLoaded }){
   if (sessionUser) {
     return isLoaded && (
       <>
-      <nav className="nav">
+      <nav className="nav-session">
         <div className="left-side">
           <NavLink exact to="/home" className="home">
               <div className="logo">
@@ -24,7 +24,7 @@ function Navigation({ isLoaded }){
         </div>
         <div className="right-side sesh">
         <NavLink to="/photos/new"> 
-          <FaCloudUploadAlt />
+          <FaCloudUploadAlt  className='upload-icon'/>
         </NavLink>
           <ProfileButton user={sessionUser}/>
         </div>
@@ -37,13 +37,13 @@ function Navigation({ isLoaded }){
         <nav className="nav">
           <div className='left-side'>
             <NavLink exact to="/" className="home">
-              <div className="logo">
+              <div className="logo-out">
                 <SVG className="svg"/>
                 <label className="hs">HS</label>
               </div>
             </NavLink>
           </div>
-          <div className="right-side">
+          <div className="right-side out">
             <NavLink to="/login" className="login">Log In</NavLink>
             <NavLink to="/signup" className="signup">Sign Up</NavLink>
             <DemoButton />

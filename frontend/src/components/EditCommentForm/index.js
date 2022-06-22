@@ -8,7 +8,7 @@ import { useParams } from "react-router-dom";
 import "./EditCommentForm.css"
 
 
-export default function EditCommentForm ({commentId}) {
+export default function EditCommentForm ({commentId, setShowModal, setShowEdit}) {
 
     console.log("THIS IS COMMENT ID----", commentId)
 
@@ -68,6 +68,10 @@ export default function EditCommentForm ({commentId}) {
 
         await dispatch(updateComment(commentId, payload))
 
+        setShowModal(false)
+
+        setShowEdit(true)
+
         // setComment("")
 
         // const pictureOne = Object.values(picture)
@@ -92,19 +96,20 @@ export default function EditCommentForm ({commentId}) {
 
     return (
         <>
-            <div className="ouside-edit-comment">
+            <div className="outside-edit-comment">
                 <div className="inside-edit-comment">
-                    <form onSubmit={submitting} className="forms" id="editForm"> 
-                    <ul>
+                    <form onSubmit={submitting}> 
+                    <input className="input-edit-val" value={comment} onChange={(e) => setComment(e.target.value)}/>
+                    <ul className="edit-comment-form">
                         {hasSubmitted && errors.map((error, idx) => (
-                            <li key={idx}>
+                            <li key={idx} className="comment-errors">
                                 {error}
                             </li>
                         ))}
                     </ul>
-                    <label>Edit Comment</label>
-                    <input value={comment} onChange={(e) => setComment(e.target.value)}/>
-                    <button className="editSubmit" type="submit">Submit</button>
+                    <div className="ending">
+                        <button className="editSubmit" type="submit">Done</button>
+                    </div>
                     </form>
                 </div>
             </div>

@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { uploadComment } from "../../store/comments";
 import { NavLink } from "react-router-dom";
+import left from "./left.png"
 import "./CommentFormPage.css"
 
 export default function CommentFormPage ({imageId}) {
@@ -86,17 +87,19 @@ export default function CommentFormPage ({imageId}) {
     return (
         <>
         <div className="outsideComments">
-                <form onSubmit={submitting} className="forms"> 
-                <ul>
+                <form onSubmit={submitting}>   
+                {/* <img src={left} className="left-arrow"></img> */}
+                <input className="comment-input" value={comment} onChange={(e) => setComment(e.target.value)}/>
+                <ul className="edit-comment-form">
                 {hasSubmitted && errors.map((error, idx) => (
-                    <li key={idx}>
+                    <li key={idx} className="comment-errors">
                         {error}
                     </li>
                     ))}
                 </ul>
-                <label>Comment:</label>
-                <input value={comment} onChange={(e) => setComment(e.target.value)}/>
-                <button id="comment" >Comment</button>
+                <div className="ending">
+                    <button className="editSubmit">Comment</button>
+                </div>
                 </form>
          </div>
         </>
