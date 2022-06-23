@@ -31,6 +31,7 @@ button {
     margin-top: 25px;
     height: 35px;
     border: none;
+    cursor: pointer;
 }
 
 li {

@@ -55,3 +55,16 @@ input[type="file"]::file-selector-button:hover {
 .space {
     margin-bottom: 5px;
 }
+
+.close-pic{
+    height: 18px;
+    width: 18px;
+}
+
+.close{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
