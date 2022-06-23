@@ -10,6 +10,12 @@
 .profile-photos {
     height: 200px;
     width: 200px;
+    object-fit: contain;
+    margin: 15px;
+}
+
+.profile-photos:hover {
+    opacity: 0.5;
 }
 
 .inside-profile-photos {
@@ -36,5 +42,12 @@
     align-items: center; */
     flex-flow: row wrap;
     width: 730px;
-    border: 1px solid black;
+    height: 560px;
+    /* border: 1px solid black; */
+    overflow: hidden;
 }
+
+.row-wrap:hover{
+    overflow: auto;
+}
+
