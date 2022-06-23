@@ -32,6 +32,11 @@ h2 {
 
 .uploadButton {
     height: 30px;
+    border: none;
+}
+
+.uploadButton:hover {
+    color: white;
 }
 
 
