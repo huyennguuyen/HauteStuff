@@ -50,7 +50,7 @@ export default function ProfilePhotos ({userId}) {
                         <div className="no-photos">
                             <h3>Start by uploading some photos</h3> 
                             <NavLink to={`/photos/new`}>
-                                <button>Start Here</button>
+                                <button className="start-here">Start Here</button>
                             </NavLink>   
                         </div>
                     }

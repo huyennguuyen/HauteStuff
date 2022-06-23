@@ -51,3 +51,12 @@
     overflow: auto;
 }
 
+.start-here {
+    height: 30px;
+    border: none;
+    width: 80px;
+}
+
+.start-here:hover {
+    color: white;
+}
