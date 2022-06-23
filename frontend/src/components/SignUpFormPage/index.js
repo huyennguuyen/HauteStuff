@@ -15,19 +15,20 @@ function SignupFormPage() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
+  const [newErrors, setNewErrors] = useState([])
   const [hasSubmitted, setHasSubmitted] = useState(false)
 
   
   useEffect(() => {
-      let errors = [];
+      let newErrors = [];
     
-      if(!firstName.length) errors.push("Please enter your first name.")
-      if(!lastName.length) errors.push("Please enter your last name.")
+      if(!firstName.length) newErrors.push("Please enter your first name.")
+      if(!lastName.length) newErrors.push("Please enter your last name.")
       // if(!email.length) errors.push("Please enter an email.")
       // if(!username.length) errors.push("Please enter a username.")
       // if(!password.length) errors.push("Please enter a password.")
       // if(!confirmPassword.length) errors.push("Please confirm your password.")
-      setErrors(errors)
+      setNewErrors(newErrors)
     
     }, [firstName, lastName])
     
@@ -42,7 +43,7 @@ function SignupFormPage() {
 
     setHasSubmitted(true)
 
-    if(errors.length > 0) return; 
+    if(newErrors.length > 0) return; 
 
     if (password === confirmPassword) {
       setErrors([]);
@@ -60,7 +61,10 @@ function SignupFormPage() {
         <div className="inside-signup">
             <form onSubmit={handleSubmit} className="forms" id="signupForm">
             <ul>
-                {hasSubmitted && errors.map((error, idx) => <li key={idx} className="errors">{error}</li>)}
+                {errors.map((error, idx) => <li key={idx} className="errors">{error}</li>)}
+            </ul>
+            <ul>
+                {hasSubmitted && newErrors.map((error, idx) => <li key={idx} className="errors">{error}</li>)}
             </ul>
             <label>
                 First Name
