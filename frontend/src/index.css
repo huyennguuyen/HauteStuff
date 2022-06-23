@@ -22,12 +22,13 @@ html {
     height: 50px;
     position: fixed;
     /* top: 425.8vh; */
+    /* top: 20em; */
     bottom: 0;
     width: 100vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    opacity: 0.8;
+    /* opacity: 0.8; */
     /* z-index: 1000; */
   }
   
