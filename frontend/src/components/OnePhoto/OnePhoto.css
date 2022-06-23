@@ -15,7 +15,7 @@
 
 .single-photo-box {
     background-color: #f9f1f1;
-    height: 130vh;
+    /* height: 130vh; */
 }
 
 h1 {
@@ -185,7 +185,7 @@ h1 {
 
 .single-bottom-inside {
     /* border: 1px solid black; */
-    height: 2000px;
+    /* height: 2000px; */
     width: 900px;
 }
 
@@ -314,7 +314,8 @@ h1 {
 }
 
 .comment-box {
-    display: flex
+    display: flex;
+    height: 230px;
 }
 
 
