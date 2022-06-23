@@ -11,3 +11,30 @@
     height: 200px;
     width: 200px;
 }
+
+.inside-profile-photos {
+    margin-top: 25px;
+    width: 900px;
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    display: flex;
+    height: 100vh;
+    border-radius: 4px;
+    background: white;
+
+}
+
+.row-wrap-container {
+    margin-top: 30px;
+}
+
+.row-wrap {
+    display: flex;
+    /* justify-content: center;
+    align-items: center; */
+    flex-flow: row wrap;
+    width: 730px;
+    border: 1px solid black;
+}

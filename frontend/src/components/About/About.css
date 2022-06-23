@@ -7,6 +7,7 @@
 .outside-about {
     display: flex;
     justify-content: center;
+    height: 130vh
 }
 
 .inside-about {
@@ -15,7 +16,7 @@
     /* border: 1px solid black; */
     display: flex;
     justify-content: center;
-    height: 500px;
+    height: 100vh;
     border-radius: 4px;
     background: white;
 

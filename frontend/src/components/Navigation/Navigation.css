@@ -66,6 +66,7 @@ button {
     display: flex;
     flex-direction: row;
     margin-left: 7em;
+    cursor: pointer;
 
 }
 
@@ -151,6 +152,7 @@ ul {
     height: 33px;
     width: 33px;
     border-radius: 50px;
+    cursor: pointer;
 }
 
 .profile-nav-pic:hover {
