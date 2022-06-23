@@ -76,6 +76,7 @@ label {
     border: none;
     width: 206px;
     height: 35px;
+    cursor: pointer;
 }
 
 .loginButton:hover {

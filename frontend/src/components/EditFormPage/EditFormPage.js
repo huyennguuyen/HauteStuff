@@ -7,6 +7,7 @@ import { useHistory } from "react-router-dom";
 import { updatePhoto } from "../../store/upload";
 import { useParams } from "react-router-dom";
 import "./EditFormPage.css"
+import cancel from "./cancel.png"
 
 
 export default function EditFormPage ({close, imageId}) {
@@ -95,6 +96,9 @@ export default function EditFormPage ({close, imageId}) {
 
     return (
         <>
+        <div className="close" onClick={close}>
+            <img src={cancel} className="close-pic"></img>
+        </div>
         <div className="edit-photo">
             <div className="edit-photo-inside">
                 <form onSubmit={submitting} className="forms"  id="editForm"> 
