@@ -8,6 +8,7 @@ import { NavLink } from "react-router-dom"
 import { useHistory } from "react-router-dom"
 import { updateUserProfile } from "../../store/user"
 import { FileUploader } from 'react-drag-drop-files';
+import cancel from "./cancel.png"
 import "./EditProfileModals.css"
 
 
@@ -134,10 +135,13 @@ export default function EditProfileModal ({closeModal, userId}) {
   return (
       <>
        <div >
+             <div className="close-end-profile">
+                <img src={cancel} className="close-pic"></img>
+            </div>
         <div >
             <form onSubmit={handleSubmit} className="forms profile-form" id="signupForm">
-                <ul>
-                    {hasSubmitted && errors.map((error, idx) => <li key={idx} className="errors">{error}</li>)}
+                <ul className="ul-fix">
+                    {hasSubmitted && errors.map((error, idx) => <li key={idx} className="errors ul-fix">{error}</li>)}
                 </ul>
                 <div className="typeError">
                 {typeError}

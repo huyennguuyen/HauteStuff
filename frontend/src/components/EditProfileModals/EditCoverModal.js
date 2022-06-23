@@ -7,6 +7,7 @@ import { NavLink } from "react-router-dom"
 import { useHistory } from "react-router-dom"
 import { updateUserBanner } from "../../store/user"
 import { FileUploader } from 'react-drag-drop-files';
+import cancel from "./cancel.png"
 
 import "./EditProfileModals.css"
 
@@ -119,42 +120,45 @@ export default function EditCoverModal ({close, userId}) {
 
   return (
       <>
-       <div >
-        <div >
-            <form onSubmit={handleSubmit} className="forms" id="signupForm">
-            <ul>
-                {hasSubmitted && errors.map((error, idx) => <li key={idx} className="errors">{error}</li>)}
-            </ul>
-            <div className="typeError">
-                {typeError}
-                </div>
-                <div className="loading-text">
-                    {imageLoading && <p className="loading-upload">Loading...</p>}
-                </div>
-                <div className="cover-container">
-                    <FileUploader
-                        onTypeError={onTypeError}
-                        handleChange={handleChange}
-                        onDraggingStateChange={onDrag}
-                        types={fileTypes}
-                    >
-                        <div className="drop-prof-inside-cover">
-                        {bannerUrl ? <img src={URL.createObjectURL(bannerUrl)} alt='upload-preview' className="upload-preview-prof"
-                        /> : disabled && 
-                        <div className="text-image-prof"> 
-                            <h4 id='upload-file'>Drag and drop file here/ Click to upload</h4>
-                        </div>   
-                        }
-                        </div>    
-                    </FileUploader>
-                    <div className="button-cover">
-                        <button className="cancel-cover-button" onClick={close}>Cancel Changes</button>
-                        <button type="submit" className="save-cover-button">Save Changes</button>
+       <div>
+            <div className="close-end">
+                <img src={cancel} className="close-pic"></img>
+            </div>
+            <div >
+                <form onSubmit={handleSubmit} className="forms-two" id="signupForm">
+                    <ul className="ul-fix"> 
+                        {hasSubmitted && errors.map((error, idx) => <li key={idx} className="errors">{error}</li>)}
+                    </ul>
+                <div className="typeError">
+                    {typeError}
                     </div>
-                </div>
-            </form>
+                    <div className="loading-text">
+                        {imageLoading && <p className="loading-upload">Loading...</p>}
+                    </div>
+                    <div className="cover-container">
+                        <FileUploader
+                            onTypeError={onTypeError}
+                            handleChange={handleChange}
+                            onDraggingStateChange={onDrag}
+                            types={fileTypes}
+                        >
+                            <div className="drop-prof-inside-cover">
+                            {bannerUrl ? <img src={URL.createObjectURL(bannerUrl)} alt='upload-preview' className="upload-preview-prof"
+                            /> : disabled && 
+                            <div className="text-image-prof"> 
+                                <h4 id='upload-file'>Drag and drop file here/ Click to upload</h4>
+                            </div>   
+                            }
+                            </div>    
+                        </FileUploader>
+                        <div className="button-cover">
+                            <button className="cancel-cover-button" onClick={close}>Cancel Changes</button>
+                            <button type="submit" className="save-cover-button">Save Changes</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
-    </div>
       </>
   )
 
