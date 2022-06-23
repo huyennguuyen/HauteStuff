@@ -54,6 +54,7 @@ h2 {
     background-position: absolute; */
     /* background-size: 100vw 600vh; */
     /* object-fit: contains; */
+    background-repeat: no-repeat;
     opacity: 0.75;
     height: 100vh;
     display: flex;
