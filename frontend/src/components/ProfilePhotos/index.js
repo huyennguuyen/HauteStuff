@@ -30,27 +30,33 @@ export default function ProfilePhotos ({userId}) {
 
     return (
         <>
-        {photos.length ? 
-            <ul className="photos">
-            {photos?.map(({id}) => (
-                <div className="box" key={(id)}>
-                <li key={id} className="box2">
-                    <NavLink to={`/photos/${id}`}>
-                        <img src={one[id]?.imageUrl}></img>
-                    </NavLink>
-                        {/* <p className="text">{one[id]?.description}</p> */}
-                </li>   
+        <div className="outside-about">
+            <div className="inside-profile-photos">
+                <div className="row-wrap-container">
+                    {photos.length ? 
+                        <ul className="row-wrap">
+                        {photos?.map(({id}) => (
+                            <div  key={(id)}>
+                            <li key={id} >
+                                <NavLink to={`/photos/${id}`}>
+                                    <img src={one[id]?.imageUrl} className="profile-photos"></img>
+                                </NavLink>
+                                    {/* <p className="text">{one[id]?.description}</p> */}
+                            </li>   
+                            </div>
+                            ))
+                        }
+                        </ul>:
+                        <div className="no-photos">
+                            <h3>Start by uploading some photos</h3> 
+                            <NavLink to={`/photos/new`}>
+                                <button>Start Here</button>
+                            </NavLink>   
+                        </div>
+                    }
                 </div>
-                ))
-            }
-            </ul>:
-            <div className="no-photos">
-                <h3>Start by uploading some photos</h3> 
-                <NavLink to={`/photos/new`}>
-                    <button>Start Here</button>
-                </NavLink>   
             </div>
-        }
+        </div>
         </>
     )
 

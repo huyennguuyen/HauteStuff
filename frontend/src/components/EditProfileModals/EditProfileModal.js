@@ -133,9 +133,9 @@ export default function EditProfileModal ({closeModal, userId}) {
 
   return (
       <>
-       <div className="profile-pic-edit">
-        <div className="inside-profile-pic-edit">
-            <form onSubmit={handleSubmit} className="forms" id="signupForm">
+       <div >
+        <div >
+            <form onSubmit={handleSubmit} className="forms profile-form" id="signupForm">
                 <ul>
                     {hasSubmitted && errors.map((error, idx) => <li key={idx} className="errors">{error}</li>)}
                 </ul>
@@ -160,14 +160,14 @@ export default function EditProfileModal ({closeModal, userId}) {
                             setTypeError("Please upload a jpg, png, gif, or jpeg file type.")
                             }}/> : disabled && 
                             <div className="text-image-prof"> 
-                                <h4 id='upload-file'>Drag and drop file here/ Click to upload</h4>
+                                <h4 className="cover=uploading">Drag and drop file here/ Click to upload</h4>
                             </div>   
                             }
                         </div>
                     </FileUploader>
-                    <div className="button-box">
-                        <button  className="signUpButton" onClick={() => closeModal()}>Cancel Changes</button>
-                        <button type="submit" className="signUpButton">Save Changes</button>
+                    <div className="button-cover profile-moving">
+                        <button  className="cancel-cover-button" onClick={() => closeModal()}>Cancel Changes</button>
+                        <button type="submit" className="save-cover-button">Save Changes</button>
                     </div>
                 </div>
             </form>

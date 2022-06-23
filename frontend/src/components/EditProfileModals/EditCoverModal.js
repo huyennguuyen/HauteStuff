@@ -119,9 +119,9 @@ export default function EditCoverModal ({close, userId}) {
 
   return (
       <>
-       <div className="profile-banner-edit">
-        <div className="inside-profile-banner-edit">
-            <form onSubmit={handleSubmit} className="profile-banner-form">
+       <div >
+        <div >
+            <form onSubmit={handleSubmit} className="forms" id="signupForm">
             <ul>
                 {hasSubmitted && errors.map((error, idx) => <li key={idx} className="errors">{error}</li>)}
             </ul>
@@ -131,29 +131,25 @@ export default function EditCoverModal ({close, userId}) {
                 <div className="loading-text">
                     {imageLoading && <p className="loading-upload">Loading...</p>}
                 </div>
-                <div className="drop-banner">
+                <div className="cover-container">
                     <FileUploader
                         onTypeError={onTypeError}
                         handleChange={handleChange}
-                        name='image'
                         onDraggingStateChange={onDrag}
                         types={fileTypes}
                     >
-                        <div className="drop-banner-inside">
-                        {bannerUrl ? <img src={URL.createObjectURL(bannerUrl)} alt='upload-preview' className="upload-preview-prof" onError={({ currentTarget }) => {
-                        currentTarget.onerror = null;
-                        currentTarget.src ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ87Ktf3Xk1ZjtNnEV_dzJxDB0VANB8ELKAew&usqp=CAU"
-                        setTypeError("Please upload a jpg, png, gif, or jpeg file type.")
-                        }}/> : disabled && 
+                        <div className="drop-prof-inside-cover">
+                        {bannerUrl ? <img src={URL.createObjectURL(bannerUrl)} alt='upload-preview' className="upload-preview-prof"
+                        /> : disabled && 
                         <div className="text-image-prof"> 
                             <h4 id='upload-file'>Drag and drop file here/ Click to upload</h4>
                         </div>   
                         }
                         </div>    
                     </FileUploader>
-                    <div className="button-box">
-                        <button className="signUpButton" onClick={close}>Cancel Changes</button>
-                        <button type="submit" className="signUpButton">Save Changes</button>
+                    <div className="button-cover">
+                        <button className="cancel-cover-button" onClick={close}>Cancel Changes</button>
+                        <button type="submit" className="save-cover-button">Save Changes</button>
                     </div>
                 </div>
             </form>

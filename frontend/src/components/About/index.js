@@ -7,6 +7,8 @@ import { useHistory } from "react-router-dom"
 import { updateUserProfile } from "../../store/user"
 import { updateUser } from "../../store/user"
 import { FileUploader } from 'react-drag-drop-files';
+import {FaPen} from "react-icons/fa"
+import "./About.css"
 // import "./EditProfileModals.css"
 
 
@@ -16,6 +18,8 @@ export default function About ({userId}) {
         const dispatch= useDispatch()
         const [errors, setErrors] = useState([])
         const [hasSubmitted, setHasSubmitted] = useState(false)
+        const [showEdit, setShowEdit] = useState(true)
+        const [showModal, setShowModal] = useState(false)
         const currentUser = useSelector(state => state.user.user);
 
         const [about, setAbout] = useState(currentUser?.about)
@@ -37,15 +41,15 @@ export default function About ({userId}) {
             dispatch(oneUser(userId))
           },[userId, dispatch])
         
-      useEffect(() => {
-          let errors = [];
+    //   useEffect(() => {
+    //       let errors = [];
     
-          if(!about) errors.push("Please enter a short description.")
+    //       if(!about) errors.push("Please enter a short description.")
     
     
-          setErrors(errors)
+    //       setErrors(errors)
     
-      }, [about])
+    //   }, [about])
     
      
     
@@ -66,6 +70,9 @@ export default function About ({userId}) {
   
     
           let picture = await dispatch(updateUser(userId, payload))
+
+          setShowEdit(true)
+          setShowModal(false)
     
 
           // const pictureOne = Object.values(picture)
@@ -82,22 +89,39 @@ export default function About ({userId}) {
       return (
           <>
             <div className="outside-about">
-                <div>
-                 {currentUser?.about}
-                </div>
-                <div className="inside-about-form">
-                    <form onSubmit={submitting} className="forms" id="editForm"> 
-                    <ul>
-                        {hasSubmitted && errors.map((error, idx) => (
-                            <li key={idx}>
-                                {error}
-                            </li>
-                        ))}
-                    </ul>
-                    <label>About</label>
-                    <textarea value={about} onChange={(e) => setAbout(e.target.value)}/>
-                    <button className="editSubmit" type="submit">Submit</button>
-                    </form>
+                <div className="inside-about">
+                    <div className="edit-about-form">
+                        {showEdit && (
+                            <div className="pen-about">
+                                {currentUser?.about ? <p className="about-section">{currentUser?.about}</p>: <h4 className="before-about">Write a little about your brand....</h4>}
+                                <FaPen onClick={() => {
+                                    setShowModal(true)
+                                    setShowEdit(false)
+                                }} className="pen-pointer"/>
+                            </div>
+                        )}
+                        {showModal && (
+                            <div className="inside-about-form">
+                                <form onSubmit={submitting} > 
+                                {/* <ul>
+                                    {hasSubmitted && errors.map((error, idx) => (
+                                        <li key={idx}>
+                                            {error}
+                                        </li>
+                                    ))}
+                                </ul> */}
+                                <textarea value={about} onChange={(e) => setAbout(e.target.value)} className="texting-about"/>
+                                <div className="button-box-about">
+                                    <button className="editSubmit about-save" type="submit">Save</button>
+                                    <button className="editSubmit about-cancel" onClick={() => {
+                                        setShowEdit(true)
+                                        setShowModal(false)
+                                    }}>Cancel</button>
+                                </div>
+                                </form>
+                            </div>
+                        )}
+                    </div>
                 </div>
             </div>
           </>

@@ -5,7 +5,7 @@
 }
 .up-profile {
     width: 100vw;
-    height: 12em;
+    height: 15em;
 }
 
 
@@ -17,6 +17,11 @@
     /* position: absolute; */
     border-radius: 50px;
     margin-bottom: 1em;
+    cursor: pointer;
+}
+
+.profile-pic:hover {
+  filter: grayscale(30%);
 }
 
 .inside-banner {
@@ -28,7 +33,7 @@
     flex-direction: row;
     align-items: flex-end; 
     width: 100vw;
-    height: 12em;
+    height: 15em;
 }
 
 
@@ -54,6 +59,7 @@
     width: 24px;
     height: 24px;
     border: 1px solid black;
+    cursor: pointer;
 } 
 
 
@@ -96,18 +102,6 @@
   }
 
 
-  /* .popup-content {
-    margin: auto;
-    background: rgb(255, 255, 255);
-    width: 50%;
-    padding: 5px;
-    margin-top: -4em;
-    border-radius: 4px;
-    height: 100px;
-    padding-bottom: 50px;
-  } */
-
-
   /* .inside-menu {
     width: 200px;
   } */
@@ -127,9 +121,6 @@
     background: transparent;
   }
 
-  .yaga {
-    background-color: aqua;
-  }
 
   /* .popup-overlay {
     background-color: rgba(0, 0, 0, 0.7);
@@ -139,8 +130,8 @@
   } */
 
   .foo-content {
-    width: 750px;
-    height: 450px;
+    width: 700px;
+    height: 455px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -152,8 +143,63 @@
     justify-content: center;
     align-items: center;
     height: 50px;
+    /* background: #f8d2d2; */
+    background: white;
+    border-top: 1px solid rgb(183, 183, 183);
+    border-bottom: 1px solid rgb(183, 183, 183);
 
   }
+
+  .about {
+    /* margin-right: 10px; */
+    margin-bottom: 0;
+    font-size: 16px;
+    cursor: pointer;
+
+
+  }
+
+  .about-box {
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 60px;
+    cursor: pointer;
+  }
+
+  .about-box:hover {
+    border-bottom: 3px solid black;
+  }
+
+  .about-photos {
+    /* margin-left: 10px; */
+    margin-bottom: 0;
+    font-size: 16px;
+    cursor: pointer;
+
+  }
+
+  .about-photos-box {
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 65px;
+    cursor: pointer;
+  }
+
+  .about-photos-box:hover {
+    border-bottom: 3px solid black;
+  }
+
+  .under-prof-nav {
+    background: #f9f1f1;
+  }
+
+
 
   /* .prof-link {
     
