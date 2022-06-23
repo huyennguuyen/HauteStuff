@@ -123,15 +123,15 @@ export default function Settings () {
 
       console.log("THIS IS EDIT PAYLOAD-----", payload)
 
-      let picture = await dispatch(updateUser(sessionUser.id, payload))
+     await dispatch(updateUser(sessionUser.id, payload))
 
       // const pictureOne = Object.values(picture)
 
       // console.log(pictureOne)
 
-    //  if(picture) {
-    //      history.push(`/photos/${picture.id}`)
-    //  }
+  
+         history.push(`/users/${sessionUser?.id}/`)
+  
 
   }
 
