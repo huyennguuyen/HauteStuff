@@ -123,11 +123,11 @@
 } */
 
 .close-end {
-    width: 105%;
+    width: 103%;
     display: flex;
     justify-content: flex-end;
     /* margin-top: 15px; */
-    margin-right: 10px;
+    /* margin-right: 10px; */
 
     cursor: pointer;
 }
