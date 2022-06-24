@@ -135,11 +135,14 @@ footer {
 
 .user-profile-photos {
   margin-top: 10px;
+  height: 250px;
+  width: 618px;
+  /* object-fit: contain; */
 }
 
 .homepage-photos {
     height: 250px;
-    width: 618px;
+    width: 400px;
     object-fit: contain;
     object-position: left;
 }
@@ -256,6 +259,10 @@ footer {
 }
 
 .emma-insta {
+    text-decoration: underline;
+}
+
+.user-name:hover {
     text-decoration: underline;
 }
 
