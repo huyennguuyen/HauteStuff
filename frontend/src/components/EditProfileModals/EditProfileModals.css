@@ -43,9 +43,9 @@
     justify-content: flex-end;
 }
 
-.cover-container {
+/* .cover-container {
     width: 610px;
-}
+} */
 
 .cover-uploading {
     width: 600px;
@@ -111,7 +111,7 @@
     flex-direction: column;
     align-items: center;
     opacity: 1;
-    /* margin-bottom: 35px; */
+    margin-bottom: 35px;
 
 }
 
@@ -126,7 +126,9 @@
     width: 103%;
     display: flex;
     justify-content: flex-end;
-    /* margin-top: 15px; */
+    /* margin-bottom: 10px; */
+    margin-left: 5px;
+    margin-top: 15px;
     /* margin-right: 10px; */
 
     cursor: pointer;
