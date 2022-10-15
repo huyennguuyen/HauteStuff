@@ -92,7 +92,7 @@ export default function About ({userId}) {
             <div className="outside-about">
                 <div className="inside-about">
                     <div className="edit-about-form">
-                        {sessionUser?.id == userId && showEdit && (
+                        {sessionUser.id == userId ? showEdit && (
                             <div className="pen-about">
                                 {currentUser?.about ? <p className="about-section">{currentUser?.about}</p>: <h4 className="before-about">Write a little about your brand....</h4>}
                                 <FaPen onClick={() => {
@@ -100,7 +100,7 @@ export default function About ({userId}) {
                                     setShowEdit(false)
                                 }} className="pen-pointer"/>
                             </div>
-                        )}
+                        ) : currentUser?.about === null ? <p>This user has not updated an about.</p> : <p>{currentUser?.about}</p>}
                         {showModal && (
                             <div className="inside-about-form">
                                 <form onSubmit={submitting} > 
