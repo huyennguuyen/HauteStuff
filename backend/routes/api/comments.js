@@ -38,6 +38,8 @@ router.put("/:id/edit", asyncHandler(async(req, res) => {
          comment
         })
 
+        // console.log("THIS IS RES JSON COMMENTS------------". res.json(updateComment))
+
         return res.json(updateComment)
 
         

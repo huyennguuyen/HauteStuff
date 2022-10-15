@@ -24,9 +24,10 @@ export default function About ({userId}) {
 
         const [about, setAbout] = useState(currentUser?.about)
     
-        console.log("THIS IS CURRENT USER FROM SETTINGS", currentUser)
     
         const sessionUser = useSelector(state => state.session.user);
+
+        console.log("THIS IS SESSION USER ID----", sessionUser?.id)
         
         //console.log(photo)
         const url = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/
@@ -91,7 +92,7 @@ export default function About ({userId}) {
             <div className="outside-about">
                 <div className="inside-about">
                     <div className="edit-about-form">
-                        {showEdit && (
+                        {sessionUser?.id == userId && showEdit && (
                             <div className="pen-about">
                                 {currentUser?.about ? <p className="about-section">{currentUser?.about}</p>: <h4 className="before-about">Write a little about your brand....</h4>}
                                 <FaPen onClick={() => {

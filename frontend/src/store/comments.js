@@ -97,7 +97,7 @@ export const uploadComment = (id, comment) => async dispatch => {
 
     if(response.ok){
       const updateComment = await response.json()
-      // console.log("THIS IS DATA FROM STORE no image-----", updateUser)
+      // console.log("THIS IS DATA FROM STORE no image-----", updateComment)
       dispatch(commenting(updateComment))
       return updateComment
 
