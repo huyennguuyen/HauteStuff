@@ -302,8 +302,11 @@ export default function OnePhoto () {
                                             {sessionUser?.id === comment?.userId && (
                                             <>
                                             <FiEdit onClick={() => {
+                                                // console.log(comment.id)
                                                 setShowModal(showModal == comment?.id ? "" : comment?.id)
                                                 setShowEdit(showEdit == comment?.id ? "" : comment?.id)
+                                                // setShowModal(comment?.id)
+                                                // setShowEdit(comment?.id)
 
                                             }} className="react-icon-edit"/>
                                             <Popup
