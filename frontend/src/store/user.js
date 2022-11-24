@@ -48,7 +48,7 @@ export const loadCurrentUser = (currentUser) => {
 
     if(response.ok) {
       const res = await response.json()
-      console.log("THIS IS RES FROM THE STORE---------", res)
+     
       dispatch(loadCurrentUser(res))
     }
   }
@@ -74,7 +74,7 @@ export const loadCurrentUser = (currentUser) => {
   
     if(response.ok){
       const updateUser = await response.json()
-      console.log("THIS IS DATA FROM STORE no image-----", updateUser)
+
       dispatch(loadCurrentUser(updateUser))
       return updateUser
       
@@ -135,7 +135,7 @@ export const loadCurrentUser = (currentUser) => {
 
     // console.log("THIS IS ID--------", id)
 
-    console.log("THIS IS FORM------", payload)
+  
   const { lastName, firstName, username, about} = payload
 
  
@@ -157,7 +157,7 @@ export const loadCurrentUser = (currentUser) => {
 
   if(response.ok){
     const updateUser = await response.json()
-    console.log("THIS IS DATA FROM STORE no image-----", updateUser)
+   
     dispatch(loadCurrentUser(updateUser))
     return updateUser
     

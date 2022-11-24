@@ -19,10 +19,10 @@ export default function ProfilePage () {
     const dispatch = useDispatch();
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
-    console.log("This is sessionUser", sessionUser)
+  
     const {userId} = useParams()
     // const [image, setImage] = use
-    console.log("this is userId", userId)
+
     // const [users, setUsers] = useState([]);
     const ref = useRef();
     const openTooltip = () => ref.current.open();
@@ -38,7 +38,7 @@ export default function ProfilePage () {
 
     const currentUser = useSelector(state => state.user.user);
   
-    console.log("THIS IS CURRENT USER-------", currentUser)
+   
     // console
 
     // const close = (e) => {

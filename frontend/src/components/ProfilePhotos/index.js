@@ -14,7 +14,6 @@ export default function ProfilePhotos ({userId}) {
 
     const photos = useSelector(state => state.upload.photos)
 
-    console.log("THIS IS PHOTOS------", photos)
 
 
     useEffect( () => {

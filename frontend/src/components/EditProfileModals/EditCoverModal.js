@@ -15,7 +15,7 @@ import "./EditProfileModals.css"
 
 export default function EditCoverModal ({close, userId}) {
     // const {userId} = useParams()
-    console.log("THIS IS USERID-------------- FROM EDIT COVER", userId)
+   
     const history= useHistory()
     const dispatch= useDispatch()
     const [errors, setErrors] = useState([])
@@ -27,7 +27,7 @@ export default function EditCoverModal ({close, userId}) {
     const [open, setOpen] = useState(false)
     const currentUser = useSelector(state => state.user.user);
 
-    console.log("THIS IS CURRENT USER FROM SETTINGS", currentUser)
+   
 
     const sessionUser = useSelector(state => state.session.user);
     
@@ -68,7 +68,7 @@ export default function EditCoverModal ({close, userId}) {
 
       }
 
-      console.log("THIS IS EDIT PAYLOAD-----", payload)
+    
 
       setImageLoading(true)
 

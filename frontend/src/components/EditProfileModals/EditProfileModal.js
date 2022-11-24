@@ -25,7 +25,7 @@ export default function EditProfileModal ({closeModal, userId}) {
     const [imageLoading, setImageLoading] = useState(false)
     const currentUser = useSelector(state => state.user.user);
 
-    console.log("THIS IS CURRENT USER FROM SETTINGS", currentUser)
+    
 
     const sessionUser = useSelector(state => state.session.user);
     
@@ -66,7 +66,7 @@ export default function EditProfileModal ({closeModal, userId}) {
 
       }
 
-      console.log("THIS IS EDIT PAYLOAD-----", payload)
+      
 
       setImageLoading(true)
 
@@ -88,7 +88,7 @@ export default function EditProfileModal ({closeModal, userId}) {
 
   const updateProfile = (e) => {
       const file = e.target.files[0];
-      console.log("THIS IS FILE-------", file)
+      
       if (file) setProfileUrl(file);
     };
 

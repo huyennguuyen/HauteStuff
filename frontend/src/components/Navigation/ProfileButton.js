@@ -17,7 +17,7 @@ function ProfileButton({ user }) {
   // console.log("THIS IS CURRENT USER------", currentUser)
 
   const allUsers = useSelector(state => state.allUsers.user);
-  console.log("THIS IS ALL USERS----", allUsers)
+
 
   const users = {};
   allUsers?.forEach((user) => {
