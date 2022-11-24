@@ -10,7 +10,7 @@ import "./EditCommentForm.css"
 
 export default function EditCommentForm ({commentId, setShowModal, setShowEdit}) {
 
-    console.log("THIS IS COMMENT ID----", commentId)
+  
 
     const history= useHistory()
     const dispatch= useDispatch()
@@ -28,7 +28,7 @@ export default function EditCommentForm ({commentId, setShowModal, setShowEdit})
                 return state.comments[commentId]
             })
 
-        console.log("THIS IS COMMENTS IN EDIT COMMENT-----", oneComment)
+       
 
 
             

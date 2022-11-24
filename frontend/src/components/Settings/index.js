@@ -18,7 +18,7 @@ export default function Settings () {
     const [errors, setErrors] = useState([])
     const [users, setUsers] = useState("")
     const sessionUser = useSelector(state => state.session.user);
-    console.log("THIS IS SESSIONUSER---", sessionUser)
+ 
     // const [profileUrl, setProfileUrl] = useState(null)
     // const [bannerUrl, setBannerUrl] = useState(null)
 
@@ -28,7 +28,7 @@ export default function Settings () {
     const allUsers = useSelector(state => state.allUsers.user);
 
 
-    console.log("THIS IS CURRENT USER FROM SETTINGS", currentUser)
+ 
     
     //console.log(photo)
     const url = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/

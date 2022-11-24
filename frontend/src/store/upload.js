@@ -87,7 +87,7 @@ formData.append("userId", userId)
 //  console.log("THIS IS RESPONSE-----", response)
     const data = await response.json()
 
-      console.log("THIS IS DATA FROM STORE-----", data)
+    
     dispatch(uploadPhoto(data))
    return data
 

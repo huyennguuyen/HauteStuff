@@ -61,7 +61,7 @@ export default function UploadForm () {
         //console.log(payload)
         //setHasSubmitted(false)
 
-        console.log("THIS IS PAYLOAD------", payload)
+
 
         setImageLoading(true)
 
@@ -73,7 +73,7 @@ export default function UploadForm () {
         
        // setHasSubmitted(false)
 
-       console.log("THIS IS PICTURE----", picture)
+    
             setImageLoading(false)
            history.push(`/photos/${picture?.id}`)
      
@@ -85,7 +85,7 @@ export default function UploadForm () {
 
     const updateFile = (e) => {
         const file = e.target.files[0];
-        console.log("THIS IS FILE-------", file)
+      
         if (file) setImage(file);
       };
 
