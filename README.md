@@ -1,6 +1,6 @@
 # Haute Stuff
 
-Live Link: https://hautestuff.herokuapp.com/home
+Live Link: https://haute-stuff.onrender.com/
 
 Haute Stuff is a clone of Flickr. 
 This website is for clothing brands to share their latest collections and updates. 
