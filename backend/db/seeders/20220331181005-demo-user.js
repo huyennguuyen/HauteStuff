@@ -22,11 +22,13 @@ module.exports = {
 
       return queryInterface.bulkInsert(options, [
         {
-          email: 'demo@user.io',
-          firstName: "Demo",
-          lastName: "User",
-          username: 'Demo-lition',
-          about: 'This brand is about...',
+          email: 'brandymelville@user.io',
+          firstName: "Brandy",
+          lastName: "Melville",
+          username: 'brandymelville',
+          about: 'We started around the early 80\'s in Europe specifically, Italy. Our aesthetic would be described as beachy and trendy but also simple.',
+          bannerUrl:'https://res.cloudinary.com/dnmimxgbu/image/upload/v1677137244/Screen-Shot-2022-01-10-at-4.43.03-PM_leonl6.png',
+          profileUrl:'https://res.cloudinary.com/dnmimxgbu/image/upload/v1677137121/IMG_4872_fdqrjs.jpg',
           hashedPassword: bcrypt.hashSync('password')
         },
         {
@@ -37,13 +39,56 @@ module.exports = {
           hashedPassword: bcrypt.hashSync('password2')
         },
         {
-          email: 'user2@user.io',
-          firstName: "Demo",
-          lastName: "User",
-          username: 'FakeUser2',
-          about: 'This brand is about...',
+          email: 'huyennguyen@user.io',
+          firstName: "Huyen",
+          lastName: "Nguyen",
+          username: 'huyennguuyen',
+          about: 'Hello! I am the creator of this website and what inspired me to create this would be my admiration of fashion. I grew up watching my mom mend clothes which provided me the knowledge to be able to express myself through making and altering my own clothes. Fashion to me not only serves as a way to express myself, but most importantly, a way to feel good. Nothing beats a good outfit as a confidence booster, and I hope you can see my passion for clothes through this website. Thank you for tuning in!',
+          bannerUrl:'https://res.cloudinary.com/dnmimxgbu/image/upload/v1677137397/rebecca-matthews-iJ9hyzW7YRo-unsplash_ibex0c.jpg',
+          profileUrl:'https://res.cloudinary.com/dnmimxgbu/image/upload/v1677137374/281926635_549008403599747_3992259512991183714_n_phzogb.jpg',
           hashedPassword: bcrypt.hashSync('password3')
-        }
+        },
+        {
+          email: 'miumiu@user.io',
+          firstName: "Miu",
+          lastName: "Miu",
+          username: 'miumiu',
+          about: 'Welcome! We have been established since 1992 by Miuccia Prada. Miu Miu is a high fashion women\'s clothing brand that started in Paris, France.',
+          bannerUrl:'https://res.cloudinary.com/dnmimxgbu/image/upload/v1677138024/600a9f8dae20e31835ded144_Miu_Miu_SS21_Adv_Campaign-HEAD_hzvjan.jpg',
+          profileUrl:'https://res.cloudinary.com/dnmimxgbu/image/upload/v1677137540/Miu-Miu-768x1024_xqiw8h.jpg',
+          hashedPassword: bcrypt.hashSync('password3')
+        },
+        {
+          email: 'frankiesbikini@user.io',
+          firstName: "Frankies",
+          lastName: "Bikinis",
+          username: 'huyennguuyen',
+          about: 'In 2012, Francesca Aiello started this brand as way to create quality bikinis. The aesthetic is described as girly, sporty-chic which includes floral prints and athletic shapes.',
+          bannerUrl:'https://res.cloudinary.com/dnmimxgbu/image/upload/v1677138833/yana332-475_vkmnpq.jpg',
+          profileUrl:'https://res.cloudinary.com/dnmimxgbu/image/upload/v1677138118/O0fxv0qJ_400x400_myei4d.png',
+          hashedPassword: bcrypt.hashSync('password3')
+        },
+        {
+          email: 'jeanpaulgautier@user.io',
+          firstName: "Jean",
+          lastName: "Paul Gautier",
+          username: 'jeanpaulgautier',
+          about: 'A unisex brand that exemplifies London and Paris street fashion with unique pieces started in 1976 by Jean Paul Gaultier.',
+          bannerUrl:'',
+          profileUrl:'',
+          hashedPassword: bcrypt.hashSync('password3')
+        },
+        {
+          email: 'viviennewestwood',
+          firstName: "Vivienne",
+          lastName: "Westwood",
+          username: 'viviennewestwood',
+          about: 'Launched in 1999, Vivienne Westwood became a brand with a modern punk aestheic with inspirations from ballet.',
+          bannerUrl:'',
+          profileUrl:'',
+          hashedPassword: bcrypt.hashSync('password3')
+        },
+
       ], {});
      
   },
