@@ -74,8 +74,8 @@ module.exports = {
           lastName: "Paul Gautier",
           username: 'jeanpaulgautier',
           about: 'A unisex brand that exemplifies London and Paris street fashion with unique pieces started in 1976 by Jean Paul Gaultier.',
-          bannerUrl:'',
-          profileUrl:'',
+          bannerUrl:'https://res.cloudinary.com/dnmimxgbu/image/upload/v1677139770/Screen_Shot_2023-02-23_at_12.09.04_AM_masot2.png',
+          profileUrl:'https://res.cloudinary.com/dnmimxgbu/image/upload/v1677138900/download_yll7k0.png',
           hashedPassword: bcrypt.hashSync('password3')
         },
         {
@@ -84,8 +84,8 @@ module.exports = {
           lastName: "Westwood",
           username: 'viviennewestwood',
           about: 'Launched in 1999, Vivienne Westwood became a brand with a modern punk aestheic with inspirations from ballet.',
-          bannerUrl:'',
-          profileUrl:'',
+          bannerUrl:'https://res.cloudinary.com/dnmimxgbu/image/upload/v1677141037/00001-Vivienne-Westwood-Spring-22-RTW-London-credit-brand_p7ibbu.jpg',
+          profileUrl:'https://res.cloudinary.com/dnmimxgbu/image/upload/v1677141074/vivienne-westwood-logo_hblpuj.jpg',
           hashedPassword: bcrypt.hashSync('password3')
         },
 
