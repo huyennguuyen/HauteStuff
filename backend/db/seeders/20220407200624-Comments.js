@@ -21,14 +21,14 @@ module.exports = {
       return queryInterface.bulkInsert(options, [
         {
           userId: 2,
-          imageId: 27,
+          imageId: 1,
           comment: 'nice sketch!!',
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
           userId: 2,
-          imageId: 28,
+          imageId: 2,
           comment: 'so cute!',
           createdAt: new Date(),
           updatedAt: new Date(),
