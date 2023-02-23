@@ -59,10 +59,10 @@ module.exports = {
           hashedPassword: bcrypt.hashSync('password3')
         },
         {
-          email: 'frankiesbikini@user.io',
+          email: 'frankiesbikinis@user.io',
           firstName: "Frankies",
           lastName: "Bikinis",
-          username: 'huyennguuyen',
+          username: 'frankiesbikinis',
           about: 'In 2012, Francesca Aiello started this brand as way to create quality bikinis. The aesthetic is described as girly, sporty-chic which includes floral prints and athletic shapes.',
           bannerUrl:'https://res.cloudinary.com/dnmimxgbu/image/upload/v1677138833/yana332-475_vkmnpq.jpg',
           profileUrl:'https://res.cloudinary.com/dnmimxgbu/image/upload/v1677138118/O0fxv0qJ_400x400_myei4d.png',
@@ -103,7 +103,7 @@ module.exports = {
     const Op = Sequelize.Op;
     options.tableName = 'Users';  
     return queryInterface.bulkDelete(options, {
-      username: { [Op.in]: ['brandymelville', 'FakeUser1', 'huyennguuyen','jeanpaulgaultier','viviennewestwood'] }
+      username: { [Op.in]: ['brandymelville', 'FakeUser1', 'huyennguuyen','miumiu','frankiesbikinis','jeanpaulgaultier','viviennewestwood'] }
     }, {});
   }
 };
