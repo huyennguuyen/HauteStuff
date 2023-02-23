@@ -22,14 +22,14 @@ module.exports = {
         {
           userId: 2,
           imageId: 1,
-          comment: 'hello',
+          comment: 'nice sketch!!',
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
           userId: 2,
           imageId: 2,
-          comment: 'cool clothes',
+          comment: 'so cute!',
           createdAt: new Date(),
           updatedAt: new Date(),
         }

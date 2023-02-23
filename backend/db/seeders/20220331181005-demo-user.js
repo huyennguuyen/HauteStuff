@@ -79,7 +79,7 @@ module.exports = {
           hashedPassword: bcrypt.hashSync('password3')
         },
         {
-          email: 'viviennewestwood',
+          email: 'viviennewestwood@user.io',
           firstName: "Vivienne",
           lastName: "Westwood",
           username: 'viviennewestwood',
@@ -88,7 +88,6 @@ module.exports = {
           profileUrl:'https://res.cloudinary.com/dnmimxgbu/image/upload/v1677141074/vivienne-westwood-logo_hblpuj.jpg',
           hashedPassword: bcrypt.hashSync('password3')
         },
-
       ], {});
      
   },
@@ -104,7 +103,7 @@ module.exports = {
     const Op = Sequelize.Op;
     options.tableName = 'Users';  
     return queryInterface.bulkDelete(options, {
-      username: { [Op.in]: ['Demo-lition', 'FakeUser1', 'FakeUser2'] }
+      username: { [Op.in]: ['brandymelville', 'FakeUser1', 'huyennguuyen','jeanpaulgaultier','viviennewestwood'] }
     }, {});
   }
 };
