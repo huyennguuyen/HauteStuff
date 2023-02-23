@@ -69,10 +69,10 @@ module.exports = {
           hashedPassword: bcrypt.hashSync('password3')
         },
         {
-          email: 'jeanpaulgautier@user.io',
+          email: 'jeanpaulgaultier@user.io',
           firstName: "Jean",
-          lastName: "Paul Gautier",
-          username: 'jeanpaulgautier',
+          lastName: "Paul Gaultier",
+          username: 'jeanpaulgaultier',
           about: 'A unisex brand that exemplifies London and Paris street fashion with unique pieces started in 1976 by Jean Paul Gaultier.',
           bannerUrl:'https://res.cloudinary.com/dnmimxgbu/image/upload/v1677139770/Screen_Shot_2023-02-23_at_12.09.04_AM_masot2.png',
           profileUrl:'https://res.cloudinary.com/dnmimxgbu/image/upload/v1677138900/download_yll7k0.png',
