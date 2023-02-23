@@ -20,16 +20,16 @@ module.exports = {
     */
       return queryInterface.bulkInsert(options, [
         {
-          userId: 2,
-          imageId: 1,
-          comment: 'hello',
+          userId: 12,
+          imageId: 27,
+          comment: 'nice sketch!!',
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          userId: 2,
-          imageId: 2,
-          comment: 'cool clothes',
+          userId: 12,
+          imageId: 28,
+          comment: 'so cute!',
           createdAt: new Date(),
           updatedAt: new Date(),
         }
